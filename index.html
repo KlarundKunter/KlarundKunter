@@ -1,176 +1,503 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klar & Kunter – Kreative Workshops für Frauen</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<title>Klar & Kunter – Kreative Workshops</title>
+    html {
+      scroll-behavior: smooth;
+    }
 
-<style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fcfaf7;
+      color: #3f3632;
+      line-height: 1.7;
+    }
 
-body{
-font-family: Arial, sans-serif;
-margin:0;
-background:#fafafa;
-color:#333;
-line-height:1.6;
-}
+    header {
+      background: #fffaf4;
+      border-bottom: 1px solid #eadfd6;
+      padding: 18px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-header{
-background:#f4f4f4;
-padding:20px;
-text-align:center;
-}
+    .header-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-nav{
-background:white;
-border-bottom:1px solid #ddd;
-text-align:center;
-padding:10px;
-}
+    .brand {
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
 
-nav a{
-margin:0 15px;
-text-decoration:none;
-color:#333;
-font-weight:bold;
-}
+    nav a {
+      color: #5d4d46;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 15px;
+    }
 
-nav a:hover{
-color:#e45a5a;
-}
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-.hero{
-padding:80px 20px;
-text-align:center;
-background:#ffe9e9;
-}
+    .hero {
+      background: linear-gradient(180deg, #f8d9d2 0%, #f8eee8 100%);
+      padding: 90px 20px 80px;
+      text-align: center;
+    }
 
-.hero h1{
-font-size:42px;
-margin-bottom:10px;
-}
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
 
-.container{
-max-width:800px;
-margin:auto;
-padding:40px 20px;
-}
+    .hero h1 {
+      font-size: 52px;
+      line-height: 1.15;
+      margin: 0 0 16px;
+      color: #443733;
+    }
 
-section{
-margin-bottom:60px;
-}
+    .hero p {
+      font-size: 21px;
+      max-width: 700px;
+      margin: 0 auto 26px;
+    }
 
-h2{
-margin-bottom:10px;
-}
+    .button {
+      display: inline-block;
+      background: #c87463;
+      color: white;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
 
-footer{
-background:#f4f4f4;
-padding:40px 20px;
-font-size:14px;
-}
+    .button:hover {
+      opacity: 0.92;
+    }
 
-</style>
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
 
+    section {
+      margin-bottom: 38px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 34px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      font-size: 34px;
+      margin-top: 0;
+      margin-bottom: 14px;
+      color: #473a35;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #4b3d38;
+    }
+
+    .lead {
+      font-size: 18px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .mini-box {
+      background: #fff7f1;
+      border-radius: 18px;
+      padding: 22px;
+      border: 1px solid #f1e4da;
+    }
+
+    .workshop-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .workshop-card {
+      background: #fffdfb;
+      border: 1px solid #efe4dc;
+      border-radius: 18px;
+      padding: 26px;
+    }
+
+    .workshop-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .workshop-card ul {
+      padding-left: 20px;
+      margin-bottom: 0;
+    }
+
+    .workshop-card li {
+      margin-bottom: 8px;
+    }
+
+    .cta-box {
+      background: #f7eee8;
+      border-radius: 20px;
+      padding: 28px;
+      margin-top: 26px;
+      border: 1px solid #eadfd7;
+    }
+
+    .email-link {
+      font-weight: bold;
+      color: #8d4f42;
+      text-decoration: none;
+    }
+
+    .email-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #f3e8e0;
+      padding: 50px 20px;
+      margin-top: 30px;
+    }
+
+    .footer-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .footer-inner p {
+      margin: 0 0 12px;
+    }
+
+    @media (max-width: 760px) {
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin: 0 14px 0 0;
+        display: inline-block;
+        margin-top: 8px;
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-<h1>Klar & Kunter</h1>
-</header>
+  <header>
+    <div class="header-inner">
+      <div class="brand">Klar &amp; Kunter</div>
+      <nav>
+        <a href="#about">Über</a>
+        <a href="#workshops">Workshops</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#impressum">Impressum</a>
+      </nav>
+    </div>
+  </header>
 
-<nav>
-<a href="#about">Über Klar & Kunter</a>
-<a href="#workshops">Workshops</a>
-<a href="#kontakt">Kontakt</a>
-<a href="#impressum">Impressum</a>
-</nav>
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Kreative Workshops für Frauen</h1>
+      <p>
+        Gib uns eine Stunde und Du gewinnst die ganze Woche.
+      </p>
+      <a class="button" href="#workshops">Workshopangebote ansehen</a>
+    </div>
+  </section>
 
-<div class="hero">
+  <main class="container">
 
-<h1>Willkommen bei Klar & Kunter</h1>
+    <section id="about">
+      <div class="card">
+        <h2>Was ist Klar &amp; Kunter?</h2>
+        <p class="lead">
+          Klar &amp; Kunter ist ein kreativer Raum für Frauen, die Lust auf Farben,
+          Materialien, Leichtigkeit und neue Impulse haben.
+        </p>
+        <p>
+          Hier geht es nicht um Perfektion und nicht darum, etwas „richtig“ zu machen.
+          Es geht ums Ausprobieren, Entdecken und Gestalten. Du musst nichts können.
+          Du brauchst nur Neugier und Freude am Machen.
+        </p>
 
-<p>Gib uns eine Stunde und Du gewinnst die ganze Woche.</p>
+        <div class="intro-grid">
+          <div class="mini-box">
+            <h3>Ohne Leistungsdruck</h3>
+            <p>
+              Keine Vorkenntnisse nötig. Kein Anspruch auf „schön“. Nur ein guter Rahmen,
+              um kreativ ins Tun zu kommen.
+            </p>
+          </div>
+          <div class="mini-box">
+            <h3>Materialien &amp; Experimente</h3>
+            <p>
+              Farbe, Papier, Collage, Struktur und kleine kreative Übungen sorgen für
+              Abwechslung, Leichtigkeit und überraschende Ergebnisse.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <section id="workshops">
+      <div class="card">
+        <h2>Workshopangebote</h2>
+        <p class="lead">
+          Alle Workshops sind so aufgebaut, dass du leicht einsteigen kannst —
+          ohne Vorkenntnisse und ohne Druck.
+        </p>
 
-<div class="container">
+        <div class="workshop-list">
 
-<section id="about">
+          <div class="workshop-card">
+            <h3>1. Einfach anfangen</h3>
+            <p><strong>Der entspannte Einstieg in kreatives Arbeiten</strong></p>
+            <p>
+              Für alle, die Lust auf Kreativität haben, aber nicht wissen, wo sie anfangen sollen.
+            </p>
+            <p><strong>Das erwartet dich:</strong></p>
+            <ul>
+              <li>einfache kreative Einstiege</li>
+              <li>erste Experimente mit Farbe, Papier und Collage</li>
+              <li>spielerische Übungen ohne Leistungsdruck</li>
+              <li>Zeit zum freien Gestalten</li>
+            </ul>
+            <p>
+              <strong>Für wen?</strong> Für Anfängerinnen und alle, die sich wieder mehr Leichtigkeit wünschen.
+            </p>
+            <p>
+              <strong>Dauer:</strong> 2 Stunden<br>
+              <strong>Teilnahme:</strong> 4–8 Personen<br>
+              <strong>Preis:</strong> ab 39 € pro Person
+            </p>
+          </div>
 
-<h2>Was ist Klar & Kunter?</h2>
+          <div class="workshop-card">
+            <h3>2. Farbe, Gefühl, Ausdruck</h3>
+            <p><strong>Ein Workshop für Intuition, Farbe und freies Gestalten</strong></p>
+            <p>
+              Hier arbeitest du mit Farben, Stimmungen und spontanen Impulsen. Nicht verkopft,
+              sondern direkt und lebendig.
+            </p>
+            <p><strong>Das erwartet dich:</strong></p>
+            <ul>
+              <li>kreative Übungen mit Acrylfarbe</li>
+              <li>Arbeiten mit Stimmung, Farbe und Ausdruck</li>
+              <li>freies, intuitives Gestalten</li>
+              <li>überraschende Ergebnisse ohne festen Plan</li>
+            </ul>
+            <p>
+              <strong>Für wen?</strong> Für Frauen, die tiefer eintauchen und sich kreativ ausdrücken möchten.
+            </p>
+            <p>
+              <strong>Dauer:</strong> 2,5 Stunden<br>
+              <strong>Teilnahme:</strong> 4–8 Personen<br>
+              <strong>Preis:</strong> ab 49 € pro Person
+            </p>
+          </div>
 
-<p>
-Mach Dein Leben wieder bunter.  
-Kurse rund um Farben, Materialien und Lebensfreude.
-</p>
+          <div class="workshop-card">
+            <h3>3. Collage &amp; Chaos</h3>
+            <p><strong>Schneiden, reißen, kleben, kombinieren</strong></p>
+            <p>
+              Ein spielerischer Workshop für alle, die gerne mit verschiedenen Materialien
+              arbeiten und sich vom Prozess überraschen lassen.
+            </p>
+            <p><strong>Das erwartet dich:</strong></p>
+            <ul>
+              <li>Arbeiten mit Papier, Bildern, Formen und Fundstücken</li>
+              <li>Collagen mit Leichtigkeit und Experimentierfreude</li>
+              <li>lockere Impulse statt starre Anleitung</li>
+              <li>Fokus auf Spaß, Material und Komposition</li>
+            </ul>
+            <p>
+              <strong>Für wen?</strong> Für alle, die Lust auf einen lebendigen, kreativen Workshop haben.
+            </p>
+            <p>
+              <strong>Dauer:</strong> 2 Stunden<br>
+              <strong>Teilnahme:</strong> 4–8 Personen<br>
+              <strong>Preis:</strong> ab 42 € pro Person
+            </p>
+          </div>
 
-<p>
-Du bist Deine beste Inspiration.  
-In den Workshops geht es um kreatives Experimentieren ohne Leistungsdruck.
-</p>
+          <div class="workshop-card">
+            <h3>4. Kunst ohne Anspruch</h3>
+            <p><strong>Der Anti-Perfektionismus-Workshop</strong></p>
+            <p>
+              Dieser Workshop ist für alle, die ihren inneren Anspruch mal zur Seite legen möchten.
+            </p>
+            <p><strong>Das erwartet dich:</strong></p>
+            <ul>
+              <li>ungewöhnliche Kreativübungen</li>
+              <li>Arbeiten mit lockeren Regeln</li>
+              <li>mutige, schnelle und spontane Bildideen</li>
+              <li>Fehler willkommen</li>
+            </ul>
+            <p>
+              <strong>Für wen?</strong> Für Frauen, die den Kopf ausschalten und einfach machen wollen.
+            </p>
+            <p>
+              <strong>Dauer:</strong> 2 Stunden<br>
+              <strong>Teilnahme:</strong> 4–8 Personen<br>
+              <strong>Preis:</strong> ab 45 € pro Person
+            </p>
+          </div>
 
-</section>
+          <div class="workshop-card">
+            <h3>5. Materiallabor</h3>
+            <p><strong>Experimentieren mit Struktur, Oberfläche und Material</strong></p>
+            <p>
+              Ein Workshop für neugierige Hände und alle, die gerne entdecken.
+            </p>
+            <p><strong>Das erwartet dich:</strong></p>
+            <ul>
+              <li>verschiedene Materialien ausprobieren</li>
+              <li>Schichten, kombinieren und Strukturen entwickeln</li>
+              <li>Arbeiten mit Papier, Stoff, Acryl und mehr</li>
+              <li>kreatives Forschen statt perfektes Ergebnis</li>
+            </ul>
+            <p>
+              <strong>Für wen?</strong> Für Frauen, die Materialien lieben und Freude am Experiment haben.
+            </p>
+            <p>
+              <strong>Dauer:</strong> 2,5 bis 3 Stunden<br>
+              <strong>Teilnahme:</strong> 4–8 Personen<br>
+              <strong>Preis:</strong> ab 55 € pro Person
+            </p>
+          </div>
 
-<section id="workshops">
+          <div class="workshop-card">
+            <h3>6. Freies Atelier</h3>
+            <p><strong>Offenes kreatives Format</strong></p>
+            <p>
+              Ein wiederkehrendes Angebot für alle, die regelmäßig kreativ sein möchten.
+            </p>
+            <p><strong>Das erwartet dich:</strong></p>
+            <ul>
+              <li>offenes Arbeiten in entspannter Atmosphäre</li>
+              <li>Materialien stehen bereit</li>
+              <li>kreative Begleitung bei Bedarf</li>
+              <li>Raum für eigene Ideen und kleine Projekte</li>
+            </ul>
+            <p>
+              <strong>Für wen?</strong> Für alle, die regelmäßig gestalten und sich inspirieren lassen möchten.
+            </p>
+            <p>
+              <strong>Dauer:</strong> 2 Stunden<br>
+              <strong>Teilnahme:</strong> 4–8 Personen<br>
+              <strong>Preis:</strong> ab 25 € pro Person
+            </p>
+          </div>
 
-<h2>Workshops</h2>
+        </div>
 
-<p>
-Hier entstehen gerade neue kreative Workshopformate für Frauen, die Lust haben,
-mit Materialien, Farben und Ideen zu experimentieren.
-</p>
+        <div class="cta-box">
+          <h3>So läuft ein Workshop ab</h3>
+          <ul>
+            <li>Ankommen und kurzes kreatives Warm-up</li>
+            <li>Einführung in Material und Thema</li>
+            <li>geführte Impulse</li>
+            <li>freies Gestalten</li>
+            <li>entspannter Abschluss</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<p>
-Bald findest du hier Termine und Buchungsmöglichkeiten.
-</p>
+    <section id="kontakt">
+      <div class="card">
+        <h2>Kontakt</h2>
+        <p class="lead">
+          Du möchtest einen Workshop anfragen oder einen Termin buchen?
+        </p>
+        <p>
+          Schreib einfach eine E-Mail an:
+        </p>
+        <p>
+          <a class="email-link" href="mailto:klarundkunter@gmail.com">klarundkunter@gmail.com</a>
+        </p>
+      </div>
+    </section>
 
-</section>
+  </main>
 
-<section id="kontakt">
-
-<h2>Kontakt</h2>
-
-<p>
-Du möchtest einen Workshop buchen oder hast Fragen?
-</p>
-
-<p>
-E-Mail:  
-<a href="mailto:klarundkunter@gmail.com">klarundkunter@gmail.com</a>
-</p>
-
-</section>
-
-</div>
-
-<footer id="impressum">
-
-<h2>Impressum</h2>
-
-<p><strong>Angaben gemäß § 5 TMG</strong></p>
-
-<p>
-Vorname Nachname<br>
-Straße Hausnummer<br>
-PLZ Ort<br>
-Deutschland
-</p>
-
-<p>
-Kontakt:<br>
-E-Mail: klarundkunter@gmail.com
-</p>
-
-<p>
-Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
-Vorname Nachname
-</p>
-
-</footer>
+  <footer id="impressum">
+    <div class="footer-inner">
+      <h2>Impressum</h2>
+      <p><strong>Angaben gemäß § 5 TMG</strong></p>
+      <p>
+        Vorname Nachname<br>
+        Straße Hausnummer<br>
+        PLZ Ort<br>
+        Deutschland
+      </p>
+      <p>
+        Kontakt:<br>
+        E-Mail: klarundkunter@gmail.com
+      </p>
+      <p>
+        Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
+        Vorname Nachname
+      </p>
+    </div>
+  </footer>
 
 </body>
 </html>
