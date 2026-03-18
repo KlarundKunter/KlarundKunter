@@ -65,14 +65,14 @@ opacity:0.9;
 /* SECTIONS */
 
 .section{
-max-width:900px;
+max-width:1100px;
 margin:auto;
 padding:100px 20px;
 }
 
 h2{
 font-weight:500;
-margin-bottom:20px;
+margin-bottom:40px;
 }
 
 /* WORKSHOPS */
@@ -80,16 +80,61 @@ margin-bottom:20px;
 .workshops{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:40px;
+gap:30px;
 }
 
+/* IMAGE CARDS */
+
 .card{
-border:1px solid #eee;
-padding:30px;
+position:relative;
+height:320px;
+display:flex;
+align-items:flex-end;
+color:white;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.35);
+}
+
+.card-content{
+position:relative;
+padding:25px;
+z-index:2;
 }
 
 .card h3{
-margin-top:0;
+margin:0 0 10px 0;
+font-weight:500;
+}
+
+.card p{
+margin:5px 0;
+}
+
+/* INDIVIDUAL BACKGROUNDS */
+
+.card1{
+background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KuK%20Bild1.jpg") center/cover no-repeat;
+}
+
+.card2{
+background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KuK%20Bild3.jpg") center/cover no-repeat;
+}
+
+.card3{
+background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KuK%20Bild4.jpg") center/cover no-repeat;
+}
+
+.card4{
+background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KuK%20Bild5.jpg") center/cover no-repeat;
 }
 
 /* FOOTER */
@@ -103,6 +148,7 @@ font-size:14px;
 /* MOBILE */
 
 @media(max-width:800px){
+
 .workshops{
 grid-template-columns:1fr;
 }
@@ -110,6 +156,11 @@ grid-template-columns:1fr;
 .hero h1{
 font-size:32px;
 }
+
+.card{
+height:260px;
+}
+
 }
 
 </style>
@@ -153,32 +204,36 @@ Mit Farben, Materialien und einfachen Impulsen kommst du zurück in deine eigene
 
 <div class="workshops">
 
-<div class="card">
+<div class="card card1">
+<div class="card-content">
 <h3>Reset & Kreativstart</h3>
-<p><strong>Dauer:</strong> 2,5 Stunden</p>
-<p>Ein Workshop zum Ankommen und Reinkommen ins kreative Arbeiten.</p>
-<p><strong>Preis:</strong> 49–69€</p>
+<p>2,5 Stunden</p>
+<p>49–69€</p>
+</div>
 </div>
 
-<div class="card">
+<div class="card card2">
+<div class="card-content">
 <h3>Freies Atelier</h3>
-<p><strong>Dauer:</strong> 3 Stunden</p>
-<p>Freies Arbeiten mit Materialien, Farben und Inspiration.</p>
-<p><strong>Preis:</strong> 59–79€</p>
+<p>3 Stunden</p>
+<p>59–79€</p>
+</div>
 </div>
 
-<div class="card">
+<div class="card card3">
+<div class="card-content">
 <h3>Collage & Story</h3>
-<p><strong>Dauer:</strong> 2,5 Stunden</p>
-<p>Visuelles Arbeiten mit Papier, Bildern und Komposition.</p>
-<p><strong>Preis:</strong> 49–69€</p>
+<p>2,5 Stunden</p>
+<p>49–69€</p>
+</div>
 </div>
 
-<div class="card">
+<div class="card card4">
+<div class="card-content">
 <h3>Materiallabor</h3>
-<p><strong>Dauer:</strong> 3 Stunden</p>
-<p>Experimentieren mit Struktur, Oberfläche und Materialien.</p>
-<p><strong>Preis:</strong> 59–79€</p>
+<p>3 Stunden</p>
+<p>59–79€</p>
+</div>
 </div>
 
 </div>
