@@ -6,66 +6,87 @@
 
 <title>Klar & Kunter</title>
 
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
 <style>
+
 body{
 margin:0;
-font-family: Georgia, serif;
-color:#2f2a26;
 background:#fbf8f4;
+color:#2f2a26;
+font-family:'Inter', sans-serif;
 line-height:1.8;
 }
 
+/* Typography */
+h1, h2, h3{
+font-family:'Playfair Display', serif;
+font-weight:400;
+}
+
+/* Header */
 header{
 padding:30px 20px;
 text-align:center;
-font-size:18px;
 letter-spacing:2px;
+font-size:14px;
 }
 
+/* Navigation */
 nav{
 text-align:center;
-margin-bottom:40px;
+margin-bottom:20px;
 }
 
 nav a{
 margin:0 15px;
 text-decoration:none;
 color:#6b5e56;
-font-size:14px;
+font-size:13px;
 }
 
 nav a:hover{
 text-decoration:underline;
 }
 
+/* Hero Image */
 .hero{
-padding:120px 20px;
+height:80vh;
+background-image:url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
-max-width:900px;
-margin:auto;
+color:white;
+}
+
+.hero-overlay{
+background:rgba(0,0,0,0.35);
+padding:40px;
+width:100%;
 }
 
 .hero h1{
 font-size:56px;
-font-weight:normal;
 margin-bottom:20px;
 }
 
 .hero p{
 font-size:20px;
-max-width:600px;
-margin:auto;
 }
 
+/* Sections */
 .section{
-max-width:700px;
+max-width:720px;
 margin:100px auto;
 padding:0 20px;
 }
 
 h2{
 font-size:32px;
-font-weight:normal;
 margin-bottom:20px;
 }
 
@@ -76,15 +97,24 @@ margin-bottom:60px;
 .workshop h3{
 font-size:22px;
 margin-bottom:10px;
-font-weight:normal;
 }
 
 .meta{
 font-size:14px;
 color:#7a6f67;
-margin-top:10px;
 }
 
+/* Contact */
+a{
+color:#8d5a4f;
+text-decoration:none;
+}
+
+a:hover{
+text-decoration:underline;
+}
+
+/* Footer */
 footer{
 margin-top:120px;
 padding:60px 20px;
@@ -110,13 +140,10 @@ KLAR & KUNTER
 </nav>
 
 <section class="hero">
-
-<h1>Kreative Workshops für Frauen</h1>
-
-<p>
-Gib uns eine Stunde und Du gewinnst die ganze Woche.
-</p>
-
+  <div class="hero-overlay">
+    <h1>Kreative Workshops für Frauen</h1>
+    <p>Gib uns eine Stunde und Du gewinnst die ganze Woche.</p>
+  </div>
 </section>
 
 <section id="about" class="section">
