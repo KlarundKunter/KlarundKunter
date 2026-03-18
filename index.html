@@ -1,61 +1,49 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Klar & Kunter</title>
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<title>Klar & Kunter – Kreative Workshops</title>
 
 <style>
 
 body{
 margin:0;
-background:#fbf8f4;
-color:#2f2a26;
-font-family:'Inter', sans-serif;
-line-height:1.8;
+font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+color:#222;
+background:white;
+line-height:1.6;
 }
 
-/* Typography */
-h1, h2, h3{
-font-family:'Playfair Display', serif;
-font-weight:400;
-}
+/* NAV */
 
-/* Header */
-header{
-padding:30px 20px;
-text-align:center;
-letter-spacing:2px;
-font-size:14px;
-}
-
-/* Navigation */
 nav{
+position:fixed;
+top:0;
+width:100%;
+background:white;
+border-bottom:1px solid #eee;
 text-align:center;
-margin-bottom:20px;
+padding:15px;
+z-index:1000;
 }
 
 nav a{
-margin:0 15px;
+margin:0 20px;
 text-decoration:none;
-color:#6b5e56;
-font-size:13px;
+color:#333;
+font-size:14px;
+letter-spacing:1px;
 }
 
-nav a:hover{
-text-decoration:underline;
-}
+/* HERO */
 
-/* Hero Image */
 .hero{
-height:80vh;
-background-image:url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b');
-background-size:cover;
-background-position:center;
+height:90vh;
+background:
+linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+url("20260318_102059.jpg") center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -63,63 +51,74 @@ text-align:center;
 color:white;
 }
 
-.hero-overlay{
-background:rgba(0,0,0,0.35);
-padding:40px;
-width:100%;
-}
-
 .hero h1{
-font-size:56px;
-margin-bottom:20px;
+font-size:48px;
+font-weight:500;
+margin:0;
 }
 
 .hero p{
 font-size:20px;
+opacity:0.9;
 }
 
-/* Sections */
+/* SECTIONS */
+
 .section{
-max-width:720px;
-margin:100px auto;
-padding:0 20px;
+max-width:900px;
+margin:auto;
+padding:100px 20px;
 }
 
 h2{
-font-size:32px;
+font-weight:500;
 margin-bottom:20px;
 }
 
-.workshop{
-margin-bottom:60px;
+/* IMAGE BLOCK */
+
+.image-full{
+width:100%;
+height:80vh;
+background-size:cover;
+background-position:center;
 }
 
-.workshop h3{
-font-size:22px;
-margin-bottom:10px;
+/* WORKSHOPS */
+
+.workshops{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
 }
 
-.meta{
-font-size:14px;
-color:#7a6f67;
+.card{
+border:1px solid #eee;
+padding:30px;
 }
 
-/* Contact */
-a{
-color:#8d5a4f;
-text-decoration:none;
+.card h3{
+margin-top:0;
 }
 
-a:hover{
-text-decoration:underline;
-}
+/* FOOTER */
 
-/* Footer */
 footer{
-margin-top:120px;
 padding:60px 20px;
-background:#f1ebe5;
+background:#fafafa;
 font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+.workshops{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:32px;
+}
 }
 
 </style>
@@ -128,10 +127,6 @@ font-size:14px;
 
 <body>
 
-<header>
-KLAR & KUNTER
-</header>
-
 <nav>
 <a href="#about">Über</a>
 <a href="#workshops">Workshops</a>
@@ -139,92 +134,89 @@ KLAR & KUNTER
 <a href="#impressum">Impressum</a>
 </nav>
 
-<section class="hero">
-  <div class="hero-overlay">
-    <h1>Kreative Workshops für Frauen</h1>
-    <p>Gib uns eine Stunde und Du gewinnst die ganze Woche.</p>
-  </div>
-</section>
+<div class="hero">
+<div>
+<h1>Klar & Kunter</h1>
+<p>Gib dir eine Stunde – und du gewinnst deine Woche.</p>
+</div>
+</div>
 
-<section id="about" class="section">
+<div class="section" id="about">
 
-<h2>Was ist Klar & Kunter?</h2>
+<h2>Mach dein Leben wieder bunter</h2>
 
 <p>
-Klar & Kunter ist ein kreativer Raum für Frauen, die Lust auf Farben,
-Materialien und neue Impulse haben.
+Klar & Kunter ist kein klassischer Malkurs.
 </p>
 
 <p>
-Es geht nicht um Perfektion, sondern ums Ausprobieren.  
-Nicht um „richtig“, sondern um Erfahrung.
+Es ist ein Raum zum Ausprobieren, Loslassen und Wieder-Entdecken.
+Mit Farben, Materialien und einfachen Impulsen kommst du zurück in deine eigene Kreativität.
 </p>
 
-<p>
-Du musst nichts können. Du brauchst nur Neugier.
-</p>
+</div>
 
-</section>
+<div class="image-full" style="background-image:url('IMG_20190921_102345.jpg')"></div>
 
-<section id="workshops" class="section">
+<div class="section" id="workshops">
 
 <h2>Workshops</h2>
 
-<div class="workshop">
-<h3>Einfach anfangen</h3>
-<p>Ein ruhiger Einstieg in kreatives Arbeiten mit einfachen Materialien und viel Raum zum Ausprobieren.</p>
-<p class="meta">2 Stunden · 4–8 Personen · ab 39 €</p>
+<div class="workshops">
+
+<div class="card">
+<h3>Reset & Kreativstart</h3>
+<p><strong>Dauer:</strong> 2,5 Stunden</p>
+<p>Ein Workshop zum Ankommen und Reinkommen ins kreative Arbeiten.</p>
+<p><strong>Preis:</strong> 49–69€</p>
 </div>
 
-<div class="workshop">
-<h3>Farbe, Gefühl, Ausdruck</h3>
-<p>Arbeiten mit Farben, Stimmungen und intuitiven Impulsen – direkt und lebendig.</p>
-<p class="meta">2,5 Stunden · ab 49 €</p>
-</div>
-
-<div class="workshop">
-<h3>Collage & Chaos</h3>
-<p>Schneiden, reißen, kombinieren – spielerisches Arbeiten mit Papier und Materialien.</p>
-<p class="meta">2 Stunden · ab 42 €</p>
-</div>
-
-<div class="workshop">
-<h3>Kunst ohne Anspruch</h3>
-<p>Regeln loslassen, Fehler willkommen heißen und einfach machen.</p>
-<p class="meta">2 Stunden · ab 45 €</p>
-</div>
-
-<div class="workshop">
-<h3>Materiallabor</h3>
-<p>Experimentieren mit Struktur, Oberfläche und ungewöhnlichen Materialien.</p>
-<p class="meta">2,5–3 Stunden · ab 55 €</p>
-</div>
-
-<div class="workshop">
+<div class="card">
 <h3>Freies Atelier</h3>
-<p>Offenes Format für regelmäßiges kreatives Arbeiten in entspannter Atmosphäre.</p>
-<p class="meta">2 Stunden · ab 25 €</p>
+<p><strong>Dauer:</strong> 3 Stunden</p>
+<p>Freies Arbeiten mit Materialien, Farben und Inspiration.</p>
+<p><strong>Preis:</strong> 59–79€</p>
 </div>
 
-</section>
+<div class="card">
+<h3>Collage & Story</h3>
+<p><strong>Dauer:</strong> 2,5 Stunden</p>
+<p>Visuelles Arbeiten mit Papier, Bildern und Komposition.</p>
+<p><strong>Preis:</strong> 49–69€</p>
+</div>
 
-<section id="kontakt" class="section">
+<div class="card">
+<h3>Materiallabor</h3>
+<p><strong>Dauer:</strong> 3 Stunden</p>
+<p>Experimentieren mit Struktur, Oberfläche und Materialien.</p>
+<p><strong>Preis:</strong> 59–79€</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="image-full" style="background-image:url('IMG_20200511_182416.jpg')"></div>
+
+<div class="section" id="kontakt">
 
 <h2>Kontakt</h2>
 
 <p>
-Für Anfragen und Buchungen:
+Du möchtest teilnehmen oder einen Workshop anfragen?
 </p>
 
 <p>
 <a href="mailto:klarundkunter@gmail.com">klarundkunter@gmail.com</a>
 </p>
 
-</section>
+</div>
 
 <footer id="impressum">
 
 <h2>Impressum</h2>
+
+<p><strong>Angaben gemäß § 5 TMG</strong></p>
 
 <p>
 Vorname Nachname<br>
@@ -235,6 +227,11 @@ Deutschland
 
 <p>
 E-Mail: klarundkunter@gmail.com
+</p>
+
+<p>
+Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
+Vorname Nachname
 </p>
 
 </footer>
