@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Klar &amp; Kunter – Kreative Workshops für Frauen</title>
-<meta name="description" content="Klar &amp; Kunter bietet kreative Workshops für Frauen in Berlin – atmosphärisch, leicht und ohne Leistungsdruck. Mit Farben, Collage und Materialfreude zurück in die eigene Kreativität.">
+<meta name="description" content="Klar &amp; Kunter bietet kreative Workshops für Frauen in Berlin – atmosphärisch, leicht und ohne Leistungsdruck. Für mehr Freude, echtes Gestalten mit den Händen und neues Vertrauen in die eigene Kreativität.">
 
 <style>
 :root{
 --bg:#ffffff;
 --soft:#f7f3ee;
---sand:#eee5db;
---sand-2:#e8ddd2;
+--sand:#eee4d9;
+--sand-2:#e7dbcf;
 --text:#1f1a17;
 --muted:#5f5751;
 --line:rgba(31,26,23,0.10);
@@ -105,6 +105,53 @@ max-width:560px;
 justify-self:end;
 }
 
+.button-row{
+display:flex;
+flex-wrap:wrap;
+gap:14px;
+margin-top:30px;
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+min-height:50px;
+padding:0 22px;
+border-radius:999px;
+font-size:15px;
+transition:all .2s ease;
+}
+
+.btn-primary{
+background:var(--text);
+color:#ffffff;
+}
+
+.btn-primary:hover{
+opacity:0.92;
+transform:translateY(-1px);
+}
+
+.btn-secondary{
+background:rgba(255,255,255,0.12);
+color:#ffffff;
+border:1px solid rgba(255,255,255,0.28);
+}
+
+.btn-secondary:hover{
+background:rgba(255,255,255,0.18);
+}
+
+.btn-light{
+background:#ffffff;
+color:var(--text);
+}
+
+.btn-light:hover{
+transform:translateY(-1px);
+}
+
 /* HEADER */
 
 header{
@@ -161,15 +208,15 @@ opacity:0.7;
 min-height:100vh;
 display:flex;
 align-items:flex-end;
-padding:180px 0 70px 0;
+padding:180px 0 72px 0;
 background:
-linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.30)),
+linear-gradient(rgba(0,0,0,0.24), rgba(0,0,0,0.32)),
 url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2018.jpg") center center/cover no-repeat;
 color:#ffffff;
 }
 
 .hero-inner{
-max-width:900px;
+max-width:920px;
 }
 
 .hero .eyebrow{
@@ -179,12 +226,12 @@ margin-bottom:20px;
 
 .hero h1{
 font-size:84px;
-max-width:11ch;
+max-width:10.8ch;
 }
 
 .hero p{
 font-size:22px;
-max-width:700px;
+max-width:720px;
 margin:28px 0 0 0;
 }
 
@@ -196,15 +243,15 @@ font-weight:500;
 font-size:17px;
 line-height:1.7;
 color:rgba(255,255,255,0.92);
-max-width:610px;
-margin-top:24px;
+max-width:650px;
+margin-top:22px;
 }
 
 .hero-facts{
 display:flex;
 flex-wrap:wrap;
 gap:12px;
-margin-top:30px;
+margin-top:28px;
 }
 
 .hero-facts span{
@@ -222,14 +269,14 @@ color:#ffffff;
 /* ABOUT */
 
 .about-wrap{
-max-width:900px;
+max-width:920px;
 margin:0 auto;
 }
 
 .about-wrap h2{
 font-size:54px;
 margin-bottom:28px;
-max-width:13ch;
+max-width:12ch;
 }
 
 .about-layout{
@@ -309,7 +356,7 @@ color:var(--muted);
 margin:0;
 }
 
-/* IMAGE STATEMENT */
+/* STATEMENT */
 
 .statement{
 display:grid;
@@ -340,7 +387,7 @@ margin-bottom:22px;
 .statement-copy p{
 font-size:20px;
 color:var(--muted);
-max-width:610px;
+max-width:620px;
 }
 
 .statement-quote{
@@ -350,7 +397,7 @@ border-top:1px solid var(--line);
 font-family:Georgia,"Times New Roman",serif;
 font-size:30px;
 line-height:1.25;
-max-width:520px;
+max-width:560px;
 }
 
 /* WORKSHOPS */
@@ -402,7 +449,7 @@ z-index:1;
 position:relative;
 z-index:2;
 padding:30px;
-max-width:480px;
+max-width:490px;
 }
 
 .card h3{
@@ -444,6 +491,34 @@ background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/ma
 
 .card4{
 background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2013.jpg") center/cover no-repeat;
+}
+
+/* MINI CTA */
+
+.mini-cta{
+margin-top:38px;
+background:var(--soft);
+border-radius:var(--radius);
+padding:34px;
+display:grid;
+grid-template-columns:1.1fr 0.9fr;
+gap:26px;
+align-items:center;
+}
+
+.mini-cta h3{
+font-size:34px;
+margin-bottom:10px;
+}
+
+.mini-cta p{
+font-size:18px;
+color:var(--muted);
+margin:0;
+}
+
+.mini-cta-action{
+text-align:right;
 }
 
 /* ORIENTATION */
@@ -527,47 +602,47 @@ color:var(--muted);
 margin:0;
 }
 
-/* HOST */
+/* FOUNDER */
 
-.host{
+.founder{
 display:grid;
 grid-template-columns:0.88fr 1.12fr;
 gap:34px;
 align-items:stretch;
 }
 
-.host-image{
+.founder-image{
 min-height:520px;
 border-radius:var(--radius);
 overflow:hidden;
 background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2019.jpg") center center/cover no-repeat;
 }
 
-.host-copy{
+.founder-copy{
 display:flex;
 flex-direction:column;
 justify-content:center;
 }
 
-.host-copy h2{
+.founder-copy h2{
 font-size:54px;
 max-width:11ch;
 margin-bottom:22px;
 }
 
-.host-copy p{
+.founder-copy p{
 font-size:19px;
 color:var(--muted);
-max-width:650px;
+max-width:660px;
 }
 
-.host-note{
+.founder-note{
 margin-top:24px;
 padding-top:20px;
 border-top:1px solid var(--line);
 font-size:17px;
 color:#433b36;
-max-width:620px;
+max-width:640px;
 }
 
 /* FAQ */
@@ -617,11 +692,11 @@ margin-bottom:18px;
 .cta p{
 font-size:20px;
 color:#4d4540;
-max-width:610px;
+max-width:620px;
 }
 
 .cta-box{
-background:rgba(255,255,255,0.68);
+background:rgba(255,255,255,0.70);
 border:1px solid rgba(255,255,255,0.55);
 border-radius:24px;
 padding:30px;
@@ -679,8 +754,9 @@ color:#4f4844;
 .section-head,
 .about-layout,
 .statement,
-.host,
-.cta{
+.founder,
+.cta,
+.mini-cta{
 grid-template-columns:1fr;
 }
 
@@ -707,8 +783,12 @@ grid-template-columns:1fr;
 }
 
 .statement-image,
-.host-image{
+.founder-image{
 min-height:440px;
+}
+
+.mini-cta-action{
+text-align:left;
 }
 
 }
@@ -783,11 +863,20 @@ min-height:38px;
 padding:0 12px;
 }
 
+.button-row{
+gap:10px;
+margin-top:22px;
+}
+
+.btn{
+width:100%;
+}
+
 .about-wrap h2,
 .section-head h2,
 .statement-copy h2,
 .workshops-head h2,
-.host-copy h2,
+.founder-copy h2,
 .cta h2{
 font-size:38px;
 max-width:100%;
@@ -800,7 +889,7 @@ margin-bottom:28px;
 
 .section-head p,
 .statement-copy p,
-.host-copy p,
+.founder-copy p,
 .cta p{
 font-size:18px;
 }
@@ -812,14 +901,16 @@ font-size:19px;
 .about-box,
 .forwho-card,
 .orientation-card,
-.faq-item{
+.faq-item,
+.mini-cta{
 padding:24px 22px;
 }
 
 .about-box h3,
 .forwho-card h3,
 .orientation-card h3,
-.faq-item h3{
+.faq-item h3,
+.mini-cta h3{
 font-size:28px;
 }
 
@@ -828,7 +919,7 @@ gap:22px;
 }
 
 .statement-image,
-.host-image{
+.founder-image{
 min-height:320px;
 border-radius:22px;
 }
@@ -921,6 +1012,7 @@ font-size:34px;
 <a href="#about">Über</a>
 <a href="#workshops">Workshops</a>
 <a href="#ablauf">Ablauf</a>
+<a href="#ueber-mich">Über mich</a>
 <a href="#faq">FAQ</a>
 <a href="#kontakt">Kontakt</a>
 <a href="#impressum">Impressum</a>
@@ -932,13 +1024,19 @@ font-size:34px;
 <div class="container">
 <div class="hero-inner">
 <p class="eyebrow">Kreative Workshops für Frauen in Berlin</p>
-<h1>Lade Deine Kreativität wieder auf</h1>
-<p class="hero-subline">Kreative Auszeiten für Frauen, die wieder mehr Farbe, Leichtigkeit und eigenes Gestalten in ihr Leben bringen möchten.</p>
-<p class="hero-note">Kein klassischer Malkurs. Sondern ein schöner, hochwertiger Raum zum Ausprobieren, Loslassen und Gestalten – ohne Leistungsdruck und ohne Vorkenntnisse.</p>
+<h1>Wieder mehr Freude. Wieder mehr Kreativität.</h1>
+<p class="hero-subline">Kreative Auszeiten für Frauen, die mit den Händen gestalten, etwas Echtes schaffen und wieder mehr an sich glauben möchten.</p>
+<p class="hero-note">Kein virtueller Kurs. Kein therapeutisches Setting. Sondern ein schöner, hochwertiger Raum für Farbe, Material, Leichtigkeit und echte kreative Erfahrung.</p>
+
 <div class="hero-facts">
 <span>Ohne Vorkenntnisse</span>
 <span>Mit guten Materialien</span>
-<span>Atmosphärisch &amp; leicht</span>
+<span>Echt statt virtuell</span>
+</div>
+
+<div class="button-row">
+<a href="#kontakt" class="btn btn-light">Workshop anfragen</a>
+<a href="#workshops" class="btn btn-secondary">Workshops entdecken</a>
 </div>
 </div>
 </div>
@@ -946,18 +1044,18 @@ font-size:34px;
 
 <section class="section" id="about">
 <div class="about-wrap">
-<h2>Kreativität kennt kein Alter. Mach Dein Leben wieder bunter.</h2>
+<h2>Kreativität kennt kein Alter. Und sie beginnt oft mit einem ersten schönen Abend.</h2>
 
 <div class="about-layout">
 <div class="about-text">
-<p>Klar &amp; Kunter ist für Frauen, die Lust auf etwas Schönes haben. Auf einen Abend, der inspiriert, entschleunigt und gut tut.</p>
-<p>Hier geht es nicht darum, etwas perfekt zu machen. Sondern darum, wieder ins Tun zu kommen: mit Farben, Papier, Material, kleinen Impulsen und einer Atmosphäre, in der man sich schnell wohlfühlt.</p>
-<p>Viele kommen mit dem Gedanken, sie seien eigentlich gar nicht kreativ. Und gehen mit dem Gefühl nach Hause, wieder Lust auf mehr zu haben.</p>
+<p>Klar &amp; Kunter ist für Frauen, die wieder etwas mit den Händen machen möchten. Für Frauen, die spüren, dass ihnen Farbe, Gestalten und ein echter kreativer Ausgleich im Alltag fehlen.</p>
+<p>Hier geht es nicht darum, etwas perfekt zu können. Sondern darum, wieder ins Machen zu kommen. In kleinen Schritten. Mit Freude. Mit Material. Mit einem Rahmen, der leicht macht, was sich allein oft schwer anfühlt.</p>
+<p>Der Weg zu mehr Kreativität beginnt nicht digital und nicht im Kopf. Sondern mit Papier, Farbe, Oberfläche, Schere, Kleber und dem Moment, in dem aus Zögern plötzlich Lust wird.</p>
 </div>
 
 <div class="about-box">
 <h3>Was Dich erwartet</h3>
-<p>Ein wertiger Workshop-Rahmen. Ein leichter Einstieg. Gute Materialien. Inspirierende Anleitungen. Und am Ende nicht nur ein Werkstück, sondern oft auch neue Energie.</p>
+<p>Ein ruhiger, wertiger Workshop-Rahmen. Gute Materialien. Ein leichter Einstieg. Begleitung ohne Druck. Und das schöne Gefühl, wieder etwas Eigenes geschaffen zu haben.</p>
 
 <div class="about-points">
 <div class="about-point">
@@ -965,12 +1063,12 @@ font-size:34px;
 Du musst nichts können und nichts beweisen.
 </div>
 <div class="about-point">
-<strong>Mit echter Atmosphäre</strong>
-Ruhig, schön, inspirierend – nicht funktional und nicht steif.
+<strong>Freude statt Bewertung</strong>
+Nicht Leistung steht im Mittelpunkt, sondern Lust am Gestalten.
 </div>
 <div class="about-point">
-<strong>Mit spürbarem Nachhall</strong>
-Viele gehen leichter, wacher und überraschend erfüllt nach Hause.
+<strong>Mehr Vertrauen in Dich selbst</strong>
+Kreativität wächst oft genau dann, wenn man einfach anfangen darf.
 </div>
 </div>
 </div>
@@ -982,25 +1080,25 @@ Viele gehen leichter, wacher und überraschend erfüllt nach Hause.
 <div class="container">
 <div class="section-head">
 <h2>Dieser Workshop ist für Dich, wenn …</h2>
-<p>… Du Dir wieder mehr kreative Leichtigkeit wünschst, aber keine Lust auf Druck, Bewertung oder trockenen Unterricht hast.</p>
+<p>… Du Dir wieder mehr kreative Leichtigkeit wünschst und einen echten, analogen Raum suchst, in dem Du ohne Druck ins Gestalten kommst.</p>
 </div>
 
 <div class="forwho-grid">
 <div class="forwho-card">
 <h3>Du lange nichts Kreatives gemacht hast</h3>
-<p>Und Dir einen sanften, inspirierenden Einstieg wünschst, bei dem man sich nicht erst beweisen muss.</p>
+<p>Und Dir einen freundlichen, inspirierenden Wiedereinstieg wünschst, der Dich nicht überfordert.</p>
 </div>
 <div class="forwho-card">
-<h3>Du einen schönen Ausgleich suchst</h3>
-<p>Etwas, das nicht nur nett ist, sondern Dich für ein paar Stunden wirklich raus aus dem Alltag holt.</p>
+<h3>Du etwas Echtes suchst</h3>
+<p>Nicht noch mehr Bildschirmzeit, sondern Farbe an den Händen, Papier auf dem Tisch und spürbares Arbeiten mit Material.</p>
 </div>
 <div class="forwho-card">
-<h3>Du Lust auf Farben und Materialien hast</h3>
-<p>Auf Papier, Collage, Flächen, Strukturen und das gute Gefühl, wieder mit den Händen zu denken.</p>
+<h3>Du wieder mehr an Dich glauben möchtest</h3>
+<p>Weil Kreativität oft genau dann wächst, wenn man merkt: Ich kann doch etwas schaffen.</p>
 </div>
 <div class="forwho-card">
-<h3>Du auch allein kommen möchtest</h3>
-<p>Und einen Rahmen suchst, in dem man sich schnell wohlfühlt – auch ohne Begleitung.</p>
+<h3>Du Freude statt Schwere möchtest</h3>
+<p>Die Workshops sind kein therapeutischer Raum, sondern eine Einladung zu Leichtigkeit, Ausdruck und echtem Gestalten.</p>
 </div>
 </div>
 </div>
@@ -1012,10 +1110,10 @@ Viele gehen leichter, wacher und überraschend erfüllt nach Hause.
 <div class="statement-image"></div>
 <div class="statement-copy">
 <p class="eyebrow">Was Klar &amp; Kunter besonders macht</p>
-<h2>Ein Abend, auf den man sich schon vorher freut</h2>
-<p>Unsere Workshops sind kein Unterricht im klassischen Sinn. Sie sind eher eine kuratierte kreative Erfahrung: leicht, ästhetisch, gut begleitet und offen für Frauen, die sich wieder mehr Ausdruck, Freude und eigenes Gestalten wünschen.</p>
-<p>Du kommst an, greifst zu Farben, Papier oder Materialien – und bist plötzlich ganz im Moment. Genau darum geht es.</p>
-<div class="statement-quote">„Nicht perfekt werden. Sondern wieder Lust bekommen.“</div>
+<h2>Der Weg zu mehr Kreativität darf leicht beginnen</h2>
+<p>Viele Frauen glauben, sie seien nicht kreativ. Dabei fehlt oft nicht das Talent, sondern nur der richtige Einstieg. Ein guter Rahmen. Gute Materialien. Eine Atmosphäre, in der man sich traut anzufangen.</p>
+<p>Klar &amp; Kunter schafft genau diesen Anfang: nicht therapeutisch, nicht verkopft, nicht virtuell – sondern sinnlich, analog und mit echter Freude am Tun.</p>
+<div class="statement-quote">„Nicht perfekt werden. Sondern wieder Lust bekommen und sich selbst überraschen.“</div>
 </div>
 </div>
 </div>
@@ -1026,7 +1124,7 @@ Viele gehen leichter, wacher und überraschend erfüllt nach Hause.
 
 <div class="workshops-head">
 <h2>Workshops</h2>
-<p class="workshops-sub">Vier Formate, vier Stimmungen – zum Ankommen, Experimentieren, Gestalten und freien Arbeiten. Jeder Workshop ist so aufgebaut, dass er leicht zugänglich ist und Lust auf mehr macht.</p>
+<p class="workshops-sub">Vier Formate, vier Stimmungen – zum Ankommen, Experimentieren, Gestalten und freien Arbeiten. Jeder Workshop unterstützt auf seine Weise den Weg zurück in die eigene Kreativität.</p>
 </div>
 
 <div class="workshops">
@@ -1036,7 +1134,7 @@ Viele gehen leichter, wacher und überraschend erfüllt nach Hause.
 <div class="card-meta">2,5 Stunden · 39 €</div>
 <h3>Reset &amp; Kreativstart</h3>
 <p>Ein sanfter Einstieg ins kreative Arbeiten – mit Farbe, Leichtigkeit und ersten überraschenden Erlebnissen.</p>
-<div class="card-fit">Ideal für Dich, wenn Du lange nichts Kreatives gemacht hast und Dir einen schönen, unkomplizierten Anfang wünschst.</div>
+<div class="card-fit">Ideal für Dich, wenn Du lange nichts Kreatives gemacht hast und einen schönen, unkomplizierten Anfang suchst.</div>
 </div>
 </div>
 
@@ -1044,8 +1142,8 @@ Viele gehen leichter, wacher und überraschend erfüllt nach Hause.
 <div class="card-content">
 <div class="card-meta">3 Stunden · 29 €</div>
 <h3>Freies Atelier</h3>
-<p>Ein offener Raum für Dich, Inspiration und eigenes Gestalten ohne Leistungsdruck.</p>
-<div class="card-fit">Ideal für Dich, wenn Du gerne freier arbeitest, eigene Ideen entwickeln möchtest und Raum für Dein Tempo suchst.</div>
+<p>Ein offener Raum für eigenes Gestalten, Inspiration und kreatives Arbeiten ohne Leistungsdruck.</p>
+<div class="card-fit">Ideal für Dich, wenn Du Raum für Dein Tempo möchtest und gerne mit Material, Fläche und Idee arbeitest.</div>
 </div>
 </div>
 
@@ -1054,7 +1152,7 @@ Viele gehen leichter, wacher und überraschend erfüllt nach Hause.
 <div class="card-meta">2,5 Stunden · 49 €</div>
 <h3>Collage &amp; Story</h3>
 <p>Bilder, Papier und Komposition verbinden sich zu einer visuellen Geschichte mit persönlichem Ausdruck.</p>
-<div class="card-fit">Ideal für Dich, wenn Du gerne sammelst, kombinierst und Bedeutung auf eine leichte, spielerische Weise entstehen lassen möchtest.</div>
+<div class="card-fit">Ideal für Dich, wenn Du gerne sammelst, kombinierst und aus einzelnen Elementen etwas Eigenes entstehen lassen möchtest.</div>
 </div>
 </div>
 
@@ -1063,11 +1161,22 @@ Viele gehen leichter, wacher und überraschend erfüllt nach Hause.
 <div class="card-meta">3 Stunden · 49 €</div>
 <h3>Materiallabor</h3>
 <p>Experimentieren mit Oberflächen, Strukturen und überraschenden Materialkombinationen.</p>
-<div class="card-fit">Ideal für Dich, wenn Du neugierig bist, gerne mit den Händen arbeitest und kreative Experimente jenseits von richtig oder falsch liebst.</div>
+<div class="card-fit">Ideal für Dich, wenn Du neugierig bist, gerne mit den Händen arbeitest und neue kreative Wege entdecken möchtest.</div>
 </div>
 </div>
 
 </div>
+
+<div class="mini-cta">
+<div>
+<h3>Noch unsicher, welches Format zu Dir passt?</h3>
+<p>Schreib uns gern. Wir helfen Dir dabei, den Workshop zu finden, der sich für Deinen Einstieg oder Deine aktuelle kreative Lust am stimmigsten anfühlt.</p>
+</div>
+<div class="mini-cta-action">
+<a href="#kontakt" class="btn btn-primary">Jetzt unverbindlich anfragen</a>
+</div>
+</div>
+
 </div>
 </section>
 
@@ -1075,17 +1184,17 @@ Viele gehen leichter, wacher und überraschend erfüllt nach Hause.
 <div class="container">
 <div class="section-head">
 <h2>Welcher Workshop passt zu Dir?</h2>
-<p>Eine kleine Orientierung für Frauen, die schon Interesse haben, aber noch überlegen, womit sie am liebsten anfangen möchten.</p>
+<p>Eine kleine Orientierung für Frauen, die schon Interesse haben, aber noch überlegen, womit sie am liebsten beginnen möchten.</p>
 </div>
 
 <div class="orientation-grid">
 <div class="orientation-card">
 <h3>Reset &amp; Kreativstart</h3>
-<p>Wenn Du leicht beginnen möchtest und nach langer Zeit wieder ins kreative Tun kommen willst.</p>
+<p>Wenn Du leicht anfangen möchtest und nach langer Zeit wieder ins kreative Tun kommen willst.</p>
 </div>
 <div class="orientation-card">
 <h3>Freies Atelier</h3>
-<p>Wenn Du eher Raum als Anleitung suchst und Lust hast, Dich von Material und Stimmung tragen zu lassen.</p>
+<p>Wenn Du eher Raum als enge Anleitung suchst und Dich von Material und Stimmung tragen lassen möchtest.</p>
 </div>
 <div class="orientation-card">
 <h3>Collage &amp; Story</h3>
@@ -1103,7 +1212,7 @@ Viele gehen leichter, wacher und überraschend erfüllt nach Hause.
 <div class="container">
 <div class="section-head">
 <h2>So läuft ein Workshop ab</h2>
-<p>Strukturiert genug, um Sicherheit zu geben. Offen genug, damit eigene Ideen und Leichtigkeit entstehen können.</p>
+<p>Strukturiert genug, um Sicherheit zu geben. Offen genug, damit Freude, eigenes Ausprobieren und echtes Gestalten entstehen können.</p>
 </div>
 
 <div class="process-grid">
@@ -1115,22 +1224,22 @@ Viele gehen leichter, wacher und überraschend erfüllt nach Hause.
 <div class="process-card">
 <div class="process-number">02</div>
 <h3>Einstieg</h3>
-<p>Mit kleinen, gut zugänglichen Impulsen fällt der Anfang leicht – auch dann, wenn Du Dich eigentlich nicht kreativ fühlst.</p>
+<p>Mit kleinen, gut zugänglichen Impulsen wird der Anfang leicht – auch dann, wenn Du Dich eigentlich nicht kreativ fühlst.</p>
 </div>
 <div class="process-card">
 <div class="process-number">03</div>
 <h3>Gestalten</h3>
-<p>Du arbeitest mit Farben, Papier oder Material, probierst aus und entwickelst Schritt für Schritt Dein eigenes Werkstück.</p>
+<p>Du arbeitest mit Farben, Papier oder Material und entwickelst Schritt für Schritt etwas Eigenes.</p>
 </div>
 <div class="process-card">
 <div class="process-number">04</div>
 <h3>Vertiefen</h3>
-<p>Je nach Format gibt es Raum für freieres Arbeiten, Ausprobieren, Verwerfen, Neuansetzen und eigenes Tempo.</p>
+<p>Je nach Format gibt es Raum für freieres Arbeiten, Entdecken, Verwerfen, Neuansetzen und eigenes Tempo.</p>
 </div>
 <div class="process-card">
 <div class="process-number">05</div>
 <h3>Mitnehmen</h3>
-<p>Du gehst mit etwas Eigenem nach Hause – und oft mit deutlich mehr Energie, als Du mitgebracht hast.</p>
+<p>Du gehst mit einem Werkstück nach Hause – und oft mit deutlich mehr Freude und Zutrauen als vorher.</p>
 </div>
 </div>
 </div>
@@ -1140,36 +1249,37 @@ Viele gehen leichter, wacher und überraschend erfüllt nach Hause.
 <div class="container">
 <div class="section-head">
 <h2>Warum Frauen unsere Workshops mögen</h2>
-<p>Weil man hier nicht bewertet wird. Weil die Atmosphäre gut ist. Weil man etwas Schönes erlebt und am Ende oft mehr mitnimmt als nur ein Werkstück.</p>
+<p>Weil sie echt sind. Weil man hier mit den Händen arbeitet. Weil Freude entsteht. Und weil kreatives Tun oft ganz nebenbei wieder mehr Vertrauen in die eigene Fähigkeit weckt.</p>
 </div>
 
 <div class="experience-grid">
 <div class="experience-card">
-<h3>Raus aus dem Alltag</h3>
-<p>Für ein paar Stunden zählt nicht, was erledigt werden muss – sondern nur Farbe, Material, Rhythmus und die Freude am Gestalten.</p>
+<h3>Raus aus dem Digitalen</h3>
+<p>Für ein paar Stunden geht es nicht um Bildschirm, Tempo oder Input – sondern um Material, Farbe, Berührung und Gegenwart.</p>
 </div>
 <div class="experience-card">
 <h3>Wieder ins Machen kommen</h3>
-<p>Viele vermissen Kreativität, finden aber allein keinen Einstieg. Im Workshop wird der Anfang leicht und selbstverständlich.</p>
+<p>Viele vermissen Kreativität, finden allein aber keinen Anfang. Im Workshop wird der erste Schritt leicht und selbstverständlich.</p>
 </div>
 <div class="experience-card">
-<h3>Mit etwas nach Hause gehen</h3>
-<p>Nicht nur mit einem Bild oder einer Collage, sondern oft mit neuer Energie, frischen Ideen und echter Lust, weiterzumachen.</p>
+<h3>Mit neuer Zuversicht nach Hause gehen</h3>
+<p>Oft ist das Schönste nicht nur das Werkstück, sondern das Gefühl: Ich kann gestalten. Ich kann anfangen. Ich kann mehr als ich dachte.</p>
 </div>
 </div>
 </div>
 </section>
 
-<section class="section">
+<section class="section" id="ueber-mich">
 <div class="container">
-<div class="host">
-<div class="host-image"></div>
-<div class="host-copy">
-<p class="eyebrow">Hinter Klar &amp; Kunter</p>
-<h2>Ein Raum, der bewusst anders gedacht ist</h2>
-<p>Klar &amp; Kunter möchte keinen steifen Kursraum schaffen, sondern einen Workshop-Rahmen, in dem Frauen sich wohlfühlen, inspiriert werden und ohne Druck kreativ werden können.</p>
-<p>Die Idee dahinter: Kreativität soll nicht einschüchtern, sondern einladen. Sie darf ästhetisch, leicht und gleichzeitig stärkend sein. Genau deshalb sind Atmosphäre, Material, Sprache und Ablauf so wichtig.</p>
-<div class="host-note">Statt Leistungsdruck gibt es hier eine ruhige, wertige Begleitung – mit einem klaren Blick dafür, wie Hemmschwellen verschwinden und Lust am Gestalten entsteht.</div>
+<div class="founder">
+<div class="founder-image"></div>
+<div class="founder-copy">
+<p class="eyebrow">Über mich</p>
+<h2>Ich möchte keinen Therapieraum schaffen. Sondern Freude.</h2>
+<p>Ich bin Kunsttherapie-Praktikerin und weiß, wie kraftvoll kreatives Arbeiten sein kann. Mit Klar &amp; Kunter möchte ich diese Erfahrung bewusst in einen anderen Rahmen bringen: nicht therapeutisch, sondern leicht, schön und alltagsnah.</p>
+<p>Mir geht es darum, Frauen wieder näher an ihre eigene Kreativität zu bringen. An das gute Gefühl, mit den Händen etwas Echtes zu schaffen. An den Moment, in dem aus Unsicherheit Neugier wird – und aus Neugier wieder mehr Vertrauen in sich selbst.</p>
+<p>Deshalb sind Klar &amp; Kunter Workshops keine virtuellen Formate und keine schweren Prozesse. Sie sind analoge, sinnliche und inspirierende Räume, in denen Freude am Gestalten im Mittelpunkt steht.</p>
+<div class="founder-note">Ich glaube: Mehr Kreativität beginnt oft nicht mit einem großen Vorsatz, sondern mit einem Tisch, guten Materialien und der Erlaubnis, einfach anzufangen.</div>
 </div>
 </div>
 </div>
@@ -1179,7 +1289,7 @@ Viele gehen leichter, wacher und überraschend erfüllt nach Hause.
 <div class="container">
 <div class="section-head">
 <h2>Häufige Fragen</h2>
-<p>Gerade wenn man länger nichts Kreatives gemacht hat, tauchen oft dieselben Fragen auf. Genau das ist normal – und genau dafür ist diese Seite da.</p>
+<p>Gerade wenn man länger nichts Kreatives gemacht hat, tauchen oft dieselben Fragen auf. Genau dafür ist diese Seite da: um Unsicherheit kleiner und Vorfreude größer zu machen.</p>
 </div>
 
 <div class="faq-grid">
@@ -1188,20 +1298,20 @@ Viele gehen leichter, wacher und überraschend erfüllt nach Hause.
 <p>Nein. Die Workshops sind bewusst so aufgebaut, dass auch Anfängerinnen leicht einsteigen können.</p>
 </div>
 <div class="faq-item">
+<h3>Ist das ein therapeutisches Angebot?</h3>
+<p>Nein. Die Workshops sind keine Therapie. Sie sind kreative Auszeiten, in denen Freude, Materialerfahrung und eigenes Gestalten im Mittelpunkt stehen.</p>
+</div>
+<div class="faq-item">
 <h3>Muss ich etwas mitbringen?</h3>
-<p>Das kann je nach Format variieren. Die Seite kann hier später noch konkret ergänzt werden, falls Materialien inklusive sind oder einzelne Dinge mitgebracht werden sollen.</p>
+<p>Das kann je nach Format variieren. Falls Materialien vollständig inklusive sind oder etwas mitgebracht werden soll, kann das hier später noch konkret ergänzt werden.</p>
 </div>
 <div class="faq-item">
 <h3>Kann ich auch allein kommen?</h3>
-<p>Ja. Gerade das ist für viele Frauen ein wichtiger Punkt. Die Workshops sind so gedacht, dass man sich auch allein schnell wohlfühlen kann.</p>
+<p>Ja. Gerade das ist für viele Frauen wichtig. Die Workshops sind so gedacht, dass man sich auch allein schnell wohlfühlen kann.</p>
 </div>
 <div class="faq-item">
 <h3>Was, wenn ich denke, ich bin nicht kreativ?</h3>
-<p>Dann bist Du hier sehr wahrscheinlich genau richtig. Die Workshops nehmen genau diese Hemmschwelle ernst und machen den Anfang leicht.</p>
-</div>
-<div class="faq-item">
-<h3>Was nehme ich am Ende mit?</h3>
-<p>Ein eigenes Werkstück – und oft das Gefühl, wieder mehr bei sich, im Tun und in der eigenen Kreativität angekommen zu sein.</p>
+<p>Dann bist Du hier sehr wahrscheinlich genau richtig. Die Formate helfen dabei, den Anfang leicht zu machen und wieder Vertrauen in die eigene Kreativität zu finden.</p>
 </div>
 <div class="faq-item">
 <h3>Wie melde ich mich an?</h3>
@@ -1216,15 +1326,19 @@ Viele gehen leichter, wacher und überraschend erfüllt nach Hause.
 <div class="cta">
 <div>
 <h2>Lust auf einen Workshop bekommen?</h2>
-<p>Du möchtest teilnehmen, einen Termin anfragen oder mehr über die Formate erfahren? Dann schreib uns gern. Ob Einzelanfrage, kleine Gruppe oder erste Rückfrage – wir freuen uns auf Deine Nachricht.</p>
+<p>Du möchtest teilnehmen, einen Termin anfragen oder herausfinden, welches Format gut zu Dir passt? Dann schreib uns gern. Ob erste Frage, Einzelanfrage oder Interesse an einer kleinen Gruppe – wir freuen uns auf Deine Nachricht.</p>
+<div class="button-row">
+<a href="mailto:klarundkunter@gmail.com" class="btn btn-primary">Jetzt unverbindlich anfragen</a>
+</div>
 </div>
 <div class="cta-box">
 <p>Für Anfragen, Termine und Fragen:</p>
 <a class="contact-mail" href="mailto:klarundkunter@gmail.com">klarundkunter@gmail.com</a>
 <div class="contact-list">
 <div>Teilnahme anfragen</div>
-<div>Fragen zu Formaten stellen</div>
-<div>Interesse an privaten Gruppen oder besonderen Terminen äußern</div>
+<div>Passenden Workshop finden</div>
+<div>Fragen zu Formaten und Terminen stellen</div>
+<div>Interesse an privaten Gruppen äußern</div>
 </div>
 </div>
 </div>
