@@ -207,7 +207,7 @@ background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/ma
 }
 
 .card2{
-background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KuK%20Bild3.jpg") center/cover no-repeat;
+background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/FreiesAtelier16.jpg") center/cover no-repeat;
 }
 
 .card3{
