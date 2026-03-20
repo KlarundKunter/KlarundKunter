@@ -27,6 +27,7 @@ font-weight:400;
 margin:0;
 }
 
+/* HERO */
 .hero{
 position:relative;
 height:90vh;
@@ -68,12 +69,14 @@ max-width:700px;
 margin:auto;
 }
 
+/* SECTIONS */
 .section{
 padding:100px 20px;
 max-width:1100px;
 margin:auto;
 }
 
+/* SPLIT */
 .split{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -103,6 +106,7 @@ color:var(--muted);
 font-size:18px;
 }
 
+/* STATEMENT */
 .statement{
 background:var(--soft);
 padding:120px 20px;
@@ -115,6 +119,7 @@ max-width:900px;
 margin:auto;
 }
 
+/* EXAMPLES */
 .examples{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -135,6 +140,34 @@ display:-webkit-box;
 overflow:hidden;
 }
 
+/* WORKSHOPS */
+.workshops{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+margin-top:60px;
+}
+
+.workshop{
+display:block;
+}
+
+.workshop img{
+width:100%;
+border-radius:20px;
+margin-bottom:15px;
+}
+
+.workshop h3{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.workshop p{
+color:var(--muted);
+}
+
+/* RESPONSIVE */
 @media(max-width:900px){
 .split{
 grid-template-columns:1fr;
@@ -148,12 +181,16 @@ font-size:36px;
 .examples{
 grid-template-columns:1fr;
 }
+.workshops{
+grid-template-columns:1fr;
+}
 }
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
 <div class="hero-inner">
 <small>KREATIVE WORKSHOPS FÜR FRAUEN IN BERLIN</small>
@@ -162,6 +199,7 @@ grid-template-columns:1fr;
 </div>
 </section>
 
+<!-- INTRO -->
 <section class="section split">
 <img src="https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2023.jpg">
 
@@ -177,6 +215,7 @@ Klar &amp; Kunter schafft genau diesen Anfang: nicht verkopft, nicht virtuell �
 </div>
 </section>
 
+<!-- STATEMENT -->
 <section class="statement">
 <h2>
 Kreativität kennt kein Alter. Kunst ist eine Leidenschaft, kein Können.
@@ -198,6 +237,39 @@ Kreativität kennt kein Alter. Kunst ist eine Leidenschaft, kein Können.
 
 <div class="example">
 <p>Du gehst nach Hause mit etwas, das du selbst geschaffen hast – und mit einem neuen Gefühl für dich.</p>
+</div>
+
+</div>
+</section>
+
+<!-- WORKSHOPS -->
+<section class="section">
+<h2 style="font-size:40px;">Workshops</h2>
+
+<div class="workshops">
+
+<div class="workshop">
+<img src="https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2019.jpg">
+<h3>Freies Atelier</h3>
+<p>Ohne Vorgaben arbeiten, Materialien entdecken und deinen eigenen kreativen Fluss finden.</p>
+</div>
+
+<div class="workshop">
+<img src="https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%202.jpg">
+<h3>Collage &amp; Story</h3>
+<p>Mit Bildern und Fragmenten eigene Geschichten gestalten – intuitiv und überraschend.</p>
+</div>
+
+<div class="workshop">
+<img src="https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2013.jpg">
+<h3>Materiallabor</h3>
+<p>Ungewöhnliche Materialien ausprobieren und neue kreative Wege entdecken.</p>
+</div>
+
+<div class="workshop">
+<img src="https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2023.jpg">
+<h3>Reset &amp; Kreativstart</h3>
+<p>Ein sanfter Einstieg, um wieder Zugang zu deiner eigenen Kreativität zu finden.</p>
 </div>
 
 </div>
