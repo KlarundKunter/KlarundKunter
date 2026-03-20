@@ -1,1574 +1,207 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Klar &amp; Kunter – Kreative Workshops für Frauen</title>
-  <meta
-    name="description"
-    content="Klar &amp; Kunter bietet kreative Workshops für Frauen in Berlin – atmosphärisch, leicht und ohne Leistungsdruck. Für mehr Freude, echtes Gestalten und neues Vertrauen in die eigene Kreativität."
-  />
-  <style>
-    :root{
-      --bg:#f7f2ea;
-      --paper:#fbf8f3;
-      --soft:#f3ece2;
-      --sand:#e9dccb;
-      --line:rgba(30,28,24,0.10);
-      --text:#1f1a17;
-      --muted:#625a54;
-      --white:#ffffff;
-      --radius:30px;
-      --radius-small:22px;
-      --max:1180px;
-      --shadow:0 20px 50px rgba(31,26,23,0.06);
-      --serif:Georgia,"Times New Roman",serif;
-      --sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
-    }
-
-    *{box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-
-    body{
-      margin:0;
-      font-family:var(--sans);
-      color:var(--text);
-      background:var(--bg);
-      line-height:1.6;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
-
-    img{max-width:100%;display:block;}
-    a{color:inherit;text-decoration:none;}
-    p{margin:0 0 18px 0;}
-
-    h1,h2,h3,h4{
-      margin:0;
-      font-family:var(--serif);
-      font-weight:400;
-      line-height:1.08;
-      letter-spacing:-0.032em;
-    }
-
-    .page{
-      position:relative;
-      min-height:100vh;
-      margin:12px;
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.58), transparent 36%),
-        radial-gradient(circle at bottom right, rgba(255,255,255,0.34), transparent 28%),
-        var(--bg);
-      border:1px solid rgba(255,255,255,0.76);
-      overflow:hidden;
-    }
-
-    .page::before{
-      content:"";
-      position:absolute;
-      inset:10px;
-      border:1px solid rgba(31,26,23,0.08);
-      pointer-events:none;
-      z-index:1;
-    }
-
-    .container{
-      max-width:var(--max);
-      margin:0 auto;
-      padding-left:24px;
-      padding-right:24px;
-      position:relative;
-      z-index:3;
-    }
-
-    .section{
-      padding:108px 0;
-      position:relative;
-      z-index:3;
-    }
-
-    .section-soft{
-      background:rgba(255,255,255,0.22);
-    }
-
-    .eyebrow{
-      font-size:12px;
-      letter-spacing:2.4px;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin:0 0 18px 0;
-    }
-
-    .section-head{
-      display:grid;
-      grid-template-columns:1.05fr 0.95fr;
-      gap:34px;
-      align-items:end;
-      margin-bottom:40px;
-    }
-
-    .section-head h2{
-      font-size:46px;
-      max-width:12ch;
-    }
-
-    .section-head p{
-      font-size:18px;
-      color:var(--muted);
-      max-width:560px;
-      justify-self:end;
-    }
-
-    .button-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      margin-top:30px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:50px;
-      padding:0 22px;
-      border-radius:999px;
-      font-size:15px;
-      transition:all .2s ease;
-      border:1px solid transparent;
-    }
-
-    .btn-primary{
-      background:var(--text);
-      color:#ffffff;
-    }
-
-    .btn-primary:hover{
-      opacity:.92;
-      transform:translateY(-1px);
-    }
-
-    .btn-secondary{
-      background:rgba(255,255,255,0.12);
-      color:#ffffff;
-      border:1px solid rgba(255,255,255,0.28);
-    }
-
-    .btn-secondary:hover{
-      background:rgba(255,255,255,0.18);
-    }
-
-    .btn-light{
-      background:#ffffff;
-      color:var(--text);
-    }
-
-    .btn-light:hover{
-      transform:translateY(-1px);
-    }
-
-    header{
-      position:fixed;
-      top:12px;
-      left:12px;
-      right:12px;
-      background:rgba(247,242,234,0.90);
-      backdrop-filter:blur(10px);
-      z-index:1000;
-      border-bottom:1px solid rgba(0,0,0,0.05);
-    }
-
-    .header-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:18px 24px 16px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      text-align:center;
-    }
-
-    .brand{
-      margin:0;
-      font-size:15px;
-      letter-spacing:4px;
-      font-weight:500;
-      text-transform:uppercase;
-      white-space:nowrap;
-    }
-
-    nav{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:28px;
-      flex-wrap:wrap;
-    }
-
-    nav a{
-      font-size:14px;
-      color:var(--muted);
-      transition:opacity .2s ease;
-    }
-
-    nav a:hover{
-      opacity:0.7;
-    }
-
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:flex-end;
-      padding:210px 0 78px 0;
-      background:
-        linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.35)),
-        url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2018.jpg") center center/cover no-repeat;
-      color:#ffffff;
-      position:relative;
-      z-index:2;
-    }
-
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to top, rgba(0,0,0,0.10), rgba(0,0,0,0.00));
-      pointer-events:none;
-    }
-
-    .hero-inner{
-      max-width:880px;
-      position:relative;
-      z-index:3;
-      text-align:center;
-      margin:0 auto;
-    }
-
-    .hero .eyebrow{
-      color:rgba(255,255,255,0.84);
-      margin-bottom:20px;
-    }
-
-    .hero h1{
-      font-size:72px;
-      max-width:11ch;
-      margin:0 auto;
-    }
-
-    .hero p{
-      font-size:21px;
-      max-width:720px;
-      margin:26px auto 0;
-    }
-
-    .hero-subline{font-weight:500;}
-
-    .hero-note{
-      font-size:17px;
-      line-height:1.72;
-      color:rgba(255,255,255,0.92);
-      max-width:650px;
-      margin:20px auto 0;
-    }
-
-    .hero-facts{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:28px;
-      justify-content:center;
-    }
-
-    .hero-facts span{
-      display:inline-flex;
-      align-items:center;
-      min-height:42px;
-      padding:0 16px;
-      border-radius:999px;
-      background:rgba(255,255,255,0.14);
-      border:1px solid rgba(255,255,255,0.20);
-      font-size:14px;
-      color:#ffffff;
-    }
-
-    .hero .button-row{
-      justify-content:center;
-    }
-
-    .intro-band{
-      padding:26px 30px;
-      background:rgba(255,255,255,0.52);
-      border:1px solid rgba(31,26,23,0.08);
-      border-radius:20px;
-      margin-top:-36px;
-      position:relative;
-      z-index:4;
-      box-shadow:var(--shadow);
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:24px;
-    }
-
-    .intro-band div{
-      font-size:15px;
-      color:var(--muted);
-      padding-top:6px;
-      border-top:1px solid rgba(31,26,23,0.10);
-    }
-
-    .intro-band strong{
-      display:block;
-      color:var(--text);
-      margin-bottom:6px;
-      font-size:15px;
-    }
-
-    .about-wrap{
-      max-width:920px;
-      margin:0 auto;
-    }
-
-    .about-wrap h2{
-      font-size:46px;
-      margin-bottom:28px;
-      max-width:13ch;
-    }
-
-    .about-layout{
-      display:grid;
-      grid-template-columns:1.05fr 0.95fr;
-      gap:34px;
-      align-items:start;
-    }
-
-    .about-text{
-      font-size:21px;
-      line-height:1.74;
-      color:#433b36;
-    }
-
-    .about-text p{margin:0 0 22px 0;}
-
-    .about-box{
-      background:rgba(255,255,255,0.44);
-      border-radius:var(--radius);
-      padding:34px 30px;
-      border:1px solid rgba(31,26,23,0.06);
-    }
-
-    .about-box h3{
-      font-size:30px;
-      margin-bottom:16px;
-    }
-
-    .about-box p{
-      font-size:17px;
-      color:var(--muted);
-      margin-bottom:0;
-    }
-
-    .about-points{
-      display:grid;
-      gap:18px;
-      margin-top:28px;
-    }
-
-    .about-point{
-      padding-top:18px;
-      border-top:1px solid var(--line);
-    }
-
-    .about-point strong{
-      display:block;
-      font-size:16px;
-      margin-bottom:6px;
-    }
-
-    .editorial-quote{
-      margin-top:32px;
-      padding:24px 0 0;
-      border-top:1px solid var(--line);
-      max-width:560px;
-      font-family:var(--serif);
-      font-size:28px;
-      line-height:1.3;
-      color:#2b241f;
-    }
-
-    .forwho-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:18px;
-    }
-
-    .forwho-card{
-      background:var(--white);
-      border-radius:var(--radius-small);
-      padding:28px;
-      box-shadow:var(--shadow);
-    }
-
-    .forwho-card h3{
-      font-size:28px;
-      margin-bottom:12px;
-    }
-
-    .forwho-card p{
-      font-size:17px;
-      color:var(--muted);
-      margin:0;
-    }
-
-    .statement{
-      display:grid;
-      grid-template-columns:0.92fr 1.08fr;
-      gap:34px;
-      align-items:stretch;
-    }
-
-    .statement-image{
-      min-height:580px;
-      border-radius:var(--radius);
-      overflow:hidden;
-      background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2023.jpg") center center/cover no-repeat;
-    }
-
-    .statement-copy{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-
-    .statement-copy h2{
-      font-size:46px;
-      max-width:11ch;
-      margin-bottom:22px;
-    }
-
-    .statement-copy p{
-      font-size:19px;
-      color:var(--muted);
-      max-width:620px;
-    }
-
-    .statement-quote{
-      margin-top:24px;
-      padding-top:22px;
-      border-top:1px solid var(--line);
-      font-family:var(--serif);
-      font-size:27px;
-      line-height:1.28;
-      max-width:560px;
-    }
-
-    .workshops-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-end;
-      gap:30px;
-      margin-bottom:34px;
-    }
-
-    .workshops-head h2{
-      font-size:46px;
-    }
-
-    .workshops-sub{
-      max-width:560px;
-      font-size:18px;
-      color:#6a625d;
-    }
-
-    .workshops{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:28px;
-    }
-
-    .card{
-      position:relative;
-      min-height:470px;
-      display:flex;
-      align-items:flex-end;
-      overflow:hidden;
-      color:#ffffff;
-      border-radius:26px;
-      background-color:#d8d0c8;
-    }
-
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.18) 56%, rgba(0,0,0,0.08) 100%);
-      z-index:1;
-    }
-
-    .card-content{
-      position:relative;
-      z-index:2;
-      padding:30px;
-      max-width:490px;
-    }
-
-    .card h3{
-      font-size:32px;
-      margin:0 0 10px 0;
-    }
-
-    .card-meta{
-      font-size:13px;
-      letter-spacing:1.4px;
-      text-transform:uppercase;
-      opacity:0.94;
-      margin-bottom:14px;
-    }
-
-    .card p{
-      margin:0 0 14px 0;
-      font-size:17px;
-      line-height:1.6;
-    }
-
-    .card-fit{
-      font-size:15px;
-      line-height:1.55;
-      color:rgba(255,255,255,0.92);
-    }
-
-    .card1{
-      background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2023.jpg") center/cover no-repeat;
-    }
-
-    .card2{
-      background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2019.jpg") center/cover no-repeat;
-    }
-
-    .card3{
-      background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%202.jpg") center/cover no-repeat;
-    }
-
-    .card4{
-      background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2013.jpg") center/cover no-repeat;
-    }
-
-    .mini-cta{
-      margin-top:38px;
-      background:rgba(255,255,255,0.46);
-      border-radius:var(--radius);
-      padding:34px;
-      display:grid;
-      grid-template-columns:1.1fr 0.9fr;
-      gap:26px;
-      align-items:center;
-      border:1px solid rgba(31,26,23,0.06);
-    }
-
-    .mini-cta h3{
-      font-size:30px;
-      margin-bottom:10px;
-    }
-
-    .mini-cta p{
-      font-size:18px;
-      color:var(--muted);
-      margin:0;
-    }
-
-    .mini-cta-action{
-      text-align:right;
-    }
-
-    .orientation-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:20px;
-    }
-
-    .orientation-card{
-      background:var(--white);
-      border-radius:var(--radius-small);
-      padding:28px;
-      border:1px solid var(--line);
-    }
-
-    .orientation-card h3{
-      font-size:28px;
-      margin-bottom:10px;
-    }
-
-    .orientation-card p{
-      font-size:17px;
-      color:var(--muted);
-      margin:0;
-    }
-
-    .process-grid{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:18px;
-    }
-
-    .process-card{
-      padding-top:20px;
-      border-top:1px solid var(--line);
-    }
-
-    .process-number{
-      font-family:var(--serif);
-      font-size:30px;
-      margin-bottom:10px;
-      color:#6b625b;
-    }
-
-    .process-card h3{
-      font-size:24px;
-      margin-bottom:8px;
-    }
-
-    .process-card p{
-      font-size:16px;
-      color:var(--muted);
-      margin:0;
-    }
-
-    .experience-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:24px;
-    }
-
-    .experience-card{
-      padding-top:26px;
-      border-top:1px solid var(--line);
-    }
-
-    .experience-card h3{
-      font-size:27px;
-      margin-bottom:10px;
-    }
-
-    .experience-card p{
-      font-size:17px;
-      color:var(--muted);
-      margin:0;
-    }
-
-    .founder{
-      display:grid;
-      grid-template-columns:0.88fr 1.12fr;
-      gap:34px;
-      align-items:stretch;
-    }
-
-    .founder-image{
-      min-height:520px;
-      border-radius:var(--radius);
-      overflow:hidden;
-      background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2019.jpg") center center/cover no-repeat;
-    }
-
-    .founder-copy{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-
-    .founder-copy h2{
-      font-size:44px;
-      max-width:11ch;
-      margin-bottom:22px;
-    }
-
-    .founder-copy p{
-      font-size:18px;
-      color:var(--muted);
-      max-width:660px;
-    }
-
-    .founder-note{
-      margin-top:24px;
-      padding-top:20px;
-      border-top:1px solid var(--line);
-      font-size:17px;
-      color:#433b36;
-      max-width:640px;
-      font-family:var(--serif);
-    }
-
-    .faq-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-    }
-
-    .faq-item{
-      background:var(--white);
-      border-radius:var(--radius-small);
-      padding:28px;
-      box-shadow:var(--shadow);
-    }
-
-    .faq-item h3{
-      font-size:26px;
-      margin-bottom:10px;
-    }
-
-    .faq-item p{
-      font-size:17px;
-      color:var(--muted);
-      margin:0;
-    }
-
-    .cta{
-      background:linear-gradient(135deg,#eadfce 0%, #e3d5c5 100%);
-      border-radius:34px;
-      padding:52px;
-      display:grid;
-      grid-template-columns:1.05fr 0.95fr;
-      gap:36px;
-      align-items:center;
-      border:1px solid rgba(255,255,255,0.55);
-    }
-
-    .cta h2{
-      font-size:46px;
-      max-width:11ch;
-      margin-bottom:18px;
-    }
-
-    .cta p{
-      font-size:19px;
-      color:#4d4540;
-      max-width:620px;
-    }
-
-    .cta-box{
-      background:rgba(255,255,255,0.70);
-      border:1px solid rgba(255,255,255,0.55);
-      border-radius:24px;
-      padding:30px;
-    }
-
-    .cta-box p{
-      font-size:18px;
-      margin-bottom:16px;
-    }
-
-    .contact-mail{
-      display:inline-block;
-      font-size:28px;
-      font-family:var(--serif);
-      word-break:break-word;
-    }
-
-    .contact-list{
-      margin-top:16px;
-      font-size:15px;
-      color:#5c544d;
-    }
-
-    .contact-list div{
-      margin-bottom:6px;
-    }
-
-    footer{
-      background:rgba(255,255,255,0.18);
-      margin-top:40px;
-      position:relative;
-      z-index:3;
-    }
-
-    .footer-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:80px 24px;
-    }
-
-    .footer-inner h2{
-      font-size:36px;
-      margin-bottom:24px;
-    }
-
-    .footer-inner p{
-      margin:0 0 14px 0;
-      color:#4f4844;
-    }
-
-    .ornaments{
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      z-index:2;
-      overflow:hidden;
-    }
-
-    .ornaments svg{
-      position:absolute;
-      fill:none;
-      stroke:rgba(63,69,55,0.94);
-      stroke-width:1.2;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-      opacity:0.98;
-    }
-
-    .orn-top-left{
-      width:420px;
-      top:110px;
-      left:-8px;
-      transform:rotate(-5deg);
-    }
-
-    .orn-top-right{
-      width:340px;
-      top:142px;
-      right:-10px;
-      transform:rotate(6deg);
-    }
-
-    .orn-bottom-left{
-      width:360px;
-      left:-10px;
-      bottom:240px;
-      transform:rotate(5deg);
-    }
-
-    .orn-bottom-right{
-      width:470px;
-      right:-28px;
-      bottom:36px;
-      transform:rotate(-7deg);
-    }
-
-    .orn-center{
-      width:58px;
-      top:132px;
-      left:50%;
-      transform:translateX(-50%);
-    }
-
-    @media (max-width:1120px){
-
-      .section-head,
-      .about-layout,
-      .statement,
-      .founder,
-      .cta,
-      .mini-cta,
-      .intro-band{
-        grid-template-columns:1fr;
-      }
-
-      .section-head p{
-        justify-self:start;
-      }
-
-      .workshops{
-        grid-template-columns:1fr;
-      }
-
-      .forwho-grid,
-      .orientation-grid,
-      .faq-grid{
-        grid-template-columns:1fr 1fr;
-      }
-
-      .process-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .experience-grid{
-        grid-template-columns:1fr;
-      }
-
-      .statement-image,
-      .founder-image{
-        min-height:440px;
-      }
-
-      .mini-cta-action{
-        text-align:left;
-      }
-
-      .workshops-head{
-        display:block;
-      }
-
-      .workshops-sub{
-        margin-top:12px;
-      }
-    }
-
-    @media (max-width:760px){
-
-      .page{
-        margin:0;
-        border:none;
-      }
-
-      .page::before{
-        inset:6px;
-      }
-
-      header{
-        top:0;
-        left:0;
-        right:0;
-      }
-
-      .header-inner{
-        padding:16px;
-        gap:12px;
-      }
-
-      .brand{
-        font-size:14px;
-        letter-spacing:3px;
-      }
-
-      nav{
-        gap:10px 18px;
-      }
-
-      nav a{
-        font-size:13px;
-      }
-
-      .container{
-        padding-left:16px;
-        padding-right:16px;
-      }
-
-      .section{
-        padding:74px 0;
-      }
-
-      .hero{
-        min-height:92vh;
-        padding:188px 0 46px 0;
-        align-items:flex-end;
-      }
-
-      .hero h1{
-        font-size:44px;
-        max-width:100%;
-      }
-
-      .hero p{
-        font-size:18px;
-        max-width:100%;
-        margin-top:20px;
-      }
-
-      .hero-note{
-        font-size:15px;
-        margin-top:18px;
-        max-width:100%;
-      }
-
-      .hero-facts{
-        gap:10px;
-        margin-top:22px;
-      }
-
-      .hero-facts span{
-        font-size:13px;
-        min-height:38px;
-        padding:0 12px;
-      }
-
-      .button-row{
-        gap:10px;
-        margin-top:22px;
-      }
-
-      .btn{
-        width:100%;
-      }
-
-      .intro-band{
-        padding:22px;
-        margin-top:-18px;
-      }
-
-      .about-wrap h2,
-      .section-head h2,
-      .statement-copy h2,
-      .workshops-head h2,
-      .founder-copy h2,
-      .cta h2{
-        font-size:36px;
-        max-width:100%;
-      }
-
-      .section-head{
-        gap:16px;
-        margin-bottom:28px;
-      }
-
-      .section-head p,
-      .statement-copy p,
-      .founder-copy p,
-      .cta p{
-        font-size:18px;
-      }
-
-      .about-text{
-        font-size:19px;
-      }
-
-      .about-box,
-      .forwho-card,
-      .orientation-card,
-      .faq-item,
-      .mini-cta{
-        padding:24px 22px;
-      }
-
-      .about-box h3,
-      .forwho-card h3,
-      .orientation-card h3,
-      .faq-item h3,
-      .mini-cta h3{
-        font-size:27px;
-      }
-
-      .statement{
-        gap:22px;
-      }
-
-      .statement-image,
-      .founder-image{
-        min-height:320px;
-        border-radius:22px;
-      }
-
-      .statement-quote,
-      .editorial-quote{
-        font-size:24px;
-      }
-
-      .workshops-head{
-        margin-bottom:26px;
-      }
-
-      .workshops-sub{
-        font-size:17px;
-      }
-
-      .card{
-        min-height:350px;
-        border-radius:22px;
-      }
-
-      .card-content{
-        padding:22px;
-      }
-
-      .card h3{
-        font-size:29px;
-      }
-
-      .card p,
-      .card-fit{
-        font-size:16px;
-      }
-
-      .forwho-grid,
-      .orientation-grid,
-      .faq-grid,
-      .process-grid{
-        grid-template-columns:1fr;
-      }
-
-      .process-card h3,
-      .experience-card h3{
-        font-size:25px;
-      }
-
-      .experience-card p,
-      .process-card p{
-        font-size:16px;
-      }
-
-      .cta{
-        padding:26px 22px;
-        border-radius:26px;
-        gap:22px;
-      }
-
-      .cta-box{
-        padding:22px;
-      }
-
-      .contact-mail{
-        font-size:24px;
-      }
-
-      .contact-list{
-        font-size:14px;
-      }
-
-      .footer-inner{
-        padding:58px 16px;
-      }
-
-      .footer-inner h2{
-        font-size:32px;
-      }
-
-      .ornaments svg{
-        opacity:0.42;
-      }
-
-      .orn-top-left{width:210px;top:126px;left:-14px;}
-      .orn-top-right{width:180px;top:170px;right:-18px;}
-      .orn-bottom-left{width:180px;bottom:250px;left:-18px;}
-      .orn-bottom-right{width:250px;bottom:30px;right:-28px;}
-      .orn-center{width:42px;top:124px;}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klar &amp; Kunter – Kreative Workshops für Frauen</title>
+
+<style>
+:root{
+--bg:#ffffff;
+--soft:#f5f3ef;
+--text:#1a1a1a;
+--muted:#6b6b6b;
+}
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+color:var(--text);
+background:var(--bg);
+line-height:1.6;
+}
+
+h1,h2,h3{
+font-family:Georgia, serif;
+font-weight:400;
+margin:0;
+}
+
+.hero{
+position:relative;
+height:90vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2018.jpg") center/cover no-repeat;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.35);
+}
+
+.hero-inner{
+position:relative;
+max-width:900px;
+padding:20px;
+}
+
+.hero small{
+letter-spacing:3px;
+font-size:12px;
+opacity:0.9;
+}
+
+.hero h1{
+font-size:56px;
+margin:20px 0;
+}
+
+.hero p{
+font-size:20px;
+max-width:700px;
+margin:auto;
+}
+
+.section{
+padding:100px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+.split{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.split img{
+width:100%;
+border-radius:20px;
+}
+
+.eyebrow{
+letter-spacing:2px;
+font-size:12px;
+color:var(--muted);
+margin-bottom:20px;
+}
+
+.big{
+font-size:44px;
+margin-bottom:20px;
+}
+
+.text{
+color:var(--muted);
+font-size:18px;
+}
+
+.statement{
+background:var(--soft);
+padding:120px 20px;
+text-align:center;
+}
+
+.statement h2{
+font-size:56px;
+max-width:900px;
+margin:auto;
+}
+
+.examples{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+margin-top:60px;
+}
+
+.example{
+background:var(--soft);
+padding:25px;
+border-radius:12px;
+}
+
+.example p{
+display:-webkit-box;
+-webkit-line-clamp:2;
+-webkit-box-orient:vertical;
+overflow:hidden;
+}
+
+@media(max-width:900px){
+.split{
+grid-template-columns:1fr;
+}
+.hero h1{
+font-size:40px;
+}
+.statement h2{
+font-size:36px;
+}
+.examples{
+grid-template-columns:1fr;
+}
+}
+</style>
 </head>
+
 <body>
-  <div class="page">
 
-    <div class="ornaments" aria-hidden="true">
-      <svg class="orn-top-left" viewBox="0 0 420 240">
-        <path d="M20 150c28-12 68-23 116-31 24-4 40-18 49-40l16-42c5-15 18-25 35-28l31-6" />
-        <path d="M30 166c24 7 55 11 88 11 30 0 55-10 76-29" />
-        <path d="M208 34l58 105" />
-        <path d="M231 29l56 101" />
-        <path d="M253 28l50 92" />
-        <path d="M279 130c8 7 24 8 35 2" />
-        <rect x="278" y="34" width="96" height="118" rx="6" />
-        <path d="M294 49h62M294 66h62M294 83h62M294 100h46" />
-        <path d="M270 132l32 30" />
-        <path d="M303 162l18 18" />
-      </svg>
+<section class="hero">
+<div class="hero-inner">
+<small>KREATIVE WORKSHOPS FÜR FRAUEN IN BERLIN</small>
+<h1>Lade Deine Kreativität auf</h1>
+<p>Kreative Auszeiten für Frauen, die mit den Händen gestalten und etwas Echtes schaffen möchten.</p>
+</div>
+</section>
 
-      <svg class="orn-top-right" viewBox="0 0 320 260">
-        <path d="M122 34c46-3 90 20 110 60 14 31 13 67-7 89-13 14-31 19-48 14-12-4-21 4-20 16 1 19-15 30-33 27-50-9-85-55-86-106-2-52 35-96 84-100z" />
-        <circle cx="126" cy="78" r="8" />
-        <circle cx="169" cy="66" r="8" />
-        <circle cx="205" cy="93" r="8" />
-        <circle cx="193" cy="134" r="8" />
-        <path d="M236 30l48 48" />
-        <path d="M246 20l54 54" />
-        <path d="M229 39l-14 15" />
-        <path d="M292 81l-18 18" />
-      </svg>
+<section class="section split">
+<img src="https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2023.jpg">
 
-      <svg class="orn-bottom-left" viewBox="0 0 360 250">
-        <circle cx="58" cy="136" r="24" />
-        <circle cx="110" cy="158" r="24" />
-        <path d="M76 118l100-92" />
-        <path d="M98 172l95-108" />
-        <path d="M179 28l25-13 22 21-13 26" />
-        <path d="M214 118l46 18" />
-        <path d="M229 86l82 31-30 78-82-31z" />
-        <path d="M243 102l40 15" />
-        <path d="M233 127l39 15" />
-        <path d="M223 153l38 15" />
-      </svg>
+<div>
+<div class="eyebrow">WAS KLAR &amp; KUNTER BESONDERS MACHT</div>
+<h2 class="big">Der Weg zu mehr Kreativität darf leicht beginnen</h2>
+<p class="text">
+Viele Frauen glauben, sie seien nicht kreativ. Dabei fehlt oft nicht das Talent, sondern der richtige Einstieg.
+Ein guter Rahmen. Gute Materialien. Eine Atmosphäre, in der man sich traut anzufangen.
+<br><br>
+Klar &amp; Kunter schafft genau diesen Anfang: nicht verkopft, nicht virtuell – sondern sinnlich und mit echter Freude am Tun.
+</p>
+</div>
+</section>
 
-      <svg class="orn-bottom-right" viewBox="0 0 470 280">
-        <path d="M78 186l78-19 24 52-78 19z" />
-        <path d="M92 180l-11-36 48-12 11 36" />
-        <path d="M105 172l32-8" />
-        <path d="M216 204l82-13 12 58-82 13z" />
-        <path d="M233 193l-5-34 50-7 5 34" />
-        <path d="M240 188l35-5" />
-        <rect x="318" y="84" width="110" height="25" rx="3" transform="rotate(22 318 84)" />
-        <path d="M330 90l82 33" />
-        <path d="M343 84l-3 9M360 90l-3 9M377 97l-3 9M394 104l-3 9" />
-        <path d="M34 130l120-86" />
-        <path d="M146 48l30-22" />
-        <path d="M40 133l20 22" />
-      </svg>
+<section class="statement">
+<h2>
+Kreativität kennt kein Alter. Kunst ist eine Leidenschaft, kein Können.
+</h2>
 
-      <svg class="orn-center" viewBox="0 0 60 60">
-        <circle cx="30" cy="30" r="18" />
-        <path d="M18 30c4-7 10-11 18-11 8 0 14 4 18 11-4 7-10 11-18 11-8 0-14-4-18-11z" />
-        <circle cx="30" cy="30" r="4" />
-      </svg>
-    </div>
+<div class="examples">
 
-    <header>
-      <div class="header-inner">
-        <p class="brand">KLAR &amp; KUNTER</p>
-        <nav>
-          <a href="#about">Über</a>
-          <a href="#workshops">Workshops</a>
-          <a href="#ablauf">Ablauf</a>
-          <a href="#ueber-mich">Über mich</a>
-          <a href="#faq">FAQ</a>
-          <a href="#kontakt">Kontakt</a>
-          <a href="#impressum">Impressum</a>
-        </nav>
-      </div>
-    </header>
+<div class="example">
+<p>Du sitzt am Tisch, Farben vor dir und beginnst einfach – ohne Plan, aber mit Neugier.</p>
+</div>
 
-    <section class="hero">
-      <div class="container">
-        <div class="hero-inner">
-          <p class="eyebrow">Kreative Workshops für Frauen in Berlin</p>
-          <h1>Lade Deine Kreativität auf!</h1>
-          <p class="hero-subline">Kreative Auszeiten für Frauen, die mit den Händen gestalten, etwas Echtes schaffen möchten.</p>
-          <p class="hero-note">Kein virtueller Kurs. Kein therapeutisches Setting. Sondern ein schöner, hochwertiger Raum für Farbe, Material, Leichtigkeit und echte kreative Erfahrung.</p>
+<div class="example">
+<p>Du kombinierst Materialien, spürst Strukturen und findest Schritt für Schritt deinen eigenen Ausdruck.</p>
+</div>
 
-          <div class="hero-facts">
-            <span>Ohne Vorkenntnisse</span>
-            <span>Mit guten Materialien</span>
-            <span>Echt statt virtuell</span>
-          </div>
+<div class="example">
+<p>Ein Moment, in dem alles leiser wird und du ganz bei dir und deinem Tun bist.</p>
+</div>
 
-          <div class="button-row">
-            <a href="#kontakt" class="btn btn-light">Workshop anfragen</a>
-            <a href="#workshops" class="btn btn-secondary">Workshops entdecken</a>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="example">
+<p>Du gehst nach Hause mit etwas, das du selbst geschaffen hast – und mit einem neuen Gefühl für dich.</p>
+</div>
 
-    <div class="container">
-      <div class="intro-band">
-        <div>
-          <strong>Analoge Kreativität</strong>
-          Kein Bildschirm. Kein Leistungsdruck. Sondern Material, Farbe und echtes Gestalten.
-        </div>
-        <div>
-          <strong>Ruhiger Rahmen</strong>
-          Ein hochwertiger, warmer Raum, der den Einstieg leicht und angenehm macht.
-        </div>
-        <div>
-          <strong>Mit Freude anfangen</strong>
-          Für Frauen, die wieder mehr Leichtigkeit, Ausdruck und Vertrauen erleben möchten.
-        </div>
-      </div>
-    </div>
+</div>
+</section>
 
-    <section class="section" id="about">
-      <div class="container">
-        <div class="about-wrap">
-          <h2>Kreativität kennt kein Alter. Kunst ist eine Leidenschaft, kein Können.</h2>
-
-          <div class="about-layout">
-            <div class="about-text">
-              <p>Klar &amp; Kunter ist für Frauen, die wieder etwas mit den Händen machen möchten. Für Frauen, die spüren, dass ihnen Farbe, Gestalten und ein echter kreativer Ausgleich im Alltag fehlen.</p>
-              <p>Hier geht es nicht darum, etwas perfekt zu können. Sondern darum, wieder ins Machen zu kommen. In kleinen Schritten. Mit Freude. Mit Material. Mit einem Rahmen, der leicht macht, was sich allein oft schwer anfühlt.</p>
-              <p>Der Weg zu mehr Kreativität beginnt nicht digital und nicht am Bildschirm. Sondern mit Papier, Farbe, Oberfläche, Schere, Leim und dem Moment, in dem aus Zögern plötzlich etwas Tolles entsteht.</p>
-
-              <div class="editorial-quote">Nicht mehr leisten müssen. Sondern wieder mit Freude anfangen.</div>
-            </div>
-
-            <div class="about-box">
-              <h3>Was Dich erwartet</h3>
-              <p>Ein ruhiger Workshop-Rahmen, in dem Du Dich wohl fühlst. Gute Materialien. Ein leichter Einstieg. Begleitung ohne Druck. Und das schöne Gefühl, wieder etwas Eigenes geschaffen zu haben.</p>
-
-              <div class="about-points">
-                <div class="about-point">
-                  <strong>Für Anfängerinnen geeignet</strong>
-                  Du musst nichts können und nichts beweisen.
-                </div>
-                <div class="about-point">
-                  <strong>Freude statt Bewertung</strong>
-                  Nicht Leistung steht im Mittelpunkt, sondern Lust am Gestalten.
-                </div>
-                <div class="about-point">
-                  <strong>Mehr Vertrauen in Dich selbst</strong>
-                  Kreativität wächst oft genau dann, wenn man einfach anfangen darf.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft">
-      <div class="container">
-        <div class="section-head">
-          <h2>Dieser Workshop ist für Dich, wenn …</h2>
-          <p>… Du Dir wieder mehr kreative Leichtigkeit wünschst und einen echten, analogen Raum suchst, in dem Du ohne Druck ins Gestalten kommst.</p>
-        </div>
-
-        <div class="forwho-grid">
-          <div class="forwho-card">
-            <h3>Du lange nichts Kreatives gemacht hast</h3>
-            <p>Und Dir einen freundlichen, inspirierenden Wiedereinstieg wünschst, der Dich nicht überfordert.</p>
-          </div>
-          <div class="forwho-card">
-            <h3>Du etwas Echtes suchst</h3>
-            <p>Nicht noch mehr Bildschirmzeit, sondern Farbe an den Händen, Papier auf dem Tisch und spürbares Arbeiten mit Material.</p>
-          </div>
-          <div class="forwho-card">
-            <h3>Du wieder mehr an Dich glauben möchtest</h3>
-            <p>Weil Kreativität oft genau dann wächst, wenn man merkt: Ich lasse etwas entstehen.</p>
-          </div>
-          <div class="forwho-card">
-            <h3>Du Freude statt Schwere möchtest</h3>
-            <p>Die Workshops sind kein therapeutischer Raum, sondern eine Einladung zu Leichtigkeit, Ausdruck und echtem Gestalten.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft">
-      <div class="container">
-        <div class="statement">
-          <div class="statement-image"></div>
-          <div class="statement-copy">
-            <p class="eyebrow">Was Klar &amp; Kunter besonders macht</p>
-            <h2>Der Weg zu mehr Kreativität darf leicht beginnen</h2>
-            <p>Viele Frauen glauben, sie seien nicht kreativ. Dabei fehlt oft nicht das Talent, sondern nur der richtige Einstieg. Ein guter Rahmen. Gute Materialien. Eine Atmosphäre, in der man sich traut anzufangen.</p>
-            <p>Klar &amp; Kunter schafft genau diesen Anfang: nicht verkopft, nicht virtuell – sondern sinnlich und mit echter Freude am Tun.</p>
-            <div class="statement-quote">„Nicht perfekt werden. Sondern wieder Lust bekommen und sich selbst überraschen.“</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="workshops">
-      <div class="container">
-
-        <div class="workshops-head">
-          <h2>Workshops</h2>
-          <p class="workshops-sub">Vier Formate, vier Stimmungen – zum Ankommen, Experimentieren, Gestalten und freien Arbeiten. Jeder Workshop unterstützt auf seine Weise den Weg zurück in die eigene Kreativität.</p>
-        </div>
-
-        <div class="workshops">
-          <div class="card card1">
-            <div class="card-content">
-              <div class="card-meta">2 Stunden · 39 €</div>
-              <h3>Reset &amp; Kreativstart</h3>
-              <p>Ein sanfter Einstieg ins kreative Arbeiten – mit Farbe, Leichtigkeit und ersten überraschenden Erlebnissen.</p>
-              <div class="card-fit">Ideal für Dich, wenn Du lange nichts Kreatives gemacht hast und einen schönen, unkomplizierten Anfang suchst.</div>
-            </div>
-          </div>
-
-          <div class="card card2">
-            <div class="card-content">
-              <div class="card-meta">1,5 Stunden · 29 €</div>
-              <h3>Freies Atelier</h3>
-              <p>Ein offener Raum für eigenes Gestalten, Inspiration und kreatives Arbeiten ohne Leistungsdruck.</p>
-              <div class="card-fit">Ideal für Dich, wenn Du Raum für Dein Tempo möchtest und gerne Materialien kennen- und ausprobieren möchtest.</div>
-            </div>
-          </div>
-
-          <div class="card card3">
-            <div class="card-content">
-              <div class="card-meta">2,5 Stunden · 49 €</div>
-              <h3>Collage &amp; Story</h3>
-              <p>Bilder, Papier und Komposition verbinden sich zu einer visuellen Geschichte mit persönlichem Ausdruck.</p>
-              <div class="card-fit">Ideal für Dich, wenn Du gerne sammelst, kombinierst und aus einzelnen Elementen etwas Eigenes entstehen lassen möchtest.</div>
-            </div>
-          </div>
-
-          <div class="card card4">
-            <div class="card-content">
-              <div class="card-meta">2,5 Stunden · 49 €</div>
-              <h3>Materiallabor</h3>
-              <p>Experimentieren mit Oberflächen, Strukturen und überraschenden Materialkombinationen.</p>
-              <div class="card-fit">Ideal für Dich, wenn Du neugierig bist und auch dreidimensionale neue kreative Wege entdecken möchtest.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="mini-cta">
-          <div>
-            <h3>Noch unsicher, welches Format zu Dir passt?</h3>
-            <p>Schreib uns gern. Wir helfen Dir dabei, den Workshop zu finden, der sich für Deinen Einstieg oder Deine aktuelle kreative Lust am stimmigsten anfühlt.</p>
-          </div>
-          <div class="mini-cta-action">
-            <a href="#kontakt" class="btn btn-primary">Jetzt unverbindlich anfragen</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="section section-soft">
-      <div class="container">
-        <div class="section-head">
-          <h2>Welcher Workshop passt zu Dir?</h2>
-          <p>Eine kleine Orientierung für Dich, wenn Du schon Interesse hast, aber noch überlegst, womit Du am liebsten beginnen möchtest.</p>
-        </div>
-
-        <div class="orientation-grid">
-          <div class="orientation-card">
-            <h3>Reset &amp; Kreativstart</h3>
-            <p>Wenn Du leicht anfangen möchtest und nach langer Zeit wieder ins kreative Tun kommen willst.</p>
-          </div>
-          <div class="orientation-card">
-            <h3>Freies Atelier</h3>
-            <p>Wenn Du eher Raum als enge Anleitung suchst und Dich von Material und Stimmung tragen lassen möchtest.</p>
-          </div>
-          <div class="orientation-card">
-            <h3>Collage &amp; Story</h3>
-            <p>Wenn Du gerne mit Bildern, Papier, Komposition und persönlichem Ausdruck arbeitest.</p>
-          </div>
-          <div class="orientation-card">
-            <h3>Materiallabor</h3>
-            <p>Wenn Dich Strukturen, Oberflächen und experimentelles Arbeiten besonders reizen.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="ablauf">
-      <div class="container">
-        <div class="section-head">
-          <h2>So läuft ein Workshop ab</h2>
-          <p>Strukturiert genug, um Sicherheit zu geben. Offen genug, damit Freude, eigenes Ausprobieren und echtes Gestalten entstehen können.</p>
-        </div>
-
-        <div class="process-grid">
-          <div class="process-card">
-            <div class="process-number">01</div>
-            <h3>Ankommen</h3>
-            <p>Du kommst in Ruhe an, lernst Raum, Material und Stimmung kennen und musst erst einmal gar nichts leisten.</p>
-          </div>
-          <div class="process-card">
-            <div class="process-number">02</div>
-            <h3>Einstieg</h3>
-            <p>Mit kleinen, gut zugänglichen Impulsen wird der Anfang leicht – auch dann, wenn Du Dich eigentlich (noch) nicht kreativ fühlst.</p>
-          </div>
-          <div class="process-card">
-            <div class="process-number">03</div>
-            <h3>Gestalten</h3>
-            <p>Du arbeitest mit Farben, Papier oder Material und entwickelst Schritt für Schritt etwas Eigenes.</p>
-          </div>
-          <div class="process-card">
-            <div class="process-number">04</div>
-            <h3>Vertiefen</h3>
-            <p>Je nach Format gibt es Raum für freieres Arbeiten, Entdecken, Verwerfen, Neuansetzen und eigenes Tempo.</p>
-          </div>
-          <div class="process-card">
-            <div class="process-number">05</div>
-            <h3>Mitnehmen</h3>
-            <p>Du gehst mit Deinem Werk nach Hause – und oft mit deutlich mehr Freude und Zutrauen als Du vorher hattest.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft">
-      <div class="container">
-        <div class="section-head">
-          <h2>Warum Frauen unsere Workshops mögen</h2>
-          <p>Weil sie echt sind. Weil man hier mit den Händen arbeitet. Weil Freude entsteht. Und weil kreatives Tun oft ganz nebenbei wieder mehr Vertrauen in die eigene Fähigkeit weckt.</p>
-        </div>
-
-        <div class="experience-grid">
-          <div class="experience-card">
-            <h3>Raus aus dem Digitalen</h3>
-            <p>Für ein paar Stunden geht es nicht um Bildschirm, Tempo oder Input – sondern um Material, Farbe, Berührung und Gegenwart.</p>
-          </div>
-          <div class="experience-card">
-            <h3>Wieder ins Machen kommen</h3>
-            <p>Viele vermissen Kreativität, finden allein aber keinen Anfang. Im Workshop wird der erste Schritt leicht und selbstverständlich.</p>
-          </div>
-          <div class="experience-card">
-            <h3>Mit neuer Zuversicht nach Hause gehen</h3>
-            <p>Oft ist das Schönste nicht nur das entstandene Werk, sondern das Gefühl: Ich kann gestalten. Ich kann anfangen. Ich kann mehr als ich dachte.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="ueber-mich">
-      <div class="container">
-        <div class="founder">
-          <div class="founder-image"></div>
-          <div class="founder-copy">
-            <p class="eyebrow">Über mich</p>
-            <h2>Ich biete keine klassischen Malkurse an. Sondern Freude an Kreativität.</h2>
-            <p>Das Schönste ist für mich: Kreativität kennt kein Alter. Jeder kann mitmachen. Ob Mutter und Tochter, Freundinnen oder Du allein. Es geht nicht um Leistung, sondern um eine echte Freude, die den Geist lebendig hält.</p>
-            <p>Ich war 15 Jahre lang Geschäftsführerin von zwei Eventagenturen für Teambuilding und Corporate Events. Jetzt möchte ich Frauen mit meiner Erfahrung helfen, wieder ein Team mit sich selbst zu werden. Nach meiner Fortbildung zur Kunsttherapie-Praktikerin habe ich erlebt, wie kraftvoll kreatives Arbeiten sein kann. Mit Klar &amp; Kunter möchte ich diese Erfahrung bewusst in einen anderen Rahmen bringen: nicht therapeutisch, sondern leicht, schön und alltagsnah.</p>
-            <p>Mir geht es darum, Frauen wieder näher an ihre eigene Kreativität zu bringen. An das gute Gefühl, mit den Händen etwas Echtes zu schaffen. An den Moment, in dem aus Unsicherheit Neugier wird – und aus Neugier wieder mehr Vertrauen in sich selbst.</p>
-            <div class="founder-note">Ich glaube: Mehr Kreativität beginnt oft nicht mit einem großen Vorsatz, sondern mit einem Tisch, guten Materialien und der Erlaubnis, einfach anzufangen.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="faq">
-      <div class="container">
-        <div class="section-head">
-          <h2>Häufige Fragen</h2>
-          <p>Gerade wenn man länger nichts Kreatives gemacht hat, tauchen oft dieselben Fragen auf. Genau dafür ist diese Seite da: um Unsicherheit kleiner und Vorfreude größer zu machen.</p>
-        </div>
-
-        <div class="faq-grid">
-          <div class="faq-item">
-            <h3>Brauche ich Vorkenntnisse?</h3>
-            <p>Nein. Die Workshops sind bewusst so aufgebaut, dass auch Anfängerinnen leicht einsteigen können.</p>
-          </div>
-          <div class="faq-item">
-            <h3>Kann ich eigene Ideen umsetzen?</h3>
-            <p>Ja. Im offenen Atelier kannst Du Dein Projekt umsetzen. Wir teilen Ideen und helfen uns bei der Umsetzung. Bei besonderen Vorhaben besprechen wir benötigte Materialien ab.</p>
-          </div>
-          <div class="faq-item">
-            <h3>Muss ich etwas mitbringen?</h3>
-            <p>Absolut nichts. Wir haben alles da, was benötigt wird. Bei bestimmten Projekten kann nach Absprache eine Materialpauschale für größere Projekte anfallen.</p>
-          </div>
-          <div class="faq-item">
-            <h3>Kann ich allein kommen?</h3>
-            <p>Ja. Gerade das ist für viele Frauen wichtig. Die Workshops sind so gedacht, dass man sich auch allein schnell wohlfühlt.</p>
-          </div>
-          <div class="faq-item">
-            <h3>Was, wenn ich denke, ich bin nicht kreativ?</h3>
-            <p>Dann bist Du hier sehr wahrscheinlich genau richtig. Die Formate helfen dabei, den Anfang leicht zu machen und wieder Vertrauen in die eigene Kreativität zu finden.</p>
-          </div>
-          <div class="faq-item">
-            <h3>Wie melde ich mich an?</h3>
-            <p>Im Moment ganz einfach per E-Mail. So können Fragen, Termine und passende Formate persönlich abgestimmt werden.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="kontakt">
-      <div class="container">
-        <div class="cta">
-          <div>
-            <h2>Lust auf einen Workshop bekommen?</h2>
-            <p>Du möchtest teilnehmen, einen Termin anfragen oder herausfinden, welches Format gut zu Dir passt? Dann schreib uns gern. Ob erste Frage, Einzelanfrage oder Interesse an einer kleinen Gruppe – wir freuen uns auf Deine Nachricht.</p>
-            <div class="button-row">
-              <a href="mailto:klarundkunter@gmail.com" class="btn btn-primary">Jetzt unverbindlich anfragen</a>
-            </div>
-          </div>
-          <div class="cta-box">
-            <p>Für Anfragen, Termine und Fragen:</p>
-            <a class="contact-mail" href="mailto:klarundkunter@gmail.com">klarundkunter@gmail.com</a>
-            <div class="contact-list">
-              <div>Teilnahme anfragen</div>
-              <div>Passenden Workshop finden</div>
-              <div>Fragen zu Formaten und Terminen stellen</div>
-              <div>Interesse an privaten Gruppen äußern</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer id="impressum">
-      <div class="footer-inner">
-        <h2>Impressum</h2>
-        <p><strong>Angaben gemäß § 5 TMG</strong></p>
-        <p>
-          Jeannette Sachse<br>
-          Akazienallee 40<br>
-          14050 Berlin<br>
-          Deutschland
-        </p>
-        <p>E-Mail: klarundkunter@gmail.com</p>
-      </div>
-    </footer>
-
-  </div>
 </body>
 </html>
