@@ -12,7 +12,7 @@
     :root{
       --bg:#f7f2ea;
       --paper:#fbf8f3;
-      --soft:#f2eadf;
+      --soft:#f3ece2;
       --sand:#e9dccb;
       --line:rgba(30,28,24,0.10);
       --text:#1f1a17;
@@ -47,8 +47,8 @@
       margin:0;
       font-family:var(--serif);
       font-weight:400;
-      line-height:1.05;
-      letter-spacing:-0.035em;
+      line-height:1.08;
+      letter-spacing:-0.032em;
     }
 
     .page{
@@ -56,10 +56,10 @@
       min-height:100vh;
       margin:12px;
       background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.55), transparent 36%),
-        radial-gradient(circle at bottom right, rgba(255,255,255,0.38), transparent 28%),
+        radial-gradient(circle at top left, rgba(255,255,255,0.58), transparent 36%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,0.34), transparent 28%),
         var(--bg);
-      border:1px solid rgba(255,255,255,0.75);
+      border:1px solid rgba(255,255,255,0.76);
       overflow:hidden;
     }
 
@@ -82,13 +82,13 @@
     }
 
     .section{
-      padding:110px 0;
+      padding:108px 0;
       position:relative;
       z-index:3;
     }
 
     .section-soft{
-      background:rgba(255,255,255,0.26);
+      background:rgba(255,255,255,0.22);
     }
 
     .eyebrow{
@@ -104,16 +104,16 @@
       grid-template-columns:1.05fr 0.95fr;
       gap:34px;
       align-items:end;
-      margin-bottom:38px;
+      margin-bottom:40px;
     }
 
     .section-head h2{
-      font-size:54px;
-      max-width:11ch;
+      font-size:46px;
+      max-width:12ch;
     }
 
     .section-head p{
-      font-size:19px;
+      font-size:18px;
       color:var(--muted);
       max-width:560px;
       justify-self:end;
@@ -181,11 +181,13 @@
     .header-inner{
       max-width:var(--max);
       margin:0 auto;
-      padding:18px 24px;
+      padding:18px 24px 16px;
       display:flex;
-      justify-content:space-between;
+      flex-direction:column;
       align-items:center;
-      gap:24px;
+      justify-content:center;
+      gap:10px;
+      text-align:center;
     }
 
     .brand{
@@ -199,7 +201,7 @@
 
     nav{
       display:flex;
-      justify-content:flex-end;
+      justify-content:center;
       align-items:center;
       gap:28px;
       flex-wrap:wrap;
@@ -219,9 +221,9 @@
       min-height:100vh;
       display:flex;
       align-items:flex-end;
-      padding:180px 0 72px 0;
+      padding:210px 0 78px 0;
       background:
-        linear-gradient(rgba(0,0,0,0.22), rgba(0,0,0,0.34)),
+        linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.35)),
         url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2018.jpg") center center/cover no-repeat;
       color:#ffffff;
       position:relative;
@@ -232,14 +234,16 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(to top, rgba(0,0,0,0.08), rgba(0,0,0,0.00));
+      background:linear-gradient(to top, rgba(0,0,0,0.10), rgba(0,0,0,0.00));
       pointer-events:none;
     }
 
     .hero-inner{
-      max-width:920px;
+      max-width:880px;
       position:relative;
       z-index:3;
+      text-align:center;
+      margin:0 auto;
     }
 
     .hero .eyebrow{
@@ -248,24 +252,25 @@
     }
 
     .hero h1{
-      font-size:84px;
-      max-width:10.8ch;
+      font-size:72px;
+      max-width:11ch;
+      margin:0 auto;
     }
 
     .hero p{
-      font-size:22px;
+      font-size:21px;
       max-width:720px;
-      margin:28px 0 0 0;
+      margin:26px auto 0;
     }
 
     .hero-subline{font-weight:500;}
 
     .hero-note{
       font-size:17px;
-      line-height:1.7;
+      line-height:1.72;
       color:rgba(255,255,255,0.92);
       max-width:650px;
-      margin-top:22px;
+      margin:20px auto 0;
     }
 
     .hero-facts{
@@ -273,6 +278,7 @@
       flex-wrap:wrap;
       gap:12px;
       margin-top:28px;
+      justify-content:center;
     }
 
     .hero-facts span{
@@ -287,15 +293,47 @@
       color:#ffffff;
     }
 
+    .hero .button-row{
+      justify-content:center;
+    }
+
+    .intro-band{
+      padding:26px 30px;
+      background:rgba(255,255,255,0.52);
+      border:1px solid rgba(31,26,23,0.08);
+      border-radius:20px;
+      margin-top:-36px;
+      position:relative;
+      z-index:4;
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:24px;
+    }
+
+    .intro-band div{
+      font-size:15px;
+      color:var(--muted);
+      padding-top:6px;
+      border-top:1px solid rgba(31,26,23,0.10);
+    }
+
+    .intro-band strong{
+      display:block;
+      color:var(--text);
+      margin-bottom:6px;
+      font-size:15px;
+    }
+
     .about-wrap{
       max-width:920px;
       margin:0 auto;
     }
 
     .about-wrap h2{
-      font-size:54px;
+      font-size:46px;
       margin-bottom:28px;
-      max-width:12ch;
+      max-width:13ch;
     }
 
     .about-layout{
@@ -306,22 +344,22 @@
     }
 
     .about-text{
-      font-size:22px;
-      line-height:1.72;
+      font-size:21px;
+      line-height:1.74;
       color:#433b36;
     }
 
     .about-text p{margin:0 0 22px 0;}
 
     .about-box{
-      background:rgba(255,255,255,0.42);
+      background:rgba(255,255,255,0.44);
       border-radius:var(--radius);
       padding:34px 30px;
       border:1px solid rgba(31,26,23,0.06);
     }
 
     .about-box h3{
-      font-size:34px;
+      font-size:30px;
       margin-bottom:16px;
     }
 
@@ -348,6 +386,17 @@
       margin-bottom:6px;
     }
 
+    .editorial-quote{
+      margin-top:32px;
+      padding:24px 0 0;
+      border-top:1px solid var(--line);
+      max-width:560px;
+      font-family:var(--serif);
+      font-size:28px;
+      line-height:1.3;
+      color:#2b241f;
+    }
+
     .forwho-grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
@@ -362,7 +411,7 @@
     }
 
     .forwho-card h3{
-      font-size:31px;
+      font-size:28px;
       margin-bottom:12px;
     }
 
@@ -393,13 +442,13 @@
     }
 
     .statement-copy h2{
-      font-size:54px;
-      max-width:10ch;
+      font-size:46px;
+      max-width:11ch;
       margin-bottom:22px;
     }
 
     .statement-copy p{
-      font-size:20px;
+      font-size:19px;
       color:var(--muted);
       max-width:620px;
     }
@@ -409,8 +458,8 @@
       padding-top:22px;
       border-top:1px solid var(--line);
       font-family:var(--serif);
-      font-size:30px;
-      line-height:1.25;
+      font-size:27px;
+      line-height:1.28;
       max-width:560px;
     }
 
@@ -423,7 +472,7 @@
     }
 
     .workshops-head h2{
-      font-size:54px;
+      font-size:46px;
     }
 
     .workshops-sub{
@@ -440,7 +489,7 @@
 
     .card{
       position:relative;
-      min-height:480px;
+      min-height:470px;
       display:flex;
       align-items:flex-end;
       overflow:hidden;
@@ -453,7 +502,7 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.18) 56%, rgba(0,0,0,0.08) 100%);
+      background:linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.18) 56%, rgba(0,0,0,0.08) 100%);
       z-index:1;
     }
 
@@ -465,7 +514,7 @@
     }
 
     .card h3{
-      font-size:36px;
+      font-size:32px;
       margin:0 0 10px 0;
     }
 
@@ -518,7 +567,7 @@
     }
 
     .mini-cta h3{
-      font-size:34px;
+      font-size:30px;
       margin-bottom:10px;
     }
 
@@ -546,7 +595,7 @@
     }
 
     .orientation-card h3{
-      font-size:31px;
+      font-size:28px;
       margin-bottom:10px;
     }
 
@@ -569,13 +618,13 @@
 
     .process-number{
       font-family:var(--serif);
-      font-size:34px;
+      font-size:30px;
       margin-bottom:10px;
       color:#6b625b;
     }
 
     .process-card h3{
-      font-size:26px;
+      font-size:24px;
       margin-bottom:8px;
     }
 
@@ -597,7 +646,7 @@
     }
 
     .experience-card h3{
-      font-size:30px;
+      font-size:27px;
       margin-bottom:10px;
     }
 
@@ -628,13 +677,13 @@
     }
 
     .founder-copy h2{
-      font-size:54px;
+      font-size:44px;
       max-width:11ch;
       margin-bottom:22px;
     }
 
     .founder-copy p{
-      font-size:19px;
+      font-size:18px;
       color:var(--muted);
       max-width:660px;
     }
@@ -646,6 +695,7 @@
       font-size:17px;
       color:#433b36;
       max-width:640px;
+      font-family:var(--serif);
     }
 
     .faq-grid{
@@ -662,7 +712,7 @@
     }
 
     .faq-item h3{
-      font-size:28px;
+      font-size:26px;
       margin-bottom:10px;
     }
 
@@ -684,13 +734,13 @@
     }
 
     .cta h2{
-      font-size:54px;
-      max-width:10ch;
+      font-size:46px;
+      max-width:11ch;
       margin-bottom:18px;
     }
 
     .cta p{
-      font-size:20px;
+      font-size:19px;
       color:#4d4540;
       max-width:620px;
     }
@@ -709,7 +759,7 @@
 
     .contact-mail{
       display:inline-block;
-      font-size:30px;
+      font-size:28px;
       font-family:var(--serif);
       word-break:break-word;
     }
@@ -738,7 +788,7 @@
     }
 
     .footer-inner h2{
-      font-size:40px;
+      font-size:36px;
       margin-bottom:24px;
     }
 
@@ -746,8 +796,6 @@
       margin:0 0 14px 0;
       color:#4f4844;
     }
-
-    /* Randillustration */
 
     .ornaments{
       position:absolute;
@@ -760,44 +808,44 @@
     .ornaments svg{
       position:absolute;
       fill:none;
-      stroke:rgba(63,69,55,0.82);
-      stroke-width:1.15;
+      stroke:rgba(63,69,55,0.94);
+      stroke-width:1.2;
       stroke-linecap:round;
       stroke-linejoin:round;
-      opacity:0.78;
+      opacity:0.98;
     }
 
     .orn-top-left{
-      width:360px;
-      top:-6px;
+      width:420px;
+      top:110px;
       left:-8px;
       transform:rotate(-5deg);
     }
 
     .orn-top-right{
-      width:290px;
-      top:12px;
+      width:340px;
+      top:142px;
       right:-10px;
       transform:rotate(6deg);
     }
 
     .orn-bottom-left{
-      width:330px;
+      width:360px;
       left:-10px;
-      bottom:120px;
+      bottom:240px;
       transform:rotate(5deg);
     }
 
     .orn-bottom-right{
-      width:410px;
+      width:470px;
       right:-28px;
-      bottom:32px;
+      bottom:36px;
       transform:rotate(-7deg);
     }
 
     .orn-center{
-      width:54px;
-      top:118px;
+      width:58px;
+      top:132px;
       left:50%;
       transform:translateX(-50%);
     }
@@ -809,7 +857,8 @@
       .statement,
       .founder,
       .cta,
-      .mini-cta{
+      .mini-cta,
+      .intro-band{
         grid-template-columns:1fr;
       }
 
@@ -843,6 +892,14 @@
       .mini-cta-action{
         text-align:left;
       }
+
+      .workshops-head{
+        display:block;
+      }
+
+      .workshops-sub{
+        margin-top:12px;
+      }
     }
 
     @media (max-width:760px){
@@ -864,8 +921,6 @@
 
       .header-inner{
         padding:16px;
-        flex-direction:column;
-        align-items:flex-start;
         gap:12px;
       }
 
@@ -876,7 +931,6 @@
 
       nav{
         gap:10px 18px;
-        justify-content:flex-start;
       }
 
       nav a{
@@ -889,17 +943,17 @@
       }
 
       .section{
-        padding:76px 0;
+        padding:74px 0;
       }
 
       .hero{
         min-height:92vh;
-        padding:162px 0 46px 0;
+        padding:188px 0 46px 0;
         align-items:flex-end;
       }
 
       .hero h1{
-        font-size:46px;
+        font-size:44px;
         max-width:100%;
       }
 
@@ -935,13 +989,18 @@
         width:100%;
       }
 
+      .intro-band{
+        padding:22px;
+        margin-top:-18px;
+      }
+
       .about-wrap h2,
       .section-head h2,
       .statement-copy h2,
       .workshops-head h2,
       .founder-copy h2,
       .cta h2{
-        font-size:38px;
+        font-size:36px;
         max-width:100%;
       }
 
@@ -974,7 +1033,7 @@
       .orientation-card h3,
       .faq-item h3,
       .mini-cta h3{
-        font-size:28px;
+        font-size:27px;
       }
 
       .statement{
@@ -987,18 +1046,17 @@
         border-radius:22px;
       }
 
-      .statement-quote{
+      .statement-quote,
+      .editorial-quote{
         font-size:24px;
       }
 
       .workshops-head{
-        display:block;
         margin-bottom:26px;
       }
 
       .workshops-sub{
         font-size:17px;
-        margin-top:12px;
       }
 
       .card{
@@ -1011,7 +1069,7 @@
       }
 
       .card h3{
-        font-size:30px;
+        font-size:29px;
       }
 
       .card p,
@@ -1028,7 +1086,7 @@
 
       .process-card h3,
       .experience-card h3{
-        font-size:26px;
+        font-size:25px;
       }
 
       .experience-card p,
@@ -1059,18 +1117,18 @@
       }
 
       .footer-inner h2{
-        font-size:34px;
+        font-size:32px;
       }
 
       .ornaments svg{
-        opacity:0.34;
+        opacity:0.42;
       }
 
-      .orn-top-left{width:180px;top:110px;left:-14px;}
-      .orn-top-right{width:160px;top:145px;right:-18px;}
-      .orn-bottom-left{width:170px;bottom:220px;left:-18px;}
-      .orn-bottom-right{width:210px;bottom:30px;right:-28px;}
-      .orn-center{width:40px;top:108px;}
+      .orn-top-left{width:210px;top:126px;left:-14px;}
+      .orn-top-right{width:180px;top:170px;right:-18px;}
+      .orn-bottom-left{width:180px;bottom:250px;left:-18px;}
+      .orn-bottom-right{width:250px;bottom:30px;right:-28px;}
+      .orn-center{width:42px;top:124px;}
     }
   </style>
 </head>
@@ -1078,64 +1136,59 @@
   <div class="page">
 
     <div class="ornaments" aria-hidden="true">
-      <!-- oben links: Skizzenbuch mit Pinseln -->
-      <svg class="orn-top-left" viewBox="0 0 360 220">
-        <path d="M20 150c26-12 62-22 102-29 21-4 35-16 43-37l14-38c5-13 16-23 31-26l28-5" />
-        <path d="M28 164c24 6 50 10 78 10 27 0 49-9 67-26" />
-        <path d="M180 34l55 99" />
-        <path d="M201 29l53 96" />
-        <path d="M223 28l48 88" />
-        <path d="M246 124c8 7 22 8 33 2" />
-        <rect x="246" y="34" width="84" height="108" rx="6" />
-        <path d="M260 48h55M260 63h55M260 78h55M260 93h42" />
-        <path d="M238 128l30 28" />
-        <path d="M268 155l18 17" />
+      <svg class="orn-top-left" viewBox="0 0 420 240">
+        <path d="M20 150c28-12 68-23 116-31 24-4 40-18 49-40l16-42c5-15 18-25 35-28l31-6" />
+        <path d="M30 166c24 7 55 11 88 11 30 0 55-10 76-29" />
+        <path d="M208 34l58 105" />
+        <path d="M231 29l56 101" />
+        <path d="M253 28l50 92" />
+        <path d="M279 130c8 7 24 8 35 2" />
+        <rect x="278" y="34" width="96" height="118" rx="6" />
+        <path d="M294 49h62M294 66h62M294 83h62M294 100h46" />
+        <path d="M270 132l32 30" />
+        <path d="M303 162l18 18" />
       </svg>
 
-      <!-- oben rechts: Palette mit Pinsel -->
-      <svg class="orn-top-right" viewBox="0 0 300 250">
-        <path d="M112 34c44-3 85 19 104 58 14 29 12 63-7 84-12 13-30 18-46 13-11-4-20 4-19 15 1 18-14 29-32 26-47-8-81-52-82-101-1-49 33-91 82-95z" />
-        <circle cx="118" cy="76" r="8" />
-        <circle cx="158" cy="64" r="8" />
-        <circle cx="194" cy="90" r="8" />
-        <circle cx="183" cy="129" r="8" />
-        <path d="M226 28l44 44" />
-        <path d="M236 18l50 50" />
-        <path d="M220 35l-14 15" />
-        <path d="M279 75l-18 18" />
+      <svg class="orn-top-right" viewBox="0 0 320 260">
+        <path d="M122 34c46-3 90 20 110 60 14 31 13 67-7 89-13 14-31 19-48 14-12-4-21 4-20 16 1 19-15 30-33 27-50-9-85-55-86-106-2-52 35-96 84-100z" />
+        <circle cx="126" cy="78" r="8" />
+        <circle cx="169" cy="66" r="8" />
+        <circle cx="205" cy="93" r="8" />
+        <circle cx="193" cy="134" r="8" />
+        <path d="M236 30l48 48" />
+        <path d="M246 20l54 54" />
+        <path d="M229 39l-14 15" />
+        <path d="M292 81l-18 18" />
       </svg>
 
-      <!-- unten links: Schere und Tube -->
-      <svg class="orn-bottom-left" viewBox="0 0 340 240">
+      <svg class="orn-bottom-left" viewBox="0 0 360 250">
         <circle cx="58" cy="136" r="24" />
-        <circle cx="108" cy="157" r="24" />
-        <path d="M76 119l94-88" />
-        <path d="M96 171l90-104" />
-        <path d="M173 29l24-12 21 20-13 24" />
-        <path d="M206 117l44 17" />
-        <path d="M220 86l78 30-28 74-79-30z" />
-        <path d="M233 101l38 14" />
-        <path d="M224 125l37 14" />
-        <path d="M214 149l36 14" />
+        <circle cx="110" cy="158" r="24" />
+        <path d="M76 118l100-92" />
+        <path d="M98 172l95-108" />
+        <path d="M179 28l25-13 22 21-13 26" />
+        <path d="M214 118l46 18" />
+        <path d="M229 86l82 31-30 78-82-31z" />
+        <path d="M243 102l40 15" />
+        <path d="M233 127l39 15" />
+        <path d="M223 153l38 15" />
       </svg>
 
-      <!-- unten rechts: Papier, Lineal, Bleistift -->
-      <svg class="orn-bottom-right" viewBox="0 0 430 260">
-        <path d="M76 176l72-18 22 49-72 18z" />
-        <path d="M88 171l-10-34 45-11 10 34" />
-        <path d="M100 164l30-8" />
-        <path d="M194 193l77-12 11 55-77 12z" />
-        <path d="M210 183l-5-32 48-7 5 32" />
-        <path d="M217 178l33-5" />
-        <rect x="292" y="78" width="102" height="24" rx="3" transform="rotate(22 292 78)" />
-        <path d="M303 84l76 31" />
-        <path d="M315 79l-3 9M331 85l-3 9M347 91l-3 9M363 97l-3 9" />
-        <path d="M32 124l112-80" />
-        <path d="M136 48l28-20" />
-        <path d="M38 127l18 20" />
+      <svg class="orn-bottom-right" viewBox="0 0 470 280">
+        <path d="M78 186l78-19 24 52-78 19z" />
+        <path d="M92 180l-11-36 48-12 11 36" />
+        <path d="M105 172l32-8" />
+        <path d="M216 204l82-13 12 58-82 13z" />
+        <path d="M233 193l-5-34 50-7 5 34" />
+        <path d="M240 188l35-5" />
+        <rect x="318" y="84" width="110" height="25" rx="3" transform="rotate(22 318 84)" />
+        <path d="M330 90l82 33" />
+        <path d="M343 84l-3 9M360 90l-3 9M377 97l-3 9M394 104l-3 9" />
+        <path d="M34 130l120-86" />
+        <path d="M146 48l30-22" />
+        <path d="M40 133l20 22" />
       </svg>
 
-      <!-- mittig oben: kleines Atelier-Siegel -->
       <svg class="orn-center" viewBox="0 0 60 60">
         <circle cx="30" cy="30" r="18" />
         <path d="M18 30c4-7 10-11 18-11 8 0 14 4 18 11-4 7-10 11-18 11-8 0-14-4-18-11z" />
@@ -1180,6 +1233,23 @@
       </div>
     </section>
 
+    <div class="container">
+      <div class="intro-band">
+        <div>
+          <strong>Analoge Kreativität</strong>
+          Kein Bildschirm. Kein Leistungsdruck. Sondern Material, Farbe und echtes Gestalten.
+        </div>
+        <div>
+          <strong>Ruhiger Rahmen</strong>
+          Ein hochwertiger, warmer Raum, der den Einstieg leicht und angenehm macht.
+        </div>
+        <div>
+          <strong>Mit Freude anfangen</strong>
+          Für Frauen, die wieder mehr Leichtigkeit, Ausdruck und Vertrauen erleben möchten.
+        </div>
+      </div>
+    </div>
+
     <section class="section" id="about">
       <div class="container">
         <div class="about-wrap">
@@ -1189,7 +1259,9 @@
             <div class="about-text">
               <p>Klar &amp; Kunter ist für Frauen, die wieder etwas mit den Händen machen möchten. Für Frauen, die spüren, dass ihnen Farbe, Gestalten und ein echter kreativer Ausgleich im Alltag fehlen.</p>
               <p>Hier geht es nicht darum, etwas perfekt zu können. Sondern darum, wieder ins Machen zu kommen. In kleinen Schritten. Mit Freude. Mit Material. Mit einem Rahmen, der leicht macht, was sich allein oft schwer anfühlt.</p>
-              <p>Der Weg zu mehr Kreativität beginnt nicht digital und nicht am Bildschirm. Sondern mit Papier, Farbe, Oberfläche, Schere, Leim und dem Moment, in dem aus Zögern plötzlich etwas tolles entsteht.</p>
+              <p>Der Weg zu mehr Kreativität beginnt nicht digital und nicht am Bildschirm. Sondern mit Papier, Farbe, Oberfläche, Schere, Leim und dem Moment, in dem aus Zögern plötzlich etwas Tolles entsteht.</p>
+
+              <div class="editorial-quote">Nicht mehr leisten müssen. Sondern wieder mit Freude anfangen.</div>
             </div>
 
             <div class="about-box">
@@ -1413,10 +1485,10 @@
           <div class="founder-image"></div>
           <div class="founder-copy">
             <p class="eyebrow">Über mich</p>
-            <h2>Ich biete keine klassischen Malkurse an. Sondern Freude an Kreativität. Das Schönste: Kreativität kennt kein Alter. Jeder kann mitmachen. Ob Mutter und Tochter, Freundinnen, Du alleine. Ganz egal. Man muss keine Leistung erbringen. Eine echte Freude, die den Geist lebendig hält.</h2>
-            <p>Ich war 15 Jahre lang Geschäftsführerin von zwei Evetagenturen für Teambuiding und Corporate Events. Jetzt möchte ich Frauen mit meiner Erfahrung helfen wieder ein Team mit sich selbst zu werden. Vertrau Dir, Deiner Inspiration, Deinem Schaffen. Nach meiner Fortbildung zur Kunsttherapie-Praktikerin habe ich erfahren wie kraftvoll kreatives Arbeiten sein kann. Mit Klar &amp; Kunter möchte ich diese Erfahrung bewusst in einen anderen Rahmen bringen: nicht therapeutisch, sondern leicht, schön und alltagsnah.</p>
+            <h2>Ich biete keine klassischen Malkurse an. Sondern Freude an Kreativität.</h2>
+            <p>Das Schönste ist für mich: Kreativität kennt kein Alter. Jeder kann mitmachen. Ob Mutter und Tochter, Freundinnen oder Du allein. Es geht nicht um Leistung, sondern um eine echte Freude, die den Geist lebendig hält.</p>
+            <p>Ich war 15 Jahre lang Geschäftsführerin von zwei Eventagenturen für Teambuilding und Corporate Events. Jetzt möchte ich Frauen mit meiner Erfahrung helfen, wieder ein Team mit sich selbst zu werden. Nach meiner Fortbildung zur Kunsttherapie-Praktikerin habe ich erlebt, wie kraftvoll kreatives Arbeiten sein kann. Mit Klar &amp; Kunter möchte ich diese Erfahrung bewusst in einen anderen Rahmen bringen: nicht therapeutisch, sondern leicht, schön und alltagsnah.</p>
             <p>Mir geht es darum, Frauen wieder näher an ihre eigene Kreativität zu bringen. An das gute Gefühl, mit den Händen etwas Echtes zu schaffen. An den Moment, in dem aus Unsicherheit Neugier wird – und aus Neugier wieder mehr Vertrauen in sich selbst.</p>
-            <p>Deshalb sind Klar &amp; Kunter Workshops keine virtuellen Formate und keine schweren Prozesse. Sie sind analoge, sinnliche und inspirierende Räume, in denen Freude am Gestalten im Mittelpunkt steht.</p>
             <div class="founder-note">Ich glaube: Mehr Kreativität beginnt oft nicht mit einem großen Vorsatz, sondern mit einem Tisch, guten Materialien und der Erlaubnis, einfach anzufangen.</div>
           </div>
         </div>
@@ -1441,7 +1513,7 @@
           </div>
           <div class="faq-item">
             <h3>Muss ich etwas mitbringen?</h3>
-            <p>Absolut nichts. Wir haben alles da was benötigt wird. Bei bestimmten Projekten kann nach Absprache eine Materialpauschale für größere Projekte anfallen.</p>
+            <p>Absolut nichts. Wir haben alles da, was benötigt wird. Bei bestimmten Projekten kann nach Absprache eine Materialpauschale für größere Projekte anfallen.</p>
           </div>
           <div class="faq-item">
             <h3>Kann ich allein kommen?</h3>
