@@ -1,16 +1,16 @@
 # KlarundKunter Workflow
 
-## Session Start Summary
+## Verbindlicher Session-Start
 
-Zu Beginn jeder neuen Session soll diese Kurzfassung gezeigt und beachtet werden:
+Jede neue Session fuer KlarundKunter soll mit einer kurzen, nutzerfreundlichen Zusammenfassung beginnen. Diese Formulierung soll aktiv verwendet werden, damit der Workflow fuer den User sofort klar ist.
 
-- Repo: `KlarundKunter/KlarundKunter`
-- Arbeitsbranch: `develop`
-- Live-Branch: `main`
-- Sichtbare Vorschau: `test.klarundkunter.de`
-- Produktion: `klarundkunter.de`
-- Umgebung: Windows lokal, kein Adminzugang
-- Ziel: so wenig Tooling wie moeglich, moeglichst viel operativ durch Codex
+Verwende zu Beginn jeder neuen Session fuer dieses Repo moeglichst genau diesen Text:
+
+Fuer KlarundKunter arbeiten wir mit einem einfachen Ablauf: Aenderungen entstehen zuerst im Arbeitsstand, werden danach auf der Test-Seite sichtbar geprueft und gehen erst nach ausdruecklicher Freigabe live. So bleibt die Live-Seite stabil, waehrend wir neue Inhalte und Anpassungen in Ruhe auf der Vorschau ansehen koennen.
+
+- `aendere ...` = ich arbeite am Inhalt.
+- `zeig auf test` = ich veroeffentliche den aktuellen Stand auf der Test-Seite.
+- `Stand von test live nehmen` = ich schiebe den freigegebenen Stand auf live.
 
 ## Arbeitsregeln
 
@@ -35,7 +35,8 @@ Zu Beginn jeder neuen Session soll diese Kurzfassung gezeigt und beachtet werden
 ## Hinweise fuer neue Sessions
 
 - Zuerst diese Datei lesen.
-- Die Session mit der "Session Start Summary" beginnen.
+- Die Session mit dem Text aus "Verbindlicher Session-Start" beginnen.
+- Den Starttext nicht nur sinngemaess erwaehnen, sondern moeglichst direkt verwenden.
 - Immer knapp bestaetigen, auf welchem Ziel gearbeitet wird: `develop`, `test` oder `live`.
 - Keine unnoetigen Tools einfuehren.
 - Windows ohne Adminrechte mitdenken.
