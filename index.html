@@ -447,63 +447,261 @@ section[id]{
 .workshops-head{
   display:flex;
   justify-content:space-between;
-  align-items:end;
-  gap:18px;
-  margin-bottom:28px;
+  align-items:flex-start;
+  gap:30px;
+  margin-bottom:34px;
 }
 
-.workshops-grid{
+.workshops-head h2{
+  font-size:clamp(2rem, 4.4vw, 3.25rem);
+  line-height:1.02;
+}
+
+.workshops-intro{
+  max-width:640px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.workshops-sub{
+  max-width:560px;
+  font-size:18px;
+  color:#6a625d;
+  line-height:1.7;
+  margin:0;
+}
+
+.workshops{
   display:grid;
-  grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:26px;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
 }
 
-.workshop-card{
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:var(--radius-xl);
+.card{
+  position:relative;
+  min-height:420px;
+  display:flex;
+  align-items:stretch;
   overflow:hidden;
-  box-shadow:var(--shadow);
-  display:flex;
-  flex-direction:column;
+  color:#ffffff;
+  border-radius:32px;
+  border:1px solid rgba(255,255,255,0.14);
+  box-shadow:0 28px 55px rgba(53,43,38,0.16);
+  isolation:isolate;
+  background-color:#6d625c;
+  transition:transform .25s ease, box-shadow .25s ease;
 }
 
-.workshop-card img{
-  aspect-ratio:1.15/1;
-  object-fit:cover;
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 34px 62px rgba(53,43,38,0.22);
 }
 
-.workshop-content{
-  padding:24px;
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(244,234,225,0.08) 0%, rgba(88,79,74,0.08) 36%, rgba(38,32,29,0.70) 100%);
+  z-index:1;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at top right, rgba(255,255,255,0.34), transparent 34%),
+    linear-gradient(180deg, rgba(17,13,12,0.03) 0%, rgba(17,13,12,0.28) 100%);
+  z-index:1;
+}
+
+.card-content{
+  position:relative;
+  z-index:2;
+  padding:30px;
+  width:100%;
+  background:linear-gradient(180deg, rgba(54,46,42,0.16) 0%, rgba(54,46,42,0.38) 100%);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:28px;
+  backdrop-filter:blur(2px);
   display:flex;
   flex-direction:column;
+  justify-content:flex-start;
   height:100%;
+  gap:18px;
 }
 
-.workshop-card h3{
-  font-size:1.6rem;
-  margin-bottom:10px;
+.card-header{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
 }
 
-.workshop-card p{
-  color:var(--muted);
-  font-size:1rem;
-  margin-bottom:12px;
+.card-kicker{
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(247,238,231,0.18);
+  border:1px solid rgba(255,255,255,0.22);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
 }
 
-.workshop-meta{
+.card h3{
+  margin:0;
+  font-size:clamp(1.85rem, 2.4vw, 2.2rem);
+  max-width:none;
+  white-space:normal;
+  color:#ffffff;
+  text-shadow:0 2px 12px rgba(0,0,0,0.22);
+}
+
+.card p{
+  margin:0;
+  font-size:17px;
+  line-height:1.6;
+  opacity:0.96;
+  color:#ffffff;
+}
+
+.workshop-summary{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:0;
+}
+
+.summary-pill{
+  padding:10px 14px;
+  border-radius:999px;
+  background:#efe5dc;
+  color:#4c413b;
+  font-size:14px;
+  letter-spacing:.03em;
+}
+
+.workshop-copy{
+  padding:20px 22px;
+  background:rgba(48,41,38,0.42);
+  border:1px solid rgba(255,255,255,0.16);
+  border-radius:20px;
+  box-shadow:0 16px 34px rgba(0,0,0,0.10);
+  backdrop-filter:blur(8px);
+}
+
+.workshop-copy p + p{
+  margin-top:10px;
+}
+
+.schedule-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:auto;
+}
+
+.schedule-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  background:rgba(255,255,255,0.14);
+  border:1px solid rgba(255,255,255,0.24);
+  backdrop-filter:blur(8px);
+  padding:18px 18px 16px 18px;
+  border-radius:18px;
+  box-shadow:0 14px 28px rgba(27,19,17,0.12);
+}
+
+.schedule-label{
   font-size:11px;
   letter-spacing:.16em;
   text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:18px;
+  opacity:.86;
+  font-weight:600;
+  margin-bottom:8px;
 }
 
-.workshop-actions{
-  margin-top:auto;
+.schedule-date{
+  font-size:25px;
+  line-height:1.2;
+  margin-bottom:10px;
+  color:#ffffff;
+}
+
+.schedule-time,
+.schedule-location{
+  font-size:14px;
+  line-height:1.5;
+  opacity:.96;
+}
+
+.schedule-time{
+  font-weight:600;
+}
+
+.schedule-location{
+  margin-top:8px;
+  color:rgba(255,255,255,0.9);
+}
+
+.schedule-actions{
+  margin-top:2px;
   display:flex;
   gap:10px;
   flex-wrap:wrap;
+}
+
+.mini-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:11px 15px;
+  border-radius:999px;
+  background:#f7eee7;
+  color:#3e332d;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.03em;
+  border:1px solid transparent;
+  transition:background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.mini-button:hover{
+  background:#ffffff;
+  transform:translateY(-1px);
+}
+
+.mini-button.secondary{
+  background:rgba(255,255,255,0.08);
+  color:#ffffff;
+  border-color:rgba(255,255,255,0.28);
+}
+
+.mini-button.secondary:hover{
+  background:rgba(255,255,255,0.16);
+}
+
+.card1{
+  background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%202.jpg") center/cover no-repeat;
+}
+
+.card2{
+  background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2023.jpg") center/cover no-repeat;
+}
+
+.card3{
+  background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2034.png") center/cover no-repeat;
+}
+
+.card4{
+  background:url("https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2033.png") center/cover no-repeat;
 }
 
 .for-whom{
@@ -846,6 +1044,55 @@ section[id]{
     font-size:2rem;
   }
 }
+
+
+@media (max-width:1000px){
+  .workshops-head{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .card{
+    min-height:360px;
+  }
+
+  .schedule-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:560px){
+  .workshops{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    min-height:300px;
+  }
+
+  .card-content{
+    padding:22px;
+  }
+
+  .card h3{
+    font-size:29px;
+  }
+
+  .card-kicker{
+    font-size:10px;
+    letter-spacing:.14em;
+  }
+
+  .schedule-grid{
+    grid-template-columns:1fr;
+  }
+
+  .summary-pill,
+  .mini-button{
+    width:100%;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -981,7 +1228,7 @@ section[id]{
       <div class="info-card">
         <h3>Termine</h3>
         <span class="info-label">Nächste Runde</span>
-        <div class="info-value">Mai 2026>
+        <div class="info-value">Mai 2026</div>
       </div>
     </div>
   </div>
@@ -990,61 +1237,141 @@ section[id]{
 <section class="section" id="workshops">
   <div class="container">
     <div class="workshops-head">
-      <div>
-        <div class="eyebrow">Workshops</div>
-        <h2 class="section-title">Vier Formate für einen leichten, kreativen Einstieg</h2>
-        <p class="section-copy">Jedes Format hat einen eigenen Schwerpunkt – aber alle sind ruhig, hochwertig und ohne Leistungsdruck gedacht.</p>
+      <h2>Workshops</h2>
+      <div class="workshops-intro">
+        <p class="workshops-sub">Donnerstags von 10:00 bis 12:00 Uhr im Lemy&apos;s Caf&eacute;, Berlin (U-Rehberge), und freitags mit zwei Terminen in der Ulme 35, Berlin (U-Neu-Westend). 24 &euro; inklusive Materialien, nur 8 Pl&auml;tze pro Termin. Mit jeder Buchung finanzierst Du einen kostenlosen Workshop f&uuml;r Menschen mit Fluchtgeschichte.</p>
+        <div class="workshop-summary">
+          <div class="summary-pill">24 &euro; inkl. Materialien</div>
+          <div class="summary-pill">Nur 8 Pl&auml;tze pro Termin</div>
+          <div class="summary-pill">Jede Buchung finanziert einen kostenlosen Workshop</div>
+        </div>
       </div>
     </div>
 
-    <div class="workshops-grid">
-      <article class="workshop-card">
-        <img src="https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2023.jpg" alt="Reset und Kreativstart Workshop" />
-        <div class="workshop-content">
-          <h3>Reset &amp; Kreativstart</h3>
-          <p>Ein sanfter Einstieg für alle, die wieder anfangen möchten. Mit einfachen Impulsen, ausgewählten Materialien und viel Raum zum Ankommen.</p>
-          <div class="workshop-meta">Für Einsteigerinnen · intuitiv · ohne Vorkenntnisse</div>
-          <div class="workshop-actions">
-            <a class="button button-primary" href="mailto:klarundkunter@gmail.com?subject=Anfrage%20Workshopplatz%20%E2%80%93%20Reset%20%26%20Kreativstart&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20den%20Workshop%20%E2%80%9EReset%20%26%20Kreativstart%E2%80%9C.%0A%0AKannst%20du%20mir%20bitte%20mehr%20Infos%20zu%20Terminen%2C%20Ort%20und%20Anmeldung%20schicken%3F%0A%0AViele%20Gr%C3%BC%C3%9Fe">Platz anfragen</a>
+    <div class="workshops">
+      <div class="card card1">
+        <div class="card-content">
+          <div class="card-header">
+            <span class="card-kicker">Workshop 01</span>
+            <h3>Vasen f&uuml;r Dein Interieur</h3>
+          </div>
+          <div class="workshop-copy">
+            <p>Du gestaltest und kreierst Vasen, &Uuml;bert&ouml;pfe und Gef&auml;&szlig;e aus verschiedenen Materialien f&uuml;r Dein Zuhause.</p>
+            <p>Jedes St&uuml;ck wird ein Unikat. Du probierst Dich aus und bringst mehr Farbe in Dein Leben &ndash; Entspannung inklusive.</p>
+          </div>
+          <div class="schedule-grid">
+            <div class="schedule-card">
+              <div class="schedule-label">Donnerstag</div>
+              <div class="schedule-date">07. Mai</div>
+              <div class="schedule-time">10:00&ndash;12:00 Uhr</div>
+              <div class="schedule-location">Lemy&apos;s Caf&eacute;, Berlin<br>(U-Rehberge)</div>
+            </div>
+            <div class="schedule-card">
+              <div class="schedule-label">Freitag</div>
+              <div class="schedule-date">08. Mai</div>
+              <div class="schedule-time">14:00&ndash;16:00 Uhr<br>16:30&ndash;18:30 Uhr</div>
+              <div class="schedule-location">Ulme 35, Berlin<br>(U-Neu-Westend)</div>
+            </div>
+          </div>
+          <div class="schedule-actions">
+            <a class="mini-button" href="mailto:klarundkunter@gmail.com?subject=Jetzt%20buchen%20%E2%80%93%20Vasen%20f%C3%BCr%20Dein%20Interieur&body=Hallo%2C%0A%0Aich%20m%C3%B6chte%20gern%20einen%20Platz%20f%C3%BCr%20den%20Workshop%20%E2%80%9EVasen%20f%C3%BCr%20Dein%20Interieur%E2%80%9C%20buchen.%0A%0AMein%20Wunschtermin%20ist%3A%20________________%0A%0AViele%20Gr%C3%BC%C3%9Fe">Jetzt buchen</a>
+            <a class="mini-button secondary" href="tel:+491749845286">Anrufen</a>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="workshop-card">
-        <img src="https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2019.jpg" alt="Freies Atelier Workshop" />
-        <div class="workshop-content">
-          <h3>Freies Atelier</h3>
-          <p>Ohne starre Vorgaben arbeiten, Materialien entdecken und den eigenen kreativen Fluss finden. Für Frauen, die sich Freiheit und Ruhe wünschen.</p>
-          <div class="workshop-meta">Offen · ruhig · selbstbestimmt</div>
-          <div class="workshop-actions">
-            <a class="button button-primary" href="mailto:klarundkunter@gmail.com?subject=Anfrage%20Workshopplatz%20%E2%80%93%20Freies%20Atelier&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20den%20Workshop%20%E2%80%9EFreies%20Atelier%E2%80%9C.%0A%0AKannst%20du%20mir%20bitte%20mehr%20Infos%20zu%20Terminen%2C%20Ort%20und%20Anmeldung%20schicken%3F%0A%0AViele%20Gr%C3%BC%C3%9Fe">Platz anfragen</a>
+      <div class="card card2">
+        <div class="card-content">
+          <div class="card-header">
+            <span class="card-kicker">Workshop 02</span>
+            <h3>Blumen f&uuml;r Deine Stimmung</h3>
+          </div>
+          <div class="workshop-copy">
+            <p>Du erschaffst opulente, farbenfrohe Blumen &ndash; wie aus einem M&auml;rchen.</p>
+            <p>Ob realistisch oder fantasievoll: nutzbar als Strau&szlig;, Dekoration oder Lichtobjekt. Am Ende h&auml;ltst Du Deine eigenen Bl&uuml;ten stolz in den H&auml;nden.</p>
+          </div>
+          <div class="schedule-grid">
+            <div class="schedule-card">
+              <div class="schedule-label">Donnerstag</div>
+              <div class="schedule-date">14. Mai</div>
+              <div class="schedule-time">10:00&ndash;12:00 Uhr</div>
+              <div class="schedule-location">Lemy&apos;s Caf&eacute;, Berlin<br>(U-Rehberge)</div>
+            </div>
+            <div class="schedule-card">
+              <div class="schedule-label">Freitag</div>
+              <div class="schedule-date">15. Mai</div>
+              <div class="schedule-time">14:00&ndash;16:00 Uhr<br>16:30&ndash;18:30 Uhr</div>
+              <div class="schedule-location">Ulme 35, Berlin<br>(U-Neu-Westend)</div>
+            </div>
+          </div>
+          <div class="schedule-actions">
+            <a class="mini-button" href="mailto:klarundkunter@gmail.com?subject=Jetzt%20buchen%20%E2%80%93%20Blumen%20f%C3%BCr%20Deine%20Stimmung&body=Hallo%2C%0A%0Aich%20m%C3%B6chte%20gern%20einen%20Platz%20f%C3%BCr%20den%20Workshop%20%E2%80%9EBlumen%20f%C3%BCr%20Deine%20Stimmung%E2%80%9C%20buchen.%0A%0AMein%20Wunschtermin%20ist%3A%20________________%0A%0AViele%20Gr%C3%BC%C3%9Fe">Jetzt buchen</a>
+            <a class="mini-button secondary" href="tel:+491749845286">Anrufen</a>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="workshop-card">
-        <img src="https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%202.jpg" alt="Collage und Story Workshop" />
-        <div class="workshop-content">
-          <h3>Collage &amp; Story</h3>
-          <p>Mit Bildern, Papieren, Fragmenten und Farben eigene Geschichten gestalten – spielerisch, überraschend und oft viel persönlicher als gedacht.</p>
-          <div class="workshop-meta">Bildsprache · Schichten · Ausdruck</div>
-          <div class="workshop-actions">
-            <a class="button button-primary" href="mailto:klarundkunter@gmail.com?subject=Anfrage%20Workshopplatz%20%E2%80%93%20Collage%20%26%20Story&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20den%20Workshop%20%E2%80%9ECollage%20%26%20Story%E2%80%9C.%0A%0AKannst%20du%20mir%20bitte%20mehr%20Infos%20zu%20Terminen%2C%20Ort%20und%20Anmeldung%20schicken%3F%0A%0AViele%20Gr%C3%BC%C3%9Fe">Platz anfragen</a>
+      <div class="card card3">
+        <div class="card-content">
+          <div class="card-header">
+            <span class="card-kicker">Workshop 03</span>
+            <h3>Origami f&uuml;r Deine Achtsamkeit</h3>
+          </div>
+          <div class="workshop-copy">
+            <p>Ohne Druck und ganz in Ruhe gestaltest Du pr&auml;zise gefaltete Origami-Objekte.</p>
+            <p>Du nimmst Schachteln und weitere St&uuml;cke mit nach Hause &ndash; jederzeit reproduzierbar f&uuml;r kleine Auszeiten.</p>
+          </div>
+          <div class="schedule-grid">
+            <div class="schedule-card">
+              <div class="schedule-label">Donnerstag</div>
+              <div class="schedule-date">21. Mai</div>
+              <div class="schedule-time">10:00&ndash;12:00 Uhr</div>
+              <div class="schedule-location">Lemy&apos;s Caf&eacute;, Berlin<br>(U-Rehberge)</div>
+            </div>
+            <div class="schedule-card">
+              <div class="schedule-label">Freitag</div>
+              <div class="schedule-date">22. Mai</div>
+              <div class="schedule-time">14:00&ndash;16:00 Uhr<br>16:30&ndash;18:30 Uhr</div>
+              <div class="schedule-location">Ulme 35, Berlin<br>(U-Neu-Westend)</div>
+            </div>
+          </div>
+          <div class="schedule-actions">
+            <a class="mini-button" href="mailto:klarundkunter@gmail.com?subject=Jetzt%20buchen%20%E2%80%93%20Origami%20f%C3%BCr%20Deine%20Achtsamkeit&body=Hallo%2C%0A%0Aich%20m%C3%B6chte%20gern%20einen%20Platz%20f%C3%BCr%20den%20Workshop%20%E2%80%9EOrigami%20f%C3%BCr%20Deine%20Achtsamkeit%E2%80%9C%20buchen.%0A%0AMein%20Wunschtermin%20ist%3A%20________________%0A%0AViele%20Gr%C3%BC%C3%9Fe">Jetzt buchen</a>
+            <a class="mini-button secondary" href="tel:+491749845286">Anrufen</a>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="workshop-card">
-        <img src="https://raw.githubusercontent.com/KlarundKunter/KlarundKunter/main/KuK%20Bilder/KK%2013.jpg" alt="Materiallabor Workshop" />
-        <div class="workshop-content">
-          <h3>Materiallabor</h3>
-          <p>Ungewöhnliche Oberflächen, Stoffe, Papiere und Strukturen ausprobieren. Ein Workshop für Neugier, Haptik und die Freude am Experiment.</p>
-          <div class="workshop-meta">Sinnlich · experimentell · inspirierend</div>
-          <div class="workshop-actions">
-            <a class="button button-primary" href="mailto:klarundkunter@gmail.com?subject=Anfrage%20Workshopplatz%20%E2%80%93%20Materiallabor&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20den%20Workshop%20%E2%80%9EMateriallabor%E2%80%9C.%0A%0AKannst%20du%20mir%20bitte%20mehr%20Infos%20zu%20Terminen%2C%20Ort%20und%20Anmeldung%20schicken%3F%0A%0AViele%20Gr%C3%BC%C3%9Fe">Platz anfragen</a>
+      <div class="card card4">
+        <div class="card-content">
+          <div class="card-header">
+            <span class="card-kicker">Workshop 04</span>
+            <h3>Collagen f&uuml;r Deine Phantasie</h3>
+          </div>
+          <div class="workshop-copy">
+            <p>Du erstellst eine Collage aus abstrakten Motiven.</p>
+            <p>Du lernst Methoden, die Deine Collage einzigartig machen und st&auml;rkst Dein Vertrauen in Deine eigene Kreativit&auml;t.</p>
+          </div>
+          <div class="schedule-grid">
+            <div class="schedule-card">
+              <div class="schedule-label">Donnerstag</div>
+              <div class="schedule-date">28. Mai</div>
+              <div class="schedule-time">10:00&ndash;12:00 Uhr</div>
+              <div class="schedule-location">Lemy&apos;s Caf&eacute;, Berlin<br>(U-Rehberge)</div>
+            </div>
+            <div class="schedule-card">
+              <div class="schedule-label">Freitag</div>
+              <div class="schedule-date">29. Mai</div>
+              <div class="schedule-time">14:00&ndash;16:00 Uhr<br>16:30&ndash;18:30 Uhr</div>
+              <div class="schedule-location">Ulme 35, Berlin<br>(U-Neu-Westend)</div>
+            </div>
+          </div>
+          <div class="schedule-actions">
+            <a class="mini-button" href="mailto:klarundkunter@gmail.com?subject=Jetzt%20buchen%20%E2%80%93%20Collagen%20f%C3%BCr%20Deine%20Phantasie&body=Hallo%2C%0A%0Aich%20m%C3%B6chte%20gern%20einen%20Platz%20f%C3%BCr%20den%20Workshop%20%E2%80%9ECollagen%20f%C3%BCr%20Deine%20Phantasie%E2%80%9C%20buchen.%0A%0AMein%20Wunschtermin%20ist%3A%20________________%0A%0AViele%20Gr%C3%BC%C3%9Fe">Jetzt buchen</a>
+            <a class="mini-button secondary" href="tel:+491749845286">Anrufen</a>
           </div>
         </div>
-      </article>
+      </div>
     </div>
   </div>
 </section>
