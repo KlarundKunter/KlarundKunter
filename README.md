@@ -432,3 +432,17 @@ Deutschland
 
 </body>
 </html>
+
+## Lokaler Workflow
+
+Für schnelle HTML-Checks reicht in diesem Projekt die Hauptdatei:
+
+- `C:\Users\JEANNETTE.SACHSE\GitHub\KlarundKunter\index.html` direkt lokal im Browser öffnen.
+
+Trennung der Umgebungen:
+
+- `index.html` im Arbeitsrepo = lokaler Dev-Stand
+- `test.klarundkunter.de` = Staging
+- Live-Seite = Live
+
+Push nach GitHub ist nicht nötig, um lokale Änderungen zu prüfen.
