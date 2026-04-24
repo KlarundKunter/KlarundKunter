@@ -216,10 +216,14 @@ section[id]{
   max-width:980px;
   margin:0 auto;
   text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
-.hero h1 .one-line-title{
+.hero-title-line{
   display:block;
+  max-width:100%;
   text-align:center;
 }
 
@@ -1694,7 +1698,7 @@ section[id]{
 <section class="hero" id="top">
   <div class="hero-inner">
     <div class="hero-kicker">Kreative Workshops in Berlin</div>
-    <h1><span class="one-line-title">Weniger Stress beginnt nicht im Kopf.</span><br>Sondern in Deinen Händen.</h1>
+    <h1><span class="hero-title-line one-line-title">Weniger Stress beginnt nicht im Kopf.</span><span class="hero-title-line">Sondern in Deinen Händen.</span></h1>
     <p class="hero-lead">Klar &amp; Kunter ist für Menschen, die ihren Stress und mental load reduzieren und Kreativität fördern möchten. Lass uns anfangen!</p>
     <div class="hero-facts">
       <div class="hero-fact">24 &euro; inkl. Materialien</div>
@@ -1728,7 +1732,7 @@ section[id]{
       <div class="booking-rail-card">
         <span>Für alle, die neu anfangen</span>
         <strong>Come as you are.</strong>
-        <p>Du musst nichts können. Der Aufbau ist so gestaltet, dass Du schnell ins Tun kommst.</p>
+        <p>Du musst nichts mitbringen oder vorbereiten.</p>
       </div>
 
       <div class="booking-rail-card">
@@ -2071,7 +2075,7 @@ section[id]{
         <div class="eyebrow">Anfrage</div>
         <h2>Du möchtest einen Workshop buchen oder erst kurz etwas fragen?</h2>
         <p>Dann schreib mir einfach oder ruf an. Wir schauen gemeinsam, welcher Termin gut zu Dir passt.</p>
-        <p><span class="highlight">Am einfachsten:</span> Workshop auswählen, passenden Termin anklicken und per Mail oder SMS anfragen oder kurz anrufen.</p>
+        <p><span class="highlight">Wie kann ich buchen:</span> Workshop auswählen, passenden Termin anklicken und per Mail oder SMS anfragen oder kurz anrufen.</p>
         <div class="contact-pills">
           <div class="contact-pill">24 &euro; inkl. Materialien</div>
           <div class="contact-pill">Max. 8 Plätze</div>
@@ -2079,7 +2083,7 @@ section[id]{
         </div>
         <div class="booking-selection-box" id="booking-selection-box">
           <h3>Schreib mir einfach oder ruf an.</h3>
-          <p class="booking-selection-intro" id="booking-selection-intro">Wenn Du oben einen Termin anklickst, füllen wir Dir Workshop, Datum, Uhrzeit und Ort hier unten für Mail oder SMS vor.</p>
+          <p class="booking-selection-intro" id="booking-selection-intro">Wenn Du einen Termin buchen möchtest, klicke auf "Buchen", dann öffnet sich automatisch eine E-Mail. Schon bist Du dabei!</p>
           <div class="booking-selection-details" id="booking-selection-details" hidden>
             <div class="booking-selection-item">
               <strong>Workshop</strong>
@@ -2309,7 +2313,7 @@ section[id]{
       date.textContent = data.date;
       time.textContent = data.time;
       location.textContent = data.location;
-      intro.textContent = "Ausgewählt: " + data.slotLabel + ". Du kannst jetzt direkt eine Mail schreiben, eine SMS öffnen oder die Angaben kopieren.";
+      intro.textContent = "Wenn Du einen Termin buchen möchtest, klicke auf \"Buchen\", dann öffnet sich automatisch eine E-Mail. Schon bist Du dabei!";
       status.textContent = "Wenn Mail oder SMS nicht aufgehen, kopiere die Auswahl oder ruf uns direkt an.";
       details.hidden = false;
       mailLink.href = buildMailto(data);
