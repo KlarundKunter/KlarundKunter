@@ -6,6 +6,18 @@
 <title>Klar &amp; Kunter – Kreative Workshops in Berlin</title>
 <meta name="description" content="Klar &amp; Kunter bietet kreative Workshops in Berlin – atmosphärisch, hochwertig und ohne Leistungsdruck. Für Menschen, die wieder kreativ sein möchten und einen liebevollen Einstieg ins Gestalten suchen." />
 
+<link rel="preload" as="image" href="KuK Bilder/optimized/hero-960.jpg" media="(max-width: 700px)" />
+<link rel="preload" as="image" href="KuK Bilder/optimized/hero-1920.jpg" media="(min-width: 701px)" />
+<noscript>
+<style>
+.card1{background:url("KuK Bilder/optimized/workshop-vasen-1200.jpg") center/cover no-repeat}
+.card2{background:url("KuK Bilder/optimized/workshop-blumen-1200.jpg") center/cover no-repeat}
+.card3{background:url("KuK Bilder/optimized/workshop-origami-900.jpg") center/cover no-repeat}
+.card4{background:url("KuK Bilder/optimized/workshop-collagen-1200.jpg") center/cover no-repeat}
+.format-feature-company{background-image:url("KuK Bilder/optimized/company-1400.jpg")}
+.format-feature-home{background-image:url("KuK Bilder/optimized/homevisit-1400.jpg")}
+</style>
+</noscript>
 <style>
 :root{
   --bg:#f4ede3;
@@ -16,7 +28,7 @@
   --line:rgba(32,25,22,.12);
   --accent:#b88f7c;
   --accent-dark:#9f7663;
-  --pastel-surface:url("KuK Bilder/pastell-wasserstruktur.png");
+  --pastel-surface:url("KuK Bilder/optimized/pastell-surface-1200.jpg");
   --pastel-card-overlay:linear-gradient(rgba(255,242,234,.56), rgba(255,234,226,.44));
   --pastel-card-overlay-soft:linear-gradient(rgba(255,244,237,.64), rgba(255,236,229,.50));
   --pastel-card-overlay-strong:linear-gradient(rgba(255,239,231,.46), rgba(255,230,222,.32));
@@ -190,7 +202,15 @@ section[id]{
   position:relative;
   background:
     linear-gradient(rgba(18,15,14,.34), rgba(18,15,14,.40)),
-    url("KuK Bilder/KK 18.jpg") center center / cover no-repeat;
+    url("KuK Bilder/optimized/hero-1920.jpg") center center / cover no-repeat;
+}
+
+@media (max-width:700px){
+  .hero{
+    background:
+      linear-gradient(rgba(18,15,14,.34), rgba(18,15,14,.40)),
+      url("KuK Bilder/optimized/hero-960.jpg") center center / cover no-repeat;
+  }
 }
 
 .hero-inner{
@@ -581,6 +601,13 @@ section[id]{
   transition:transform .25s ease, box-shadow .25s ease;
 }
 
+.card.deferred-bg{
+  background-image:var(--deferred-bg-image, none);
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
 .card:hover{
   transform:translateY(-4px);
   box-shadow:0 34px 62px rgba(53,43,38,0.22);
@@ -887,22 +914,6 @@ section[id]{
   background:rgba(255,255,255,0.16);
 }
 
-.card1{
-  background:url("KuK Bilder/KK 2.jpg") center/cover no-repeat;
-}
-
-.card2{
-  background:url("KuK Bilder/KK 23.jpg") center/cover no-repeat;
-}
-
-.card3{
-  background:url("KuK Bilder/KK 34.png") center/cover no-repeat;
-}
-
-.card4{
-  background:url("KuK Bilder/KK 33.png") center/cover no-repeat;
-}
-
 .for-whom{
   background:linear-gradient(180deg, rgba(184,143,124,.08) 0%, rgba(184,143,124,0) 100%);
 }
@@ -967,7 +978,9 @@ section[id]{
 }
 
 .format-feature{
+  --deferred-bg-image:none;
   background-color:#3b2f2a;
+  background-image:var(--deferred-bg-image);
   background-position:center;
   background-size:cover;
   background-repeat:no-repeat;
@@ -1014,14 +1027,6 @@ section[id]{
   padding:32px;
   backdrop-filter:blur(2px);
   box-shadow:0 16px 36px rgba(18,14,13,.14);
-}
-
-.format-feature-company{
-  background-image:url("KuK Bilder/KK 9.jpg");
-}
-
-.format-feature-home{
-  background-image:url("KuK Bilder/KK 4.jpg");
 }
 
 .format-feature-company::after{
@@ -1794,7 +1799,7 @@ section[id]{
     </div>
 
     <div class="workshops">
-      <div class="card card1">
+      <div class="card card1 deferred-bg" data-bg-desktop="KuK Bilder/optimized/workshop-vasen-1200.jpg" data-bg-mobile="KuK Bilder/optimized/workshop-vasen-700.jpg">
         <div class="card-content">
           <div class="card-header">
             <span class="card-kicker">Workshop 01</span>
@@ -1832,7 +1837,7 @@ section[id]{
         </div>
       </div>
 
-      <div class="card card2">
+      <div class="card card2 deferred-bg" data-bg-desktop="KuK Bilder/optimized/workshop-blumen-1200.jpg" data-bg-mobile="KuK Bilder/optimized/workshop-blumen-700.jpg">
         <div class="card-content">
           <div class="card-header">
             <span class="card-kicker">Workshop 02</span>
@@ -1870,7 +1875,7 @@ section[id]{
         </div>
       </div>
 
-      <div class="card card3">
+      <div class="card card3 deferred-bg" data-bg-desktop="KuK Bilder/optimized/workshop-origami-900.jpg" data-bg-mobile="KuK Bilder/optimized/workshop-origami-600.jpg">
         <div class="card-content">
           <div class="card-header">
             <span class="card-kicker">Workshop 03</span>
@@ -1908,7 +1913,7 @@ section[id]{
         </div>
       </div>
 
-      <div class="card card4">
+      <div class="card card4 deferred-bg" data-bg-desktop="KuK Bilder/optimized/workshop-collagen-1200.jpg" data-bg-mobile="KuK Bilder/optimized/workshop-collagen-700.jpg">
         <div class="card-content">
           <div class="card-header">
             <span class="card-kicker">Workshop 04</span>
@@ -1952,7 +1957,7 @@ section[id]{
 <section class="section format-section" id="unternehmen" hidden>
   <div class="container">
     <div class="format-grid">
-      <div class="format-feature format-feature-company">
+      <div class="format-feature format-feature-company" data-bg-desktop="KuK Bilder/optimized/company-1400.jpg" data-bg-mobile="KuK Bilder/optimized/company-800.jpg">
         <div class="format-feature-copy">
           <div class="eyebrow">Für Unternehmen</div>
           <h2>Kreative Pausen für Teams.</h2>
@@ -2006,7 +2011,7 @@ section[id]{
 <section class="section format-section alt" id="bei-dir">
   <div class="container">
     <div class="format-grid">
-      <div class="format-feature format-feature-home">
+      <div class="format-feature format-feature-home" data-bg-desktop="KuK Bilder/optimized/homevisit-1400.jpg" data-bg-mobile="KuK Bilder/optimized/homevisit-800.jpg">
         <div class="format-feature-copy">
           <div class="eyebrow">Klar &amp; Kunter bei Dir</div>
           <h2>Klar &amp; Kunter kommt zu Dir nach Hause</h2>
@@ -2065,7 +2070,7 @@ section[id]{
   <div class="container">
     <div class="about-grid">
       <div class="about-card image">
-        <img src="KuK Bilder/KK 32.png" alt="Jeannette Sachse von Klar und Kunter" />
+        <img src="KuK Bilder/KK 32.png" alt="Jeannette Sachse von Klar und Kunter" loading="lazy" decoding="async" />
       </div>
 
       <div class="about-card copy">
@@ -2226,6 +2231,53 @@ section[id]{
 </footer>
 
 <script>
+(function () {
+  const deferredBackgrounds = document.querySelectorAll("[data-bg-desktop]");
+  const prefersReducedData = Boolean(navigator.connection && navigator.connection.saveData);
+  const useCompactImages = prefersReducedData || window.matchMedia("(max-width: 700px)").matches;
+
+  function applyBackground(node) {
+    if (!node || node.dataset.bgLoaded === "true") {
+      return;
+    }
+
+    const source = useCompactImages && node.dataset.bgMobile ? node.dataset.bgMobile : node.dataset.bgDesktop;
+
+    if (!source) {
+      return;
+    }
+
+    node.style.setProperty("--deferred-bg-image", 'url("' + source + '")');
+    node.dataset.bgLoaded = "true";
+  }
+
+  if (!deferredBackgrounds.length) {
+    return;
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    deferredBackgrounds.forEach(applyBackground);
+    return;
+  }
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      applyBackground(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, {
+    rootMargin: prefersReducedData ? "120px 0px" : "280px 0px"
+  });
+
+  deferredBackgrounds.forEach(function (node) {
+    observer.observe(node);
+  });
+})();
+
 (function () {
   const triggers = document.querySelectorAll(".booking-selection-trigger");
   const details = document.getElementById("booking-selection-details");
