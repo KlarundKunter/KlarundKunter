@@ -170,6 +170,30 @@ section[id]{
   white-space:nowrap;
 }
 
+.header-announcement{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:var(--text);
+  color:#ffffff;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-align:center;
+  box-shadow:0 10px 22px rgba(32,25,22,.12);
+  transition:background .2s ease, transform .2s ease;
+}
+
+.header-announcement:hover,
+.header-announcement:focus{
+  background:#000;
+  transform:translateY(-1px);
+  outline:none;
+}
+
 .nav{
   display:flex;
   align-items:center;
@@ -316,6 +340,52 @@ section[id]{
 .hero-topic-link:hover{
   background:#f3ede7;
   transform:translateY(-1px);
+}
+
+.hero-topic-link.highlight-link{
+  position:relative;
+  overflow:hidden;
+  background:#fff8e8;
+  border-color:rgba(255,255,255,.36);
+  box-shadow:0 12px 28px rgba(0,0,0,.16);
+}
+
+.hero-topic-link.highlight-link::after{
+  content:"";
+  position:absolute;
+  inset:-60% -35%;
+  background:linear-gradient(115deg, transparent 34%, rgba(255,255,255,.92) 48%, rgba(255,235,159,.72) 52%, transparent 66%);
+  transform:translateX(-72%) rotate(8deg);
+  animation:heroHighlightSweep 3.8s ease-in-out infinite;
+  pointer-events:none;
+}
+
+.hero-topic-link.highlight-link span{
+  position:relative;
+  z-index:1;
+}
+
+@keyframes heroHighlightSweep{
+  0%, 42%{
+    transform:translateX(-72%) rotate(8deg);
+    opacity:0;
+  }
+
+  52%{
+    opacity:1;
+  }
+
+  76%, 100%{
+    transform:translateX(72%) rotate(8deg);
+    opacity:0;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .hero-topic-link.highlight-link::after{
+    animation:none;
+    opacity:0;
+  }
 }
 
 .hero-actions{
@@ -755,6 +825,106 @@ section[id]{
 }
 
 .workshop-story strong{
+  color:var(--text);
+}
+
+.season-preview{
+  background:linear-gradient(180deg, rgba(184,143,124,.08) 0%, rgba(248,242,233,0) 100%);
+}
+
+.season-head{
+  display:grid;
+  grid-template-columns:minmax(0, 1.05fr) minmax(280px, .95fr);
+  gap:32px;
+  align-items:start;
+  margin-bottom:30px;
+}
+
+.season-head h2{
+  font-size:clamp(2rem, 4.4vw, 3.2rem);
+  line-height:1.02;
+}
+
+.season-copy{
+  color:#625a54;
+  font-size:1.04rem;
+  line-height:1.75;
+}
+
+.season-copy p:last-child{
+  margin-bottom:0;
+}
+
+.stamp-card{
+  background:
+    var(--pastel-card-overlay),
+    var(--pastel-surface) center/cover no-repeat;
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  padding:24px;
+  box-shadow:var(--shadow);
+}
+
+.stamp-card h3{
+  font-size:1.5rem;
+  margin-bottom:10px;
+}
+
+.stamp-card p{
+  margin:0;
+  color:#625a54;
+}
+
+.season-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:18px;
+}
+
+.season-list{
+  display:grid;
+  gap:12px;
+}
+
+.season-item{
+  display:grid;
+  grid-template-columns:82px minmax(170px, .8fr) minmax(0, 1.4fr) auto;
+  gap:16px;
+  align-items:center;
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:rgba(255,255,255,.66);
+  box-shadow:0 12px 28px rgba(53,43,38,0.06);
+}
+
+.season-date{
+  font-family:Georgia, "Times New Roman", serif;
+  font-size:1.3rem;
+  line-height:1.1;
+}
+
+.season-title strong{
+  display:block;
+  font-size:1.03rem;
+}
+
+.season-title span{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:.94rem;
+}
+
+.season-text{
+  margin:0;
+  color:#5f5751;
+  line-height:1.55;
+  font-size:.98rem;
+}
+
+.season-text strong{
   color:var(--text);
 }
 
@@ -1777,6 +1947,15 @@ section[id]{
   .social-grid{
     grid-template-columns:1fr;
   }
+
+  .season-item{
+    grid-template-columns:82px minmax(180px, .9fr) minmax(0, 1.2fr);
+  }
+
+  .season-item .mini-button{
+    grid-column:2 / -1;
+    width:max-content;
+  }
 }
 
 @media (min-width:641px){
@@ -1817,6 +1996,10 @@ section[id]{
     flex-direction:column;
     align-items:flex-start;
     gap:10px;
+  }
+
+  .header-announcement{
+    width:100%;
   }
 
   .nav{
@@ -1873,6 +2056,20 @@ section[id]{
 
   .workshops-head{
     display:block;
+  }
+
+  .season-head{
+    grid-template-columns:1fr;
+  }
+
+  .season-item{
+    grid-template-columns:82px minmax(0, 1fr);
+    align-items:start;
+  }
+
+  .season-text,
+  .season-item .mini-button{
+    grid-column:1 / -1;
   }
 
   .quick-nav{
@@ -1960,6 +2157,20 @@ section[id]{
 
   .workshop-gallery{
     grid-template-columns:1fr;
+  }
+
+  .season-item{
+    grid-template-columns:1fr;
+  }
+
+  .season-text,
+  .season-item .mini-button{
+    grid-column:auto;
+  }
+
+  .season-item .mini-button,
+  .season-actions .mini-button{
+    width:100%;
   }
 
   .booking-selection-details{
@@ -2060,8 +2271,10 @@ section[id]{
 <header class="topbar">
   <div class="topbar-inner">
     <a class="brand" href="#top">Klar &amp; Kunter</a>
+    <a class="header-announcement" href="#zweite-jahreshaelfte">Jetzt schon Plätze für die gemütliche Jahreszeit sichern.</a>
     <nav class="nav">
       <a href="#workshops">Workshops</a>
+      <a href="#zweite-jahreshaelfte">Vorschau</a>
       <a href="#unternehmen" hidden>Für Unternehmen</a>
       <a href="#bei-dir">Für Dich</a>
       <a href="#about-me">Über mich</a>
@@ -2080,9 +2293,9 @@ section[id]{
         <span class="hero-topic-title">Schmuck-Workshop · Fr. 21. August</span>
         <span class="hero-topic-summary">Halskette, Armband &amp; kleine Highlights</span>
       </a>
-      <a class="hero-topic-link" href="#workshops">
-        <span class="hero-topic-title">Einziger August-Workshop</span>
-        <span class="hero-topic-summary">Im September wieder vier Termine</span>
+      <a class="hero-topic-link highlight-link" href="#zweite-jahreshaelfte">
+        <span class="hero-topic-title">Jetzt Plätze für die gemütliche Jahreszeit sichern</span>
+        <span class="hero-topic-summary">September bis Dezember · kreative Auszeiten vormerken</span>
       </a>
     </div>
     <div class="hero-facts">
@@ -2114,6 +2327,7 @@ section[id]{
         <span>Nächster Termin</span>
         <strong>21. August | Schmuck-Workshop</strong>
         <p>Der einzige offene Workshop im August: Halskette und Armband gestalten, freitags um 16:30 Uhr in der Ulme 35.</p>
+        <a class="mini-button" href="#schmuck-details">Details</a>
       </div>
 
       <div class="booking-rail-card">
@@ -2243,6 +2457,109 @@ section[id]{
       <div class="schedule-actions">
         <a class="mini-button booking-direct-mail" href="mailto:klarundkunter@gmail.com" data-workshop="Schmuck-Workshop" data-date="21. August" data-time="16:30-18:30 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)">Jetzt Deinen Platz sichern</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section season-preview" id="zweite-jahreshaelfte">
+  <div class="container">
+    <div class="season-head">
+      <div>
+        <div class="eyebrow">Vorschau zweite Jahreshälfte</div>
+        <h2>Mach’s Dir schön – Deine kreative Auszeit für die zweite Jahreshälfte.</h2>
+      </div>
+      <div class="season-copy">
+        <p>Alle Workshops dauern <strong>2,5 Stunden</strong> und beinhalten ab sofort <strong>kleine Snacks und infused water</strong> – damit Du Deine kreative Auszeit rundum genießen kannst.</p>
+        <p>Du kannst Dir Deinen Wunschplatz schon jetzt vormerken: Klick einfach beim passenden Termin auf „Platz sichern“, dann öffnet sich eine vorbereitete Mail mit Datum, Uhrzeit, Ort und Preis.</p>
+        <div class="season-actions">
+          <a class="mini-button booking-direct-mail" href="mailto:klarundkunter@gmail.com" data-workshop="Collagen" data-date="18. September" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="29 € inkl. Materialien, Snacks und infused water">Ersten Platz sichern</a>
+          <a class="mini-button" href="#kontakt">Frage stellen</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stamp-card">
+      <h3>Neu: Unsere Stempelkarte</h3>
+      <p>Kreativ sein lohnt sich: Sammle bei Deinen Workshop-Besuchen Stempel und erhalte bei <strong>10 Stempeln 25 € Rabatt</strong> auf einen Workshop Deiner Wahl.</p>
+    </div>
+
+    <div class="season-list" aria-label="Workshop-Vorschau für September bis Dezember">
+      <article class="season-item">
+        <div class="season-date">18.09.</div>
+        <div class="season-title"><strong>Collagen</strong><span>29 €</span></div>
+        <p class="season-text"><strong>Arrangieren, komponieren, treiben lassen:</strong> Gestalte Deine ganz persönliche Collage und gönn Dir eine kreative Auszeit vom Alltag.</p>
+        <a class="mini-button booking-direct-mail" href="mailto:klarundkunter@gmail.com" data-workshop="Collagen" data-date="18. September" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="29 € inkl. Materialien, Snacks und infused water">Platz sichern</a>
+      </article>
+
+      <article class="season-item">
+        <div class="season-date">25.09.</div>
+        <div class="season-title"><strong>Herbstblumenkränze</strong><span>49 €</span></div>
+        <p class="season-text"><strong>Hol Dir den Herbst nach Hause:</strong> Binde Deinen eigenen Blumenkranz und genieße einen entspannten Abend zwischen Blüten, Farben und Naturmaterialien.</p>
+        <a class="mini-button booking-direct-mail" href="mailto:klarundkunter@gmail.com" data-workshop="Herbstblumenkränze" data-date="25. September" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="49 € inkl. Materialien, Snacks und infused water">Platz sichern</a>
+      </article>
+
+      <article class="season-item">
+        <div class="season-date">02.10.</div>
+        <div class="season-title"><strong>Herbstschalen aus Ton inkl. Brennen – Teil 1</strong><span>34 €</span></div>
+        <p class="season-text"><strong>Hände in den Ton, Kopf aus:</strong> Forme Deine eigene Herbstschale inklusive Brennen und entdecke, wie wunderbar entspannend Arbeiten mit Ton sein kann.</p>
+        <a class="mini-button booking-direct-mail" href="mailto:klarundkunter@gmail.com" data-workshop="Herbstschalen aus Ton inkl. Brennen – Teil 1" data-date="02. Oktober" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="34 € inkl. Materialien, Brennen, Snacks und infused water">Platz sichern</a>
+      </article>
+
+      <article class="season-item">
+        <div class="season-date">16.10.</div>
+        <div class="season-title"><strong>Kerzenhalter aus Omas Fundus</strong><span>39 €</span></div>
+        <p class="season-text"><strong>Alte Schätze, neue Lieblingsstücke:</strong> Verwandle Fundstücke mit Geschichte in individuelle Kerzenhalter für richtig gemütliche Herbstabende.</p>
+        <a class="mini-button booking-direct-mail" href="mailto:klarundkunter@gmail.com" data-workshop="Kerzenhalter aus Omas Fundus" data-date="16. Oktober" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="39 € inkl. Materialien, Snacks und infused water">Platz sichern</a>
+      </article>
+
+      <article class="season-item">
+        <div class="season-date">23.10.</div>
+        <div class="season-title"><strong>Bemalen der Herbstschalen inkl. Brennen – Teil 2</strong><span>34 €</span></div>
+        <p class="season-text"><strong>Jetzt kommt Farbe ins Spiel:</strong> Verleihe Deiner Herbstschale mit Farben und eigenen Ideen den ganz persönlichen letzten Schliff – inklusive Brennen.</p>
+        <a class="mini-button booking-direct-mail" href="mailto:klarundkunter@gmail.com" data-workshop="Bemalen der Herbstschalen inkl. Brennen – Teil 2" data-date="23. Oktober" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="34 € inkl. Materialien, Brennen, Snacks und infused water">Platz sichern</a>
+      </article>
+
+      <article class="season-item">
+        <div class="season-date">30.10.</div>
+        <div class="season-title"><strong>Mosaik-Flaschen-Lampe</strong><span>45 €</span></div>
+        <p class="season-text"><strong>Ein kleines Licht gegen graue Herbsttage:</strong> Gestalte aus Mosaik Deine eigene stimmungsvolle Lampe für gemütliche Abende zu Hause.</p>
+        <a class="mini-button booking-direct-mail" href="mailto:klarundkunter@gmail.com" data-workshop="Mosaik-Flaschen-Lampe" data-date="30. Oktober" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="45 € inkl. Materialien, Snacks und infused water">Platz sichern</a>
+      </article>
+
+      <article class="season-item">
+        <div class="season-date">06.11.</div>
+        <div class="season-title"><strong>Wunschthema Teilnehmer(innen)</strong><span>Preis folgt</span></div>
+        <p class="season-text"><strong>Ihr wünscht, wir werkeln:</strong> Dieses Mal bestimmt ihr das DIY-Thema – und wir machen daraus gemeinsam einen kreativen Wohlfühlabend. Abstimmung bis 1.11.</p>
+        <a class="mini-button booking-direct-mail" href="mailto:klarundkunter@gmail.com" data-workshop="Wunschthema Teilnehmer(innen)" data-date="06. November" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="Preis folgt">Platz vormerken</a>
+      </article>
+
+      <article class="season-item">
+        <div class="season-date">13.11.</div>
+        <div class="season-title"><strong>Adventskranz gestalten</strong><span>69 €</span></div>
+        <p class="season-text"><strong>Dein Advent beginnt selbstgemacht:</strong> Binde und gestalte Deinen ganz persönlichen opulenten Adventskranz und stimme Dich ganz entspannt auf die Weihnachtszeit ein.</p>
+        <a class="mini-button booking-direct-mail" href="mailto:klarundkunter@gmail.com" data-workshop="Adventskranz gestalten" data-date="13. November" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="69 € inkl. Materialien, Snacks und infused water">Platz sichern</a>
+      </article>
+
+      <article class="season-item">
+        <div class="season-date">20.11.</div>
+        <div class="season-title"><strong>Weihnachtskarten mit Stanzen</strong><span>29 €</span></div>
+        <p class="season-text"><strong>Weihnachtspost, die von Herzen kommt:</strong> Gestalte mit Stanzen und Papier wunderschöne Karten, die Deinen Liebsten zeigen, wie wichtig sie Dir sind.</p>
+        <a class="mini-button booking-direct-mail" href="mailto:klarundkunter@gmail.com" data-workshop="Weihnachtskarten mit Stanzen" data-date="20. November" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="29 € inkl. Materialien, Snacks und infused water">Platz sichern</a>
+      </article>
+
+      <article class="season-item">
+        <div class="season-date">04.12.</div>
+        <div class="season-title"><strong>Geschenkideen: Tassen-Duftkerzen</strong><span>39 €</span></div>
+        <p class="season-text"><strong>Selbstgemacht schenkt sich einfach schöner:</strong> Gestalte duftende Kerzen in Tassen – als liebevolles Weihnachtsgeschenk oder kleines Geschenk an Dich selbst. Jede Teilnehmerin darf 2 Duftkerzen mit nach Hause nehmen.</p>
+        <a class="mini-button booking-direct-mail" href="mailto:klarundkunter@gmail.com" data-workshop="Geschenkideen: Tassen-Duftkerzen" data-date="04. Dezember" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="39 € inkl. Materialien für 2 Duftkerzen, Snacks und infused water">Platz sichern</a>
+      </article>
+
+      <article class="season-item">
+        <div class="season-date">11.12.</div>
+        <div class="season-title"><strong>Weihnachtsfeier mit Makramée und Glühwein</strong><span>59 €</span></div>
+        <p class="season-text"><strong>Kordeln legen, quatschen, Weihnachten genießen:</strong> Lass das kreative Jahr mit Makramée, Plätzchen, Glühwein und gemütlicher Weihnachtsstimmung entspannt mit uns ausklingen. Wir starten um 16:30 Uhr bis ca. 20 Uhr. Für jede Teilnehmerin gibt es eine kleine Überraschung.</p>
+        <a class="mini-button booking-direct-mail" href="mailto:klarundkunter@gmail.com" data-workshop="Weihnachtsfeier mit Makramée und Glühwein" data-date="11. Dezember" data-time="16:30-ca. 20:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="59 € inkl. Materialien, Plätzchen, Glühwein und Überraschung">Platz sichern</a>
+      </article>
     </div>
   </div>
 </section>
@@ -2656,7 +2973,11 @@ section[id]{
     return;
   }
 
-  function getWorkshopPriceLabel(workshopName) {
+  function getWorkshopPriceLabel(workshopName, explicitPrice) {
+    if (explicitPrice) {
+      return explicitPrice;
+    }
+
     if (workshopName === "Schmuck-Workshop") {
       return "39 € inkl. Materialien";
     }
@@ -2710,7 +3031,10 @@ section[id]{
     }
 
     return {
-      intro: "ich möchte mich für " + data.workshop + " am " + data.date + " anmelden."
+      intro: "ich möchte mich für " + data.workshop + " am " + data.date + " anmelden.",
+      extras: [
+        "Preis: " + getWorkshopPriceLabel(data.workshop, data.price)
+      ]
     };
   }
 
@@ -2745,7 +3069,7 @@ section[id]{
       "Hallo, ich moechte gern diesen Workshop anfragen:",
       data.workshop + " am " + data.date,
       data.time + " in " + data.location,
-      "Preis: " + getWorkshopPriceLabel(data.workshop)
+      "Preis: " + getWorkshopPriceLabel(data.workshop, data.price)
     ].join("\n");
 
     return "sms:+491749845286?body=" + encodeURIComponent(body);
@@ -2759,7 +3083,7 @@ section[id]{
       "Datum: " + data.date,
       "Uhrzeit: " + data.time,
       "Ort: " + data.location,
-      "Preis: " + getWorkshopPriceLabel(data.workshop),
+      "Preis: " + getWorkshopPriceLabel(data.workshop, data.price),
       "",
       "Kontakt: klarundkunter@gmail.com",
       "Telefon: +49 174 9845286"
@@ -2771,7 +3095,8 @@ section[id]{
       workshop: link.dataset.workshop || "",
       date: link.dataset.date || "",
       time: link.dataset.time || "",
-      location: link.dataset.location || ""
+      location: link.dataset.location || "",
+      price: link.dataset.price || ""
     };
 
     link.href = buildMailto(data);
@@ -2785,7 +3110,7 @@ section[id]{
     date.textContent = data.date;
     time.textContent = data.time;
     location.textContent = data.location;
-    price.textContent = getWorkshopPriceLabel(data.workshop);
+    price.textContent = getWorkshopPriceLabel(data.workshop, data.price);
     details.hidden = false;
     mailLink.href = buildMailto(data);
     smsLink.href = buildSmsLink(data);
@@ -2840,6 +3165,7 @@ section[id]{
         date: trigger.dataset.date || "",
         time: trigger.dataset.time || "",
         location: trigger.dataset.location || "",
+        price: trigger.dataset.price || "",
         slotLabel: trigger.dataset.slotLabel || trigger.textContent.trim()
       };
 
@@ -2850,7 +3176,7 @@ section[id]{
       date.textContent = data.date;
       time.textContent = data.time;
       location.textContent = data.location;
-      price.textContent = getWorkshopPriceLabel(data.workshop);
+      price.textContent = getWorkshopPriceLabel(data.workshop, data.price);
       intro.textContent = "Wenn Du einen Termin anklickst, öffnet sich automatisch eine E-Mail. Wenn das nicht klappt, kannst Du unten Mail, SMS oder Kopieren nutzen.";
       status.textContent = "Wenn Mail oder SMS nicht aufgehen, kopiere die Auswahl oder ruf uns direkt an.";
       details.hidden = false;
@@ -2865,7 +3191,8 @@ section[id]{
     workshop: triggers[0].dataset.workshop || "",
     date: triggers[0].dataset.date || "",
     time: triggers[0].dataset.time || "",
-    location: triggers[0].dataset.location || ""
+    location: triggers[0].dataset.location || "",
+    price: triggers[0].dataset.price || ""
   }, { isDefault: true });
 
   copyButton.addEventListener("click", function () {
@@ -2949,6 +3276,7 @@ window.KUK_TALLY_BOOKING = {
       date: trigger.dataset.date || "",
       time: trigger.dataset.time || "",
       location: trigger.dataset.location || "",
+      price: trigger.dataset.price || "",
       slotLabel: trigger.dataset.slotLabel || trigger.textContent.trim(),
       source: trigger.dataset.source || "website"
     };
