@@ -2483,15 +2483,29 @@ section[id]{
     padding:22px;
   }
 
-  .retreat-facts,
+  .retreat-facts{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
   .retreat-gallery{
-    grid-template-columns:1fr;
+    grid-template-columns:1fr 1fr;
   }
 
   .retreat-hero-image,
   .retreat-gallery figure{
-    min-height:320px;
     border-radius:20px;
+  }
+
+  .retreat-hero-image{
+    min-height:300px;
+  }
+
+  .retreat-gallery figure{
+    min-height:185px;
+  }
+
+  .retreat-gallery figure:first-child{
+    grid-column:1 / -1;
   }
 
   .retreat-day{
