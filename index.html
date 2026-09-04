@@ -3384,6 +3384,8 @@ section[id]{
   const location = document.getElementById("booking-selection-location");
   const price = document.getElementById("booking-selection-price");
   const contactSection = document.getElementById("kontakt");
+  const mobileBookingLink = document.querySelector(".mobile-booking-bar .booking-direct-mail");
+  const retreatSection = document.getElementById("retreats");
 
   if (!triggers.length || !details || !intro || !status || !mailLink || !smsLink || !copyButton || !workshop || !date || !time || !location || !price || !contactSection) {
     return;
@@ -3402,6 +3404,16 @@ section[id]{
   }
 
   function getWorkshopMailCopy(data) {
+    if (data.workshop === "Bloom & Balance Retreat") {
+      return {
+        intro: "ich möchte das Bloom & Balance Retreat vom " + data.date + " anfragen.",
+        detail: "Bitte schick mir weitere Informationen zur Anmeldung und Verfügbarkeit.",
+        extras: [
+          "Preis: " + getWorkshopPriceLabel(data.workshop, data.price)
+        ]
+      };
+    }
+
     if (data.workshop === "Ton arbeiten | Teil 1") {
       return {
         intro: "ich möchte mich für „Ton arbeiten | Teil 1“ am " + data.date + " anmelden.",
@@ -3442,7 +3454,8 @@ section[id]{
 
   function buildMailto(data) {
     const copy = getWorkshopMailCopy(data);
-    const subject = "Anmeldung – " + data.workshop + " am " + data.date;
+    const isRetreat = data.workshop === "Bloom & Balance Retreat";
+    const subject = (isRetreat ? "Anfrage – " : "Anmeldung – ") + data.workshop + (isRetreat ? " vom " : " am ") + data.date;
     const body = [
       "Hey,",
       "",
@@ -3467,8 +3480,9 @@ section[id]{
   }
 
   function buildSmsLink(data) {
+    const isRetreat = data.workshop === "Bloom & Balance Retreat";
     const body = [
-      "Hallo, ich moechte gern diesen Workshop anfragen:",
+      isRetreat ? "Hallo, ich moechte gern dieses Retreat anfragen:" : "Hallo, ich moechte gern diesen Workshop anfragen:",
       data.workshop + " am " + data.date,
       data.time + " in " + data.location,
       "Preis: " + getWorkshopPriceLabel(data.workshop, data.price)
@@ -3478,10 +3492,11 @@ section[id]{
   }
 
   function buildCopyText(data) {
+    const isRetreat = data.workshop === "Bloom & Balance Retreat";
     return [
-      "Workshopanfrage bei Klar & Kunter",
+      isRetreat ? "Retreat-Anfrage bei Klar & Kunter" : "Workshopanfrage bei Klar & Kunter",
       "",
-      "Workshop: " + data.workshop,
+      (isRetreat ? "Retreat: " : "Workshop: ") + data.workshop,
       "Datum: " + data.date,
       "Uhrzeit: " + data.time,
       "Ort: " + data.location,
@@ -3503,6 +3518,20 @@ section[id]{
 
     link.href = buildMailto(data);
   });
+
+  function applyBookingDataToLink(link, data, label) {
+    if (!link || !data) {
+      return;
+    }
+
+    link.dataset.workshop = data.workshop || "";
+    link.dataset.date = data.date || "";
+    link.dataset.time = data.time || "";
+    link.dataset.location = data.location || "";
+    link.dataset.price = data.price || "";
+    link.href = buildMailto(data);
+    link.textContent = label;
+  }
 
   function setSelection(data, options) {
     const openMail = Boolean(options && options.openMail);
@@ -3596,6 +3625,40 @@ section[id]{
     location: triggers[0].dataset.location || "",
     price: triggers[0].dataset.price || ""
   }, { isDefault: true });
+
+  if (mobileBookingLink && retreatSection && "IntersectionObserver" in window) {
+    const workshopBooking = {
+      workshop: mobileBookingLink.dataset.workshop || "",
+      date: mobileBookingLink.dataset.date || "",
+      time: mobileBookingLink.dataset.time || "",
+      location: mobileBookingLink.dataset.location || "",
+      price: mobileBookingLink.dataset.price || ""
+    };
+    const retreatTrigger = retreatSection.querySelector(".booking-selection-trigger");
+    const retreatBooking = retreatTrigger ? {
+      workshop: retreatTrigger.dataset.workshop || "",
+      date: retreatTrigger.dataset.date || "",
+      time: retreatTrigger.dataset.time || "",
+      location: retreatTrigger.dataset.location || "",
+      price: retreatTrigger.dataset.price || ""
+    } : null;
+
+    if (retreatBooking) {
+      const mobileObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            applyBookingDataToLink(mobileBookingLink, retreatBooking, "Retreat anfragen");
+          } else {
+            applyBookingDataToLink(mobileBookingLink, workshopBooking, "18. September buchen");
+          }
+        });
+      }, {
+        threshold:.18
+      });
+
+      mobileObserver.observe(retreatSection);
+    }
+  }
 
   copyButton.addEventListener("click", function () {
     const value = copyButton.dataset.copyText || "";
