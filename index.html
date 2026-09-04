@@ -3626,7 +3626,7 @@ section[id]{
     price: triggers[0].dataset.price || ""
   }, { isDefault: true });
 
-  if (mobileBookingLink && retreatSection && "IntersectionObserver" in window) {
+  if (mobileBookingLink && retreatSection) {
     const workshopBooking = {
       workshop: mobileBookingLink.dataset.workshop || "",
       date: mobileBookingLink.dataset.date || "",
@@ -3644,19 +3644,29 @@ section[id]{
     } : null;
 
     if (retreatBooking) {
-      const mobileObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            applyBookingDataToLink(mobileBookingLink, retreatBooking, "Retreat anfragen");
-          } else {
-            applyBookingDataToLink(mobileBookingLink, workshopBooking, "18. September buchen");
-          }
-        });
-      }, {
-        threshold:.18
-      });
+      let showingRetreatBooking = false;
 
-      mobileObserver.observe(retreatSection);
+      function updateMobileBookingBar() {
+        const retreatRect = retreatSection.getBoundingClientRect();
+        const header = document.querySelector(".topbar");
+        const headerBottom = header ? header.getBoundingClientRect().bottom : 0;
+        const inRetreatArea = retreatRect.top < window.innerHeight * .72 && retreatRect.bottom > headerBottom + 120;
+
+        if (inRetreatArea === showingRetreatBooking) {
+          return;
+        }
+
+        showingRetreatBooking = inRetreatArea;
+        applyBookingDataToLink(
+          mobileBookingLink,
+          showingRetreatBooking ? retreatBooking : workshopBooking,
+          showingRetreatBooking ? "Retreat anfragen" : "18. September buchen"
+        );
+      }
+
+      updateMobileBookingBar();
+      window.addEventListener("scroll", updateMobileBookingBar, { passive:true });
+      window.addEventListener("resize", updateMobileBookingBar);
     }
   }
 
