@@ -889,6 +889,7 @@ section[id]{
 .season-item{
   display:grid;
   grid-template-columns:110px 92px minmax(190px, .9fr) minmax(0, 1.4fr) auto;
+  grid-template-areas:"image date title text action";
   gap:14px;
   align-items:center;
   padding:14px;
@@ -899,6 +900,7 @@ section[id]{
 }
 
 .season-image{
+  grid-area:image;
   position:relative;
   overflow:hidden;
   width:104px;
@@ -926,6 +928,7 @@ section[id]{
 }
 
 .season-date{
+  grid-area:date;
   font-family:Georgia, "Times New Roman", serif;
   font-size:1.35rem;
   font-weight:700;
@@ -934,7 +937,9 @@ section[id]{
 }
 
 .season-title{
+  grid-area:title;
   min-width:0;
+  overflow-wrap:anywhere;
 }
 
 .season-title strong{
@@ -950,10 +955,20 @@ section[id]{
 }
 
 .season-text{
+  grid-area:text;
+  min-width:0;
   margin:0;
   color:#5f5751;
   line-height:1.55;
   font-size:.98rem;
+  overflow-wrap:anywhere;
+}
+
+.season-item .mini-button{
+  grid-area:action;
+  max-width:100%;
+  white-space:normal;
+  text-align:center;
 }
 
 .season-text strong{
@@ -2232,7 +2247,11 @@ section[id]{
   }
 
   .season-item{
-    grid-template-columns:102px 90px minmax(190px, .9fr) minmax(0, 1.2fr);
+    grid-template-columns:102px 90px minmax(0, 1fr);
+    grid-template-areas:
+      "image date title"
+      "image date text"
+      ". . action";
   }
 
   .season-image{
@@ -2241,12 +2260,12 @@ section[id]{
   }
 
   .season-item .mini-button{
-    grid-column:3 / -1;
+    grid-column:auto;
     width:max-content;
   }
 }
 
-@media (min-width:641px){
+@media (min-width:1200px){
   .one-line-title{
     white-space:nowrap;
   }
@@ -2362,13 +2381,17 @@ section[id]{
 
   .season-item{
     grid-template-columns:102px 90px minmax(0, 1fr);
+    grid-template-areas:
+      "image date title"
+      "image date text"
+      ". . action";
     align-items:start;
   }
 
   .season-title,
   .season-text,
   .season-item .mini-button{
-    grid-column:3 / -1;
+    grid-column:auto;
   }
 
   .quick-nav{
@@ -2464,6 +2487,12 @@ section[id]{
 
   .season-item{
     grid-template-columns:1fr;
+    grid-template-areas:
+      "image"
+      "date"
+      "title"
+      "text"
+      "action";
   }
 
   .season-image{
@@ -2553,7 +2582,7 @@ section[id]{
     bottom:12px;
     z-index:120;
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
     gap:10px;
     padding:10px;
     background:rgba(252,250,247,.94);
@@ -2563,8 +2592,16 @@ section[id]{
     backdrop-filter:blur(12px);
   }
 
+  .mobile-booking-bar .button{
+    min-width:0;
+    padding-inline:12px;
+    white-space:normal;
+    text-align:center;
+    line-height:1.25;
+  }
+
   body{
-    padding-bottom:98px;
+    padding-bottom:116px;
   }
 }
 
@@ -2643,7 +2680,7 @@ section[id]{
     <p class="hero-lead">Klar &amp; Kunter ist für Menschen, die ihren Stress und mental load reduzieren und Kreativität fördern möchten. Lass uns anfangen!</p>
     <div class="hero-topics">
       <a class="hero-topic-link" href="#workshops">
-        <span class="hero-topic-title">Collagen · Fr. 18. September</span>
+        <span class="hero-topic-title">Herbstblumenkränze · Fr. 25. September</span>
         <span class="hero-topic-summary">Der nächste offene Workshop</span>
       </a>
       <a class="hero-topic-link highlight-link" href="#workshops">
@@ -2654,8 +2691,8 @@ section[id]{
     <div class="hero-facts">
       <div class="hero-fact">Ulme 35, Berlin-Charlottenburg</div>
       <div class="hero-fact">Max. 8 Plätze</div>
-      <div class="hero-fact">Freitag, 18. September</div>
-      <div class="hero-fact">Ab 29 &euro;</div>
+      <div class="hero-fact">Freitag, 25. September</div>
+      <div class="hero-fact">49 &euro;</div>
     </div>
     <div class="hero-actions">
       <a class="button button-primary" href="#workshops">Workshop wählen</a>
@@ -2678,8 +2715,8 @@ section[id]{
     <div class="booking-rail-grid">
       <div class="booking-rail-card">
         <span>Nächster Termin</span>
-        <strong>18. September | Collagen</strong>
-        <p>Der nächste offene Workshop: Gestalte Deine ganz persönliche Collage, freitags um 16:30 Uhr in der Ulme 35.</p>
+        <strong>25. September | Herbstblumenkränze</strong>
+        <p>Der nächste offene Workshop: Binde Deinen eigenen Herbstblumenkranz, freitags um 16:30 Uhr in der Ulme 35.</p>
         <a class="mini-button" href="#workshops">Termine</a>
       </div>
 
@@ -2715,7 +2752,7 @@ section[id]{
         <p>Alle Workshops dauern <strong>2,5 Stunden</strong> und beinhalten ab sofort <strong>kleine Snacks und infused water</strong> – damit Du Deine kreative Auszeit rundum genießen kannst.</p>
         <p>Du kannst Dir Deinen Wunschplatz direkt vormerken: Klick einfach beim passenden Termin auf „Platz sichern“, dann öffnet sich eine vorbereitete Mail mit Datum, Uhrzeit, Ort und Preis.</p>
         <div class="season-actions">
-          <a class="mini-button booking-direct-mail booking-selection-trigger" href="#kontakt" data-workshop="Collagen" data-date="18. September" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="29 € inkl. Materialien, Snacks und infused water">Ersten Platz sichern</a>
+          <a class="mini-button booking-direct-mail booking-selection-trigger" href="#kontakt" data-workshop="Herbstblumenkränze" data-date="25. September" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="49 € inkl. Materialien, Snacks und infused water">Ersten Platz sichern</a>
           <a class="mini-button" href="#kontakt">Frage stellen</a>
         </div>
       </div>
@@ -2727,16 +2764,6 @@ section[id]{
     </div>
 
     <div class="season-list" aria-label="Workshop-Vorschau für September bis Dezember">
-      <article class="season-item">
-        <figure class="season-image">
-          <img src="KuK Bilder/optimized/workshop-collagen-700.jpg" srcset="KuK Bilder/optimized/workshop-collagen-700.jpg 700w, KuK Bilder/optimized/workshop-collagen-1200.jpg 1200w" sizes="(max-width: 640px) calc(100vw - 60px), 112px" alt="Collage-Materialien und Papierformen auf einem Arbeitstisch" loading="lazy" decoding="async" />
-        </figure>
-        <div class="season-date">18.09.</div>
-        <div class="season-title"><strong>Collagen</strong><span>29 €</span></div>
-        <p class="season-text"><strong>Arrangieren, komponieren, treiben lassen:</strong> Gestalte Deine ganz persönliche Collage und gönn Dir eine kreative Auszeit vom Alltag.</p>
-        <a class="mini-button booking-direct-mail booking-selection-trigger" href="#kontakt" data-workshop="Collagen" data-date="18. September" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="29 € inkl. Materialien, Snacks und infused water">Platz sichern</a>
-      </article>
-
       <article class="season-item">
         <figure class="season-image">
           <img src="KuK Bilder/optimized/workshop-midsommar-700.jpg" srcset="KuK Bilder/optimized/workshop-midsommar-700.jpg 700w, KuK Bilder/optimized/workshop-midsommar-1200.jpg 1200w" sizes="(max-width: 640px) calc(100vw - 60px), 112px" alt="Frauen gestalten Blumenkränze an einem großen Atelier-Tisch" loading="lazy" decoding="async" />
@@ -3275,7 +3302,7 @@ section[id]{
 
           <div class="contact-item">
             <span class="contact-label">Formate</span>
-            <div class="contact-value">Collagen · Herbstblumenkränze · Ton · Mosaik · Advent · Retreats</div>
+            <div class="contact-value">Herbstblumenkränze · Ton · Mosaik · Advent · Retreats</div>
           </div>
 
           <div class="contact-item">
@@ -3294,7 +3321,7 @@ section[id]{
 </section>
 
 <div class="mobile-booking-bar">
-  <a class="button button-primary booking-direct-mail booking-selection-trigger" href="#kontakt" data-workshop="Collagen" data-date="18. September" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="29 € inkl. Materialien, Snacks und infused water">18. September buchen</a>
+  <a class="button button-primary booking-direct-mail booking-selection-trigger" href="#kontakt" data-workshop="Herbstblumenkränze" data-date="25. September" data-time="16:30-19:00 Uhr" data-location="Ulme 35, Ulmenallee 35, 14050 Berlin (U-Neu-Westend)" data-price="49 € inkl. Materialien, Snacks und infused water">25. September buchen</a>
   <a class="button button-secondary" href="tel:+491749845286">Anrufen</a>
 </div>
 
@@ -3693,7 +3720,7 @@ section[id]{
         applyBookingDataToLink(
           mobileBookingLink,
           showingRetreatBooking ? retreatBooking : workshopBooking,
-          showingRetreatBooking ? "Retreat anfragen" : "18. September buchen"
+          showingRetreatBooking ? "Retreat anfragen" : "25. September buchen"
         );
       }
 
