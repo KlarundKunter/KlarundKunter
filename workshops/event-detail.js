@@ -113,6 +113,7 @@ if (event) {
     : {
         "@type": "Place",
         name: "Ulme 35",
+        url: "https://interkulturanstalten.de/",
         address: {
           "@type": "PostalAddress",
           streetAddress: "Ulmenallee 35",
@@ -156,7 +157,8 @@ if (event) {
     organizer: {
       "@type": "Organization",
       name: "Klar & Kunter",
-      url: "https://klarundkunter.de/"
+      url: "https://klarundkunter.de/",
+      sameAs: "https://www.instagram.com/klar_und_kunter_workshops/"
     }
   };
 
@@ -166,4 +168,24 @@ if (event) {
   script.type = "application/ld+json";
   script.textContent = JSON.stringify(structuredData);
   document.head.appendChild(script);
+
+  const venueLabel = [...document.querySelectorAll(".facts dt")]
+    .find((label) => label.textContent.trim() === "Ort");
+  const venueValue = venueLabel?.parentElement?.querySelector("dd");
+
+  if (venueValue && !event.retreat) {
+    const venueLink = document.createElement("a");
+    venueLink.className = "venue-link";
+    venueLink.href = "https://interkulturanstalten.de/";
+    venueLink.textContent = venueValue.textContent;
+    venueValue.replaceChildren(venueLink);
+  }
+
+  const footerLinks = document.querySelector(".site-footer-inner");
+  if (footerLinks) {
+    const instagramLink = document.createElement("a");
+    instagramLink.href = "https://www.instagram.com/klar_und_kunter_workshops/";
+    instagramLink.textContent = "Instagram";
+    footerLinks.insertBefore(instagramLink, footerLinks.lastElementChild);
+  }
 }

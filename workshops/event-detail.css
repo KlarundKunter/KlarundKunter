@@ -128,6 +128,11 @@ h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
   overflow-wrap: anywhere;
 }
 
+.venue-link {
+  color: var(--sage);
+  text-underline-offset: 4px;
+}
+
 .button {
   display: inline-flex;
   min-height: 48px;
