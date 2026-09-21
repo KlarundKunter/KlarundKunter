@@ -82,8 +82,8 @@ const events = {
     name: "Bloom & Balance Retreat",
     description: "Drei Tage mit Bewegung, Körperwahrnehmung, Kreativität und Erholung auf Schloss Ulrichshusen.",
     image: "retreat-flowers-lake-1400.jpg",
-    startDate: "2026-10-09T12:00:00+02:00",
-    endDate: "2026-10-11T16:00:00+02:00",
+    startDate: "2027-04-02T12:00:00+02:00",
+    endDate: "2027-04-04T16:00:00+02:00",
     retreat: true,
     offers: [
       { name: "Einzelzimmer", price: "1499" },
