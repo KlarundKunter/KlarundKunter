@@ -553,35 +553,14 @@ section[id]{
   outline:none;
 }
 
-.nav a.nav-instagram{
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-  background:#8a3f65;
-  color:#fff;
-  font-weight:700;
-}
-
-.nav a.nav-instagram:hover,
-.nav a.nav-instagram:focus{
-  background:#6f3151;
-  color:#fff;
-}
-
-.nav-instagram svg{
-  width:16px;
-  height:16px;
-  flex:0 0 auto;
-  stroke:currentColor;
-  stroke-width:2;
-  fill:none;
-}
-
 .contact-bubble{
   position:fixed;
   top:calc(var(--nav-h) + 16px);
   right:22px;
   z-index:130;
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
 }
 
 .contact-bubble-trigger,
@@ -593,14 +572,14 @@ section[id]{
   padding:0 16px;
   border:0;
   border-radius:999px;
-  background:#37795f;
-  color:#fff;
+  background:#25d366;
+  color:#103c27;
   font:inherit;
   font-size:12px;
   font-weight:700;
   letter-spacing:.06em;
   text-transform:uppercase;
-  box-shadow:0 14px 34px rgba(39,90,70,.28);
+  box-shadow:0 14px 34px rgba(37,211,102,.34);
   cursor:pointer;
 }
 
@@ -616,11 +595,36 @@ section[id]{
   padding:0;
 }
 
+.contact-bubble-instagram-float{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:48px;
+  padding:0 16px;
+  border-radius:999px;
+  background:#d50062;
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  box-shadow:0 14px 34px rgba(213,0,98,.30);
+}
+
 .contact-bubble-trigger:hover,
 .contact-bubble-trigger:focus,
 .contact-bubble-mobile:hover,
 .contact-bubble-mobile:focus{
-  background:#275a46;
+  background:#16b957;
+  color:#0b2c1d;
+  outline:2px solid #fff;
+  outline-offset:3px;
+}
+
+.contact-bubble-instagram-float:hover,
+.contact-bubble-instagram-float:focus{
+  background:#ad004f;
   color:#fff;
   outline:2px solid #fff;
   outline-offset:3px;
@@ -628,6 +632,7 @@ section[id]{
 
 .contact-bubble-trigger svg,
 .contact-bubble-mobile svg,
+.contact-bubble-instagram-float svg,
 .contact-bubble-action svg{
   width:19px;
   height:19px;
@@ -713,9 +718,10 @@ section[id]{
   gap:8px;
   min-height:42px;
   padding:9px 12px;
-  border:1px solid #37795f;
+  border:1px solid #25d366;
   border-radius:999px;
-  color:#275a46;
+  background:#25d366;
+  color:#103c27;
   font-size:12px;
   font-weight:700;
   letter-spacing:.04em;
@@ -724,19 +730,22 @@ section[id]{
 
 .contact-bubble-action:hover,
 .contact-bubble-action:focus{
-  background:#37795f;
-  color:#fff;
+  background:#16b957;
+  border-color:#16b957;
+  color:#0b2c1d;
   outline:none;
 }
 
 .contact-bubble-action.instagram{
-  border-color:#8a3f65;
-  color:#8a3f65;
+  border-color:#d50062;
+  background:#d50062;
+  color:#fff;
 }
 
 .contact-bubble-action.instagram:hover,
 .contact-bubble-action.instagram:focus{
-  background:#8a3f65;
+  border-color:#ad004f;
+  background:#ad004f;
   color:#fff;
 }
 
@@ -2932,6 +2941,17 @@ section[id]{
     display:flex;
   }
 
+  .contact-bubble-instagram-float{
+    width:56px;
+    height:56px;
+    min-height:56px;
+    padding:0;
+  }
+
+  .contact-bubble-instagram-label{
+    display:none;
+  }
+
   .section{
     padding:72px 0;
   }
@@ -3021,6 +3041,17 @@ section[id]{
 
   .contact-bubble-mobile{
     display:flex;
+  }
+
+  .contact-bubble-instagram-float{
+    width:56px;
+    height:56px;
+    min-height:56px;
+    padding:0;
+  }
+
+  .contact-bubble-instagram-label{
+    display:none;
   }
 }
 
@@ -3296,10 +3327,6 @@ section[id]{
       <a href="#bei-dir">Für Dich</a>
       <a href="#about-me">Über mich</a>
       <a href="#kontakt">Buchen</a>
-      <a class="nav-instagram" href="https://www.instagram.com/klar_und_kunter_workshops/" target="_blank" rel="noopener" aria-label="Klar und Kunter auf Instagram öffnen">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
-        <span>Instagram</span>
-      </a>
     </nav>
   </div>
 </header>
@@ -3327,6 +3354,10 @@ section[id]{
       </div>
     </div>
   </div>
+  <a class="contact-bubble-instagram-float" href="https://www.instagram.com/klar_und_kunter_workshops/" target="_blank" rel="noopener" aria-label="Klar und Kunter auf Instagram öffnen" title="Instagram öffnen">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+    <span class="contact-bubble-instagram-label">Instagram</span>
+  </a>
   <a class="contact-bubble-mobile" href="https://wa.me/491749845286" target="_blank" rel="noopener" aria-label="WhatsApp-Chat mit Klar und Kunter öffnen" title="WhatsApp-Chat öffnen">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path></svg>
   </a>
