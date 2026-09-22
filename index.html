@@ -577,6 +577,169 @@ section[id]{
   fill:none;
 }
 
+.contact-bubble{
+  position:fixed;
+  top:calc(var(--nav-h) + 16px);
+  right:22px;
+  z-index:130;
+}
+
+.contact-bubble-trigger,
+.contact-bubble-mobile{
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:48px;
+  padding:0 16px;
+  border:0;
+  border-radius:999px;
+  background:#37795f;
+  color:#fff;
+  font:inherit;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  box-shadow:0 14px 34px rgba(39,90,70,.28);
+  cursor:pointer;
+}
+
+.contact-bubble-trigger{
+  display:inline-flex;
+}
+
+.contact-bubble-mobile{
+  display:none;
+  width:56px;
+  height:56px;
+  min-height:56px;
+  padding:0;
+}
+
+.contact-bubble-trigger:hover,
+.contact-bubble-trigger:focus,
+.contact-bubble-mobile:hover,
+.contact-bubble-mobile:focus{
+  background:#275a46;
+  color:#fff;
+  outline:2px solid #fff;
+  outline-offset:3px;
+}
+
+.contact-bubble-trigger svg,
+.contact-bubble-mobile svg,
+.contact-bubble-action svg{
+  width:19px;
+  height:19px;
+  flex:0 0 auto;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.contact-bubble-panel{
+  position:absolute;
+  top:60px;
+  right:0;
+  width:min(300px, calc(100vw - 32px));
+  padding:20px;
+  background:#fffdfb;
+  border:1px solid rgba(32,25,22,.12);
+  border-radius:8px;
+  box-shadow:0 22px 54px rgba(32,25,22,.20);
+}
+
+.contact-bubble-panel[hidden]{
+  display:none;
+}
+
+.contact-bubble-panel h3{
+  margin:0 32px 6px 0;
+  font-size:1.3rem;
+}
+
+.contact-bubble-panel p{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:.9rem;
+  line-height:1.5;
+}
+
+.contact-bubble-close{
+  position:absolute;
+  top:12px;
+  right:12px;
+  width:32px;
+  height:32px;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  color:var(--muted);
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+}
+
+.contact-bubble-close:hover,
+.contact-bubble-close:focus{
+  background:#f4eeea;
+  color:var(--text);
+  outline:none;
+}
+
+.contact-bubble-qr{
+  display:block;
+  width:178px;
+  max-width:100%;
+  height:auto;
+  margin:0 auto 14px;
+  padding:7px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:4px;
+}
+
+.contact-bubble-actions{
+  display:grid;
+  gap:8px;
+}
+
+.contact-bubble-action{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:42px;
+  padding:9px 12px;
+  border:1px solid #37795f;
+  border-radius:999px;
+  color:#275a46;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+
+.contact-bubble-action:hover,
+.contact-bubble-action:focus{
+  background:#37795f;
+  color:#fff;
+  outline:none;
+}
+
+.contact-bubble-action.instagram{
+  border-color:#8a3f65;
+  color:#8a3f65;
+}
+
+.contact-bubble-action.instagram:hover,
+.contact-bubble-action.instagram:focus{
+  background:#8a3f65;
+  color:#fff;
+}
+
 .hero{
   min-height:calc(100svh - var(--nav-h));
   display:flex;
@@ -2756,6 +2919,19 @@ section[id]{
     padding:8px 10px;
   }
 
+  .contact-bubble{
+    top:170px;
+    right:12px;
+  }
+
+  .contact-bubble-desktop{
+    display:none;
+  }
+
+  .contact-bubble-mobile{
+    display:flex;
+  }
+
   .section{
     padding:72px 0;
   }
@@ -2830,6 +3006,21 @@ section[id]{
   .quick-nav-inner{
     grid-template-columns:repeat(2, 1fr);
     border-radius:22px;
+  }
+}
+
+@media (hover:none) and (pointer:coarse){
+  .contact-bubble{
+    top:170px;
+    right:12px;
+  }
+
+  .contact-bubble-desktop{
+    display:none;
+  }
+
+  .contact-bubble-mobile{
+    display:flex;
   }
 }
 
@@ -3112,6 +3303,34 @@ section[id]{
     </nav>
   </div>
 </header>
+
+<aside class="contact-bubble" aria-label="Schnellkontakt">
+  <div class="contact-bubble-desktop">
+    <button class="contact-bubble-trigger" type="button" aria-expanded="false" aria-controls="contact-bubble-panel">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path></svg>
+      <span>Kontakt</span>
+    </button>
+    <div class="contact-bubble-panel" id="contact-bubble-panel" hidden>
+      <button class="contact-bubble-close" type="button" aria-label="Kontaktfenster schließen">&times;</button>
+      <h3>Direkt Kontakt aufnehmen</h3>
+      <p>QR-Code scannen oder einen Kanal auswählen.</p>
+      <img class="contact-bubble-qr" src="KuK Bilder/optimized/whatsapp-klar-und-kunter.jpg" width="1818" height="1818" alt="QR-Code für den WhatsApp-Kontakt mit Klar und Kunter" loading="lazy" decoding="async" />
+      <div class="contact-bubble-actions">
+        <a class="contact-bubble-action" href="https://wa.me/491749845286" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path></svg>
+          <span>WhatsApp schreiben</span>
+        </a>
+        <a class="contact-bubble-action instagram" href="https://www.instagram.com/klar_und_kunter_workshops/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+          <span>Instagram</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <a class="contact-bubble-mobile" href="https://wa.me/491749845286" target="_blank" rel="noopener" aria-label="WhatsApp-Chat mit Klar und Kunter öffnen" title="WhatsApp-Chat öffnen">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path></svg>
+  </a>
+</aside>
 
 <section class="hero" id="top">
   <div class="hero-inner">
@@ -4223,6 +4442,44 @@ window.KUK_TALLY_BOOKING = {
     alignLeft: true
   }
 };
+
+(function () {
+  const widget = document.querySelector(".contact-bubble");
+  const trigger = document.querySelector(".contact-bubble-trigger");
+  const panel = document.getElementById("contact-bubble-panel");
+  const closeButton = document.querySelector(".contact-bubble-close");
+
+  if (!widget || !trigger || !panel || !closeButton) {
+    return;
+  }
+
+  function setOpen(open) {
+    panel.hidden = !open;
+    trigger.setAttribute("aria-expanded", String(open));
+  }
+
+  trigger.addEventListener("click", function () {
+    setOpen(panel.hidden);
+  });
+
+  closeButton.addEventListener("click", function () {
+    setOpen(false);
+    trigger.focus();
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!panel.hidden && !widget.contains(event.target)) {
+      setOpen(false);
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !panel.hidden) {
+      setOpen(false);
+      trigger.focus();
+    }
+  });
+})();
 
 (function () {
   const triggers = document.querySelectorAll(".tally-booking-trigger");
