@@ -1,7 +1,7 @@
 const events = {
   "herbstschalen-teil-1": {
-    name: "Herbstschalen aus Ton inklusive Brennen – Teil 1",
-    description: "Teil 1 des zweiteiligen Herbstschalen-Kurses am 2. und 23. Oktober. Beide Termine werden gemeinsam gebucht, dazwischen liegt der erste Brand.",
+    name: "Schalen aus Ton inklusive Brennen – Teil 1",
+    description: "Teil 1 des zweiteiligen Tonkurses am 2. und 23. Oktober. Beide Termine werden gemeinsam gebucht, dazwischen liegt der erste Brand.",
     image: "workshop-ton1-1200.jpg",
     startDate: "2026-10-02T16:30:00+02:00",
     endDate: "2026-10-02T19:00:00+02:00",
@@ -16,8 +16,8 @@ const events = {
     price: "39"
   },
   "herbstschalen-teil-2": {
-    name: "Bemalen der Herbstschalen inklusive Brennen – Teil 2",
-    description: "Teil 2 des zweiteiligen Herbstschalen-Kurses am 2. und 23. Oktober. Beide Termine werden gemeinsam gebucht, da die Schale zwischen den Terminen gebrannt wird.",
+    name: "Bemalen der Tonschalen inklusive Brennen – Teil 2",
+    description: "Teil 2 des zweiteiligen Tonkurses am 2. und 23. Oktober. Beide Termine werden gemeinsam gebucht, da die Schale zwischen den Terminen gebrannt wird.",
     image: "workshop-ton2-1200.jpg",
     startDate: "2026-10-23T16:30:00+02:00",
     endDate: "2026-10-23T19:00:00+02:00",
