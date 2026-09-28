@@ -1391,6 +1391,7 @@ section[id]{
   grid-template-areas:"image date title text action";
   gap:14px;
   align-items:center;
+  scroll-margin-top:100px;
   padding:14px;
   border:1px solid var(--line);
   border-radius:20px;
@@ -3028,6 +3029,10 @@ section[id]{
     scroll-margin-top:170px;
   }
 
+  .season-item{
+    scroll-margin-top:170px;
+  }
+
   .container,
   .topbar-inner,
   .hero-inner{
@@ -3289,7 +3294,7 @@ section[id]{
     <a class="header-announcement" href="#workshops">Jetzt schon Plätze für die gemütliche Jahreszeit sichern.</a>
     <nav class="nav">
       <a href="#workshops">Workshops</a>
-      <a href="#workshops">Vorschau</a>
+      <a href="#workshop-herbstschalen-teil-1" data-next-workshop-link>Vorschau</a>
       <a href="#retreats">Retreats</a>
       <a href="#unternehmen" hidden>Für Unternehmen</a>
       <a href="#bei-dir">Feiern</a>
@@ -4417,6 +4422,15 @@ section[id]{
         status.textContent = "Das Kopieren hat nicht geklappt. Nutze bitte die Mail-Adresse oder ruf direkt an.";
       });
   });
+})();
+
+(function () {
+  const previewLink = document.querySelector("[data-next-workshop-link]");
+  const nextWorkshop = document.querySelector("#workshops .season-list .season-item:not([hidden])");
+
+  if (previewLink && nextWorkshop && nextWorkshop.id) {
+    previewLink.href = "#" + nextWorkshop.id;
+  }
 })();
 
 window.KUK_TALLY_BOOKING = {
