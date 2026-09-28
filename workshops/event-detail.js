@@ -1,12 +1,4 @@
 const events = {
-  "herbstblumenkranz": {
-    name: "Herbstblumenkränze",
-    description: "Binde Deinen eigenen Herbstblumenkranz mit Blüten, Farben und Naturmaterialien.",
-    image: "workshop-midsommar-1200.jpg",
-    startDate: "2026-09-25T16:30:00+02:00",
-    endDate: "2026-09-25T19:00:00+02:00",
-    price: "49"
-  },
   "herbstschalen-teil-1": {
     name: "Herbstschalen aus Ton inklusive Brennen – Teil 1",
     description: "Forme Deine eigene Herbstschale aus Ton. Materialien und Brennen sind inklusive.",
