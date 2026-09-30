@@ -147,6 +147,29 @@ h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
   text-decoration: none;
 }
 
+.event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.button-secondary {
+  color: var(--rose-dark);
+  background: transparent;
+}
+
+.button-whatsapp {
+  border-color: #168a49;
+  color: #10291c;
+  background: #25d366;
+}
+
+.button-whatsapp:hover,
+.button-whatsapp:focus {
+  border-color: #11743d;
+  background: #20bd5a;
+}
+
 .event-image {
   margin: 0;
 }

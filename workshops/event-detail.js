@@ -173,6 +173,34 @@ if (event) {
     venueValue.replaceChildren(venueLink);
   }
 
+  const bookingButton = document.querySelector('.event-copy > .button[href^="mailto:"]');
+
+  if (bookingButton) {
+    const dateLabel = [...document.querySelectorAll(".facts dt")]
+      .find((label) => ["Termin", "Termine"].includes(label.textContent.trim()));
+    const dateValue = dateLabel?.parentElement?.querySelector("dd")?.textContent.trim() || "";
+    const message = [
+      event.retreat ? "Hallo, ich möchte gern dieses Retreat anfragen:" : "Hallo, ich möchte gern diesen Workshop anfragen:",
+      "",
+      event.name,
+      dateValue ? "Termin: " + dateValue : ""
+    ].filter(Boolean).join("\n");
+    const actions = document.createElement("div");
+    const whatsappButton = document.createElement("a");
+
+    actions.className = "event-actions";
+    whatsappButton.className = "button button-whatsapp";
+    whatsappButton.href = "https://wa.me/491749845286?text=" + encodeURIComponent(message);
+    whatsappButton.target = "_blank";
+    whatsappButton.rel = "noopener";
+    whatsappButton.textContent = "Per WhatsApp anfragen";
+    bookingButton.classList.add("button-secondary");
+    bookingButton.textContent = "Per E-Mail anfragen";
+
+    bookingButton.parentElement.insertBefore(actions, bookingButton);
+    actions.append(whatsappButton, bookingButton);
+  }
+
   const footerLinks = document.querySelector(".site-footer-inner");
   if (footerLinks) {
     const instagramLink = document.createElement("a");
