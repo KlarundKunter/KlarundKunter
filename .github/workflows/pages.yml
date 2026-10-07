@@ -29,7 +29,8 @@ jobs:
         shell: bash
         run: |
           mkdir -p _site
-          cp index.html CNAME robots.txt sitemap.xml _site/
+          cp index.html styles.css script.js legal.css CNAME robots.txt sitemap.xml _site/
+          cp -R assets impressum datenschutz _site/
           cp -R "KuK Bilder" "_site/KuK Bilder"
           cp -R workshops retreat-ulrichshusen _site/
           touch _site/.nojekyll
