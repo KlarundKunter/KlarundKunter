@@ -4,7 +4,7 @@ const events = {
   "herbstschalen-teil-2": { name: "Bemalen der Tonschalen inklusive Brennen – Teil 2", description: "Teil 2 des zweiteiligen Tonkurses am 2. und 23. Oktober.", image: "workshop-ton2-1200.jpg", startDate: "2026-10-23T16:30:00+02:00", endDate: "2026-10-23T19:00:00+02:00", price: "34" },
   "mosaik-flaschenlampe": { name: "Mosaik-Flaschen-Lampe", description: "Gestalte aus einer Flasche, buntem Mosaik und einem kleinen Lampenschirm Deine eigene Lampe.", image: "workshop-mosaik-flaschenlampe-atelier.jpg", startDate: "2026-10-30T16:30:00+01:00", endDate: "2026-10-30T19:00:00+01:00", price: "45", soldOut: true },
   "wunschthema": { name: "Wunschthema der Teilnehmerinnen und Teilnehmer", description: "Die Gruppe bestimmt das DIY-Thema des gemeinsamen kreativen Abends.", image: "workshop-wunschthema-atelier.jpg", startDate: "2026-11-06T16:30:00+01:00", endDate: "2026-11-06T19:00:00+01:00" },
-  "adventskranz": { name: "Adventskranz gestalten", description: "Binde und gestalte Deinen persönlichen Adventskranz aus Tannengrün und Naturmaterialien.", image: "workshop-adventskranz-atelier.jpg", startDate: "2026-11-13T19:00:00+01:00", endDate: "2026-11-13T21:00:00+01:00", bookingDateLabel: "13. November 2026, 19:00–21:00 Uhr", price: "69", sessions: [{ startDate: "2026-11-13T16:30:00+01:00", endDate: "2026-11-13T19:00:00+01:00", availability: "https://schema.org/SoldOut" }, { startDate: "2026-11-13T19:00:00+01:00", endDate: "2026-11-13T21:00:00+01:00", availability: "https://schema.org/InStock" }] },
+  "adventskranz": { name: "Adventskranz gestalten", description: "Binde und gestalte Deinen persönlichen Adventskranz aus Tannengrün und Naturmaterialien.", image: "assets/workshop-adventskranz-fertig.jpg", startDate: "2026-11-13T19:00:00+01:00", endDate: "2026-11-13T21:00:00+01:00", bookingDateLabel: "13. November 2026, 19:00–21:00 Uhr", price: "69", sessions: [{ startDate: "2026-11-13T16:30:00+01:00", endDate: "2026-11-13T19:00:00+01:00", availability: "https://schema.org/SoldOut" }, { startDate: "2026-11-13T19:00:00+01:00", endDate: "2026-11-13T21:00:00+01:00", availability: "https://schema.org/InStock" }] },
   "weihnachtskarten": { name: "Weihnachtskarten mit Stanzen", description: "Gestalte individuelle Weihnachtskarten mit Stanzen, Papier und vorbereiteten Materialien.", image: "workshop-weihnachtskarten-atelier.jpg", startDate: "2026-11-20T16:30:00+01:00", endDate: "2026-11-20T19:00:00+01:00", price: "29" },
   "tassen-duftkerzen": { name: "Tassen-Duftkerzen als Geschenkidee", description: "Gieße zwei Duftkerzen in Vintage-Tassen als Weihnachtsgeschenk oder für Dich selbst.", image: "workshop-duftkerzen-atelier.jpg", startDate: "2026-12-04T16:30:00+01:00", endDate: "2026-12-04T19:00:00+01:00", price: "39" },
   "makramee-weihnachtsfeier": { name: "Weihnachtsfeier mit Makramee und Glühwein", description: "Kreativer Jahresabschluss mit Makramee, Plätzchen, Glühwein und einer kleinen Überraschung.", image: "workshop-makramee-atelier.jpg", startDate: "2026-12-11T16:30:00+01:00", endDate: "2026-12-11T20:00:00+01:00", price: "59" },
@@ -20,7 +20,9 @@ if (event) {
   const homeUrl = event.retreat ? "../" : "../../";
   const assetsUrl = `${homeUrl}assets/`;
   const canonicalUrl = document.querySelector('link[rel="canonical"]')?.href || window.location.href;
-  const imageUrl = `https://klarundkunter.de/KuK%20Bilder/optimized/${event.image}`;
+  const imageUrl = event.image.includes("/")
+    ? `https://klarundkunter.de/${event.image}`
+    : `https://klarundkunter.de/KuK%20Bilder/optimized/${event.image}`;
   const instagramUrl = "https://www.instagram.com/klar_und_kunter_workshops/";
   const baseWhatsapp = "https://wa.me/491749845286";
 
