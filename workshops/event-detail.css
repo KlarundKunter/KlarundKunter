@@ -58,7 +58,7 @@ body.event-page {
 
 .event-image { position: relative; z-index: 1; margin: 0; aspect-ratio: 4 / 5; overflow: visible; }
 .event-image::before { content: ""; position: absolute; z-index: -1; width: 78%; aspect-ratio: 1; left: -22%; top: -7%; border: 30px solid var(--neon); border-radius: 50%; }
-.event-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 48% 48% 4px 4px; box-shadow: 0 30px 80px rgba(10, 10, 10, .13); }
+.event-image img, .event-image video { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 48% 48% 4px 4px; box-shadow: 0 30px 80px rgba(10, 10, 10, .13); }
 .event-image figcaption { position: absolute; inset: auto 18px 18px; padding: 13px 16px; background: rgba(244, 240, 230, .94); backdrop-filter: blur(10px); font-size: 14px; }
 .event-page .ticker { margin-bottom: clamp(80px, 10vw, 150px); }
 
