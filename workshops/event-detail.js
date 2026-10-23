@@ -13,6 +13,19 @@ const events = {
 const slug = document.body.dataset.event;
 const event = events[slug];
 
+document.querySelectorAll('video[data-playback-rate]').forEach((video) => {
+  const rate = Number(video.dataset.playbackRate);
+  if (!Number.isFinite(rate) || rate <= 0) return;
+
+  const applyPlaybackRate = () => {
+    video.defaultPlaybackRate = rate;
+    video.playbackRate = rate;
+  };
+
+  applyPlaybackRate();
+  video.addEventListener('loadedmetadata', applyPlaybackRate, { once: true });
+});
+
 if (event) {
   document.body.classList.add("event-page");
 
