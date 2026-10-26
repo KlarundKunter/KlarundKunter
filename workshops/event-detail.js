@@ -35,6 +35,10 @@ if (event) {
     : `https://klarundkunter.de/KuK%20Bilder/optimized/${event.image}`;
   const instagramUrl = "https://www.instagram.com/klar_und_kunter_workshops/";
   const baseWhatsapp = "https://wa.me/491749845286";
+  const dateLabel = [...document.querySelectorAll(".facts dt")].find((label) => ["Termin", "Termine"].includes(label.textContent.trim()));
+  const dateValue = event.bookingDateLabel || dateLabel?.parentElement?.querySelector("dd")?.textContent.trim() || "";
+  const message = [event.retreat ? "Hallo Jeannette, ich möchte gern dieses Retreat anfragen:" : "Hallo Jeannette, ich möchte gern diesen Workshop anfragen:", "", event.name, dateValue ? `Termin: ${dateValue}` : ""].filter(Boolean).join("\n");
+  const whatsappUrl = `${baseWhatsapp}?text=${encodeURIComponent(message)}`;
 
   const header = document.querySelector(".site-header");
   if (header) {
@@ -49,7 +53,7 @@ if (event) {
         <a class="nav-cta" href="#anfragen">Platz anfragen</a>
       </nav>
       <div class="header-tools" aria-label="Direktkontakt">
-        <a class="header-social header-whatsapp" href="${baseWhatsapp}" target="_blank" rel="noopener noreferrer" aria-label="Klar & Kunter über WhatsApp kontaktieren"><img src="${assetsUrl}icons/whatsapp.svg" alt=""></a>
+        <a class="header-social header-whatsapp" href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" aria-label="${event.retreat ? "Retreat" : event.name} per WhatsApp anfragen"><img src="${assetsUrl}icons/whatsapp.svg" alt=""></a>
         <a class="header-social header-instagram" href="${instagramUrl}" target="_blank" rel="noopener noreferrer" aria-label="Klar & Kunter auf Instagram öffnen"><img src="${assetsUrl}icons/instagram.svg" alt=""></a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span><span class="sr-only">Menü öffnen</span></button>
       </div>`;
@@ -98,10 +102,6 @@ if (event) {
     venueValue.replaceChildren(link);
   }
 
-  const dateLabel = [...document.querySelectorAll(".facts dt")].find((label) => ["Termin", "Termine"].includes(label.textContent.trim()));
-  const dateValue = event.bookingDateLabel || dateLabel?.parentElement?.querySelector("dd")?.textContent.trim() || "";
-  const message = [event.retreat ? "Hallo Jeannette, ich möchte gern dieses Retreat anfragen:" : "Hallo Jeannette, ich möchte gern diesen Workshop anfragen:", "", event.name, dateValue ? `Termin: ${dateValue}` : ""].filter(Boolean).join("\n");
-  const whatsappUrl = `${baseWhatsapp}?text=${encodeURIComponent(message)}`;
   const bookingButton = document.querySelector('.event-copy > .button[href^="mailto:"]');
   const emailUrl = bookingButton?.href || "mailto:klarundkunter@gmail.com";
 
@@ -144,7 +144,7 @@ if (event) {
   const mobileBar = document.createElement("nav");
   mobileBar.className = "mobile-contact-bar";
   mobileBar.setAttribute("aria-label", "Schnellkontakt");
-  mobileBar.innerHTML = `<a class="mobile-contact-whatsapp" href="${whatsappUrl}" target="_blank" rel="noopener noreferrer"><img src="${assetsUrl}icons/whatsapp.svg" alt=""><span>WhatsApp</span></a><a class="mobile-contact-instagram" href="${instagramUrl}" target="_blank" rel="noopener noreferrer"><img src="${assetsUrl}icons/instagram.svg" alt=""><span>Instagram</span></a>`;
+  mobileBar.innerHTML = `<a class="mobile-contact-whatsapp" href="${whatsappUrl}" target="_blank" rel="noopener noreferrer"><img src="${assetsUrl}icons/whatsapp.svg" alt=""><span>${event.retreat ? "Retreat anfragen" : "Platz anfragen"}</span></a><a class="mobile-contact-instagram" href="${instagramUrl}" target="_blank" rel="noopener noreferrer"><img src="${assetsUrl}icons/instagram.svg" alt=""><span>Instagram</span></a>`;
   document.body.appendChild(mobileBar);
 
   const footer = document.querySelector(".site-footer");
