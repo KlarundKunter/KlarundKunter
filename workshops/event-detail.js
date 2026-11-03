@@ -1,7 +1,7 @@
 const events = {
   "mosaik-flaschenlampe": { name: "Mosaik-Flaschen-Lampe", description: "Gestalte aus einer Flasche, buntem Mosaik und einem kleinen Lampenschirm Deine eigene Lampe – auch als persönliche Weihnachtsgeschenkidee.", image: "workshop-mosaik-flaschenlampe-atelier.jpg", startDate: "2026-12-11T16:30:00+01:00", endDate: "2026-12-11T19:00:00+01:00", bookingDateLabel: "11. Dezember 2026, 16:30–19:00 Uhr", price: "49" },
   "perlenschmuck": { name: "Schmuck-Boutique", description: "Kreiere festlichen Schmuck für die Vorweihnachtszeit oder als persönliche Geschenkidee.", image: "workshop-paperpearls-1200.jpg", startDate: "2026-11-06T16:30:00+01:00", endDate: "2026-11-06T19:00:00+01:00", price: "49" },
-  "adventskranz": { name: "Adventskranz gestalten", description: "Binde und gestalte Deinen persönlichen Adventskranz aus Tannengrün und Naturmaterialien.", image: "assets/workshop-adventskranz-4-kerzen.jpg", startDate: "2026-11-13T19:00:00+01:00", endDate: "2026-11-13T21:00:00+01:00", bookingDateLabel: "13. November 2026, 19:00–21:00 Uhr", price: "69", sessions: [{ startDate: "2026-11-13T16:30:00+01:00", endDate: "2026-11-13T19:00:00+01:00", availability: "https://schema.org/SoldOut" }, { startDate: "2026-11-13T19:00:00+01:00", endDate: "2026-11-13T21:00:00+01:00", availability: "https://schema.org/InStock" }] },
+  "adventskranz": { name: "Adventskranz gestalten", description: "Binde und gestalte Deinen persönlichen Adventskranz aus Tannengrün und Naturmaterialien.", image: "assets/workshop-adventskranz-4-kerzen.jpg", startDate: "2026-11-13T19:00:00+01:00", endDate: "2026-11-13T21:00:00+01:00", bookingDateLabel: "13. November 2026, 19:00–21:00 Uhr", price: "69", soldOut: true, sessions: [{ startDate: "2026-11-13T16:30:00+01:00", endDate: "2026-11-13T19:00:00+01:00", availability: "https://schema.org/SoldOut" }, { startDate: "2026-11-13T19:00:00+01:00", endDate: "2026-11-13T21:00:00+01:00", availability: "https://schema.org/SoldOut" }] },
   "weihnachtliche-tuerkraenze-gestecke": { name: "Weihnachtliche Türkränze oder Gestecke", description: "Gestalte einen persönlichen weihnachtlichen Türkranz oder ein festliches Gesteck aus winterlichem Grün und Naturmaterialien.", image: "assets/workshop-weihnachtskranz-gesteck.jpg", startDate: "2026-12-03T16:30:00+01:00", endDate: "2026-12-03T19:00:00+01:00", price: "69" },
   "tassen-duftkerzen": { name: "Tassen-Duftkerzen als Geschenkidee", description: "Gieße zwei Duftkerzen in Vintage-Tassen als Weihnachtsgeschenk oder für Dich selbst.", image: "workshop-duftkerzen-atelier.jpg", startDate: "2026-12-04T16:30:00+01:00", endDate: "2026-12-04T19:00:00+01:00", price: "39" },
   "makramee-weihnachtsfeier": { name: "Weihnachtsfeier mit Makramee und Glühwein", description: "Kreativer Jahresabschluss mit Makramee, Plätzchen, Glühwein und einer kleinen Überraschung.", image: "workshop-makramee-atelier.jpg", startDate: "2026-11-20T16:30:00+01:00", endDate: "2026-11-20T20:00:00+01:00", price: "59" },
@@ -53,7 +53,7 @@ if (event) {
         <a class="nav-cta" href="#anfragen">Platz anfragen</a>
       </nav>
       <div class="header-tools" aria-label="Direktkontakt">
-        <a class="header-social header-whatsapp" href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" aria-label="${event.retreat ? "Retreat" : event.name} per WhatsApp anfragen"><img src="${assetsUrl}icons/whatsapp.svg" alt=""></a>
+        ${event.soldOut ? "" : `<a class="header-social header-whatsapp" href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" aria-label="${event.retreat ? "Retreat" : event.name} per WhatsApp anfragen"><img src="${assetsUrl}icons/whatsapp.svg" alt=""></a>`}
         <a class="header-social header-instagram" href="${instagramUrl}" target="_blank" rel="noopener noreferrer" aria-label="Klar & Kunter auf Instagram öffnen"><img src="${assetsUrl}icons/instagram.svg" alt=""></a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span><span class="sr-only">Menü öffnen</span></button>
       </div>`;
@@ -144,7 +144,9 @@ if (event) {
   const mobileBar = document.createElement("nav");
   mobileBar.className = "mobile-contact-bar";
   mobileBar.setAttribute("aria-label", "Schnellkontakt");
-  mobileBar.innerHTML = `<a class="mobile-contact-whatsapp" href="${whatsappUrl}" target="_blank" rel="noopener noreferrer"><img src="${assetsUrl}icons/whatsapp.svg" alt=""><span>${event.retreat ? "Retreat anfragen" : "Platz anfragen"}</span></a><a class="mobile-contact-instagram" href="${instagramUrl}" target="_blank" rel="noopener noreferrer"><img src="${assetsUrl}icons/instagram.svg" alt=""><span>Instagram</span></a>`;
+  mobileBar.innerHTML = event.soldOut
+    ? `<a class="mobile-contact-whatsapp" href="${homeUrl}#workshops"><span>Weitere Workshops</span></a><a class="mobile-contact-instagram" href="${instagramUrl}" target="_blank" rel="noopener noreferrer"><img src="${assetsUrl}icons/instagram.svg" alt=""><span>Instagram</span></a>`
+    : `<a class="mobile-contact-whatsapp" href="${whatsappUrl}" target="_blank" rel="noopener noreferrer"><img src="${assetsUrl}icons/whatsapp.svg" alt=""><span>${event.retreat ? "Retreat anfragen" : "Platz anfragen"}</span></a><a class="mobile-contact-instagram" href="${instagramUrl}" target="_blank" rel="noopener noreferrer"><img src="${assetsUrl}icons/instagram.svg" alt=""><span>Instagram</span></a>`;
   document.body.appendChild(mobileBar);
 
   const footer = document.querySelector(".site-footer");
