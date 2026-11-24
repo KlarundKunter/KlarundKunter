@@ -1,6 +1,6 @@
 const events = {
-  "mosaik-flaschenlampe": { name: "Mosaik-Flaschen-Lampe", description: "Gestalte aus einer Flasche, buntem Mosaik und einem kleinen Lampenschirm Deine eigene Lampe – auch als persönliche Weihnachtsgeschenkidee.", image: "workshop-mosaik-flaschenlampe-atelier.jpg", startDate: "2026-12-11T16:30:00+01:00", endDate: "2026-12-11T19:00:00+01:00", bookingDateLabel: "11. Dezember 2026, 16:30–19:00 Uhr oder 19:00–21:30 Uhr", price: "49", sessions: [{ startDate: "2026-12-11T16:30:00+01:00", endDate: "2026-12-11T19:00:00+01:00", availability: "https://schema.org/InStock" }, { startDate: "2026-12-11T19:00:00+01:00", endDate: "2026-12-11T21:30:00+01:00", availability: "https://schema.org/InStock" }] },
-  "christmas-kugel-club": { name: "Christmas Kugel Club", description: "Gestalte sechs persönliche Weihnachtskugeln – handbemalt, beschriftet oder mit Perlen und Glitzer verziert.", image: "assets/workshop-christmas-kugel-club-portrait.jpg", startDate: "2026-12-03T16:30:00+01:00", endDate: "2026-12-03T19:30:00+01:00", bookingDateLabel: "3. Dezember 2026, 16:30–19:30 Uhr", price: "49" },
+  "mosaik-flaschenlampe": { name: "Mosaik-Flaschen-Lampe", description: "Gestalte aus einer Flasche, buntem Mosaik und einem kleinen Lampenschirm Deine eigene Lampe – auch als persönliche Weihnachtsgeschenkidee.", image: "workshop-mosaik-flaschenlampe-atelier.jpg", startDate: "2026-12-11T16:30:00+01:00", endDate: "2026-12-11T19:00:00+01:00", bookingDateLabel: "11. Dezember 2026, 16:30–19:00 Uhr oder 19:00–21:30 Uhr", price: "49", sessions: [{ startDate: "2026-12-11T16:30:00+01:00", endDate: "2026-12-11T19:00:00+01:00", availability: "https://schema.org/InStock", remainingCapacity: 2 }, { startDate: "2026-12-11T19:00:00+01:00", endDate: "2026-12-11T21:30:00+01:00", availability: "https://schema.org/InStock", remainingCapacity: 5 }] },
+  "christmas-kugel-club": { name: "Christmas Kugel Club", description: "Gestalte sechs persönliche Weihnachtskugeln – handbemalt, beschriftet oder mit Perlen und Glitzer verziert.", image: "assets/workshop-christmas-kugel-club-portrait.jpg", startDate: "2026-12-03T16:30:00+01:00", endDate: "2026-12-03T19:30:00+01:00", bookingDateLabel: "3. Dezember 2026, 16:30–19:30 Uhr", price: "49", remainingCapacity: 3 },
   "tassen-duftkerzen": { name: "Stimmungsvolle Kerzen", description: "Gieße Duftkerzen in Vintage-Tassen und gestalte gestreifte sowie handbemalte Stabkerzen.", image: "assets/workshop-kerzen-vielfalt-portrait.jpg", startDate: "2026-12-04T16:30:00+01:00", endDate: "2026-12-04T19:00:00+01:00", bookingDateLabel: "4. Dezember 2026, 16:30–19:00 Uhr", price: "39", soldOut: true },
   "retreat-ulrichshusen": { name: "Bloom & Balance Retreat", description: "Drei Tage mit Bewegung, Körperwahrnehmung, Kreativität und Erholung auf Schloss Ulrichshusen.", image: "retreat-flowers-lake-1400.jpg", startDate: "2027-04-02T12:00:00+02:00", endDate: "2027-04-04T16:00:00+02:00", retreat: true, offers: [{ name: "Einzelzimmer", price: "1499" }, { name: "Doppelzimmer pro Person", price: "1299" }] }
 };
@@ -155,15 +155,16 @@ if (event) {
     ? { "@type": "Place", name: "Schloss & Gut Ulrichshusen", address: { "@type": "PostalAddress", streetAddress: "Seestraße 14", postalCode: "17194", addressLocality: "Ulrichshusen", addressCountry: "DE" } }
     : { "@type": "Place", name: "Ulme 35", url: "https://interkulturanstalten.de/", address: { "@type": "PostalAddress", streetAddress: "Ulmenallee 35", postalCode: "14050", addressLocality: "Berlin", addressCountry: "DE" } };
   const makeOffers = (availability = "https://schema.org/InStock") => event.offers ? event.offers.map((offer) => ({ "@type": "Offer", name: offer.name, url: canonicalUrl, price: offer.price, priceCurrency: "EUR", availability })) : event.price ? { "@type": "Offer", url: canonicalUrl, price: event.price, priceCurrency: "EUR", availability } : undefined;
-  const makeStructuredEvent = (startDate, endDate, availability) => {
+  const makeStructuredEvent = (startDate, endDate, availability, remainingCapacity) => {
     const item = { "@context": "https://schema.org", "@type": "Event", name: event.name, description: event.description, image: imageUrl, url: canonicalUrl, startDate, endDate, eventStatus: "https://schema.org/EventScheduled", eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode", location, organizer: { "@type": "Organization", name: "Klar & Kunter", url: "https://klarundkunter.de/", sameAs: instagramUrl } };
+    if (Number.isInteger(remainingCapacity)) item.remainingAttendeeCapacity = remainingCapacity;
     const offers = makeOffers(availability);
     if (offers) item.offers = offers;
     return item;
   };
   const structuredData = event.sessions
-    ? event.sessions.map((session) => makeStructuredEvent(session.startDate, session.endDate, session.availability))
-    : makeStructuredEvent(event.startDate, event.endDate, event.soldOut ? "https://schema.org/SoldOut" : "https://schema.org/InStock");
+    ? event.sessions.map((session) => makeStructuredEvent(session.startDate, session.endDate, session.availability, session.remainingCapacity))
+    : makeStructuredEvent(event.startDate, event.endDate, event.soldOut ? "https://schema.org/SoldOut" : "https://schema.org/InStock", event.remainingCapacity);
   const structuredDataScript = document.createElement("script");
   structuredDataScript.type = "application/ld+json";
   structuredDataScript.textContent = JSON.stringify(structuredData);
